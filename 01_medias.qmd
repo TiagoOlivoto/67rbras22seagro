@@ -1,0 +1,81 @@
+---
+title: "01: Desempenho agronômico do linho em diferentes épocas de semeadura"
+---
+
+```{r global_options, include = FALSE}
+knitr::opts_chunk$set(cache = FALSE,
+                      comment = "##",
+                      collapse = TRUE,
+                      warning = FALSE,
+                      message = FALSE)
+
+```
+
+
+# Pacotes
+
+To reproduce the examples of this material, the R packages the following packages are needed.
+
+```{r warning=FALSE, message=FALSE}
+library(rio)
+library(tidyverse)
+library(AgroR)
+library(metan)
+
+```
+
+
+# Dados
+```{r}
+df_p <-
+  import("data/data_parcelas.csv")
+```
+
+
+# Análise de variância
+## Rendimento de grãos
+```{r}
+modrg <- with(df_p,
+            PSUBDBC(epoca, cultivar, bloco, rgha,
+                    xlab = "Épocas de semeadura"))
+  
+modrg$graph1 +
+  labs(x = "Épocas de semeadura",
+       y = expression(Rendimento~de~grãos~(kg~ha^{-1})))
+```
+
+## Massa de mil grãos
+```{r}
+modmmg <- with(df_p,
+            PSUBDBC(epoca, cultivar, bloco, mmg))
+# prg <- 
+  modmmg$graph1 +
+  labs(x = "Épocas de semeadura",
+       y = "Massa de mil grãos (g)")
+```
+
+
+## Número de cápsulas
+```{r}
+modnc <- with(df_p,
+            PSUBDBC(epoca, cultivar, bloco, nc))
+pnce <-
+  modnc$graph1 +
+  labs(x = "Épocas de semeadura",
+       y = "Número de cápsulas")
+
+pncc <-
+  modnc$graph2 +
+  labs(x = "Cultivares",
+       y = "Número de cápsulas")
+
+arrange_ggplot(pnce, pncc, widths = c(0.75, 0.25))
+```
+
+
+
+# Section info
+```{r}
+sessionInfo()
+```
+

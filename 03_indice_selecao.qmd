@@ -1,0 +1,168 @@
+---
+title: "03: Seleção multivariada de genótipos de linho usando o índice MGIDI"
+---
+
+```{r global_options, include = FALSE}
+knitr::opts_chunk$set(cache = FALSE,
+                      comment = "##",
+                      collapse = TRUE,
+                      warning = FALSE,
+                      message = FALSE)
+
+```
+
+
+# Pacotes
+
+```{r warning=FALSE, message=FALSE}
+library(rio)
+library(tidyverse)
+library(metan)
+
+```
+
+
+# Dados
+```{r}
+df <-
+  import("data/data_mgidi.csv") |> 
+  remove_rows_na() |> 
+  filter(epoca == "E1") |> 
+  mutate(cp = ap - ac, .before = ap) |> 
+  select(-c(epoca, ap, ac, icc))
+
+```
+
+# Índice MGIDI
+```{r}
+mod_mgidi <-
+  df |> 
+  mgidi(ideotype = c("l, h, h, h, h, h, h,  h, h"),
+        weights = c(2, 5, 5, 1, 1, 5, 5, 2, 2),
+        SI = 25)
+plot(mod_mgidi)
+plot(mod_mgidi, type  = "contribution")
+
+df_plot <-
+  gmd(mod_mgidi) %>%
+  select_cols(VAR, Xo, Xs, SDperc, sense) %>%
+  mutate(strategy = "Multivariado") |> 
+  replace_string(sense, pattern = "increase", replacement = "Positivo desejado") |> 
+  replace_string(sense, pattern = "decrease", replacement = "Negativo desejado")
+
+```
+
+
+# Seleção univariada para RG
+```{r}
+sel_uni <- muni <- df |> slice_max(rgpla, n = 16)
+
+muni <- 
+  sel_uni |> 
+  mean_by() |> 
+  pivot_longer(cols = everything(),
+               values_to = "Xs",
+               names_to = "VAR")
+
+mger <- 
+  df |> 
+  mean_by() |> 
+  pivot_longer(cols = everything(),
+               values_to = "Xo",
+               names_to = "VAR")
+
+sd_uni <-
+  left_join(mger, muni) |> 
+  mutate(SDperc = (Xs - Xo) / Xo * 100) |> 
+  left_join(df_plot |> select(VAR, sense)) |> 
+  mutate(strategy = "Univariado")
+
+df_plot2 <- 
+  bind_rows(df_plot, sd_uni)
+
+```
+
+```{r}
+
+ggplot(df_plot2, aes(SDperc, VAR)) +
+  geom_col(position = position_dodge(),
+           aes(fill = sense),
+           width = 1,
+           linewidth = 0.1,
+           color = "black") +
+  geom_text(aes(label = round(SDperc, 2),
+                hjust = ifelse(SDperc > 0, -0.1, 1.1)),
+            size = 4) + 
+  facet_wrap(~strategy) +
+  theme_bw(base_size = 18) +
+  theme(axis.text = element_text(size = 12, color = "black"),
+        axis.ticks.length = unit(0.2, "cm"),
+        panel.grid.minor = element_blank(),
+        legend.title = element_blank(),
+        legend.position = "bottom",
+        panel.spacing.x = unit(0, "cm")) +
+  geom_vline(xintercept = 0, linetype = 1, linewidth = 1) +
+  scale_x_continuous(expand = expansion(c(0.2, 0.3))) +
+  labs(y = "Caracteres avaliados",
+       x = "Diferencial de seleção (%)") +
+  geom_vline(xintercept = 0)
+
+ggsave("figs/gain_mgidi.jpg",
+       width = 8,
+       height = 5)
+
+
+plot(mod_mgidi, SI = 25)
+ggsave("figs/mgidi_radar.jpg",
+       width = 6,
+       height = 6)
+
+
+```
+
+
+
+# Histogram
+```{r}
+library(ggridges)
+df_sel <- 
+  df |> 
+  mutate(selecionado = ifelse(gen %in% mod_mgidi$sel_gen, "Selecionado", "Não selecionado"))
+
+library(ggExtra)
+library(ggrepel)
+
+p1 <-
+ggplot(df_sel, aes(rgpla, mmg, color = selecionado, group = selecionado)) + 
+  geom_point(size = 2, alpha = 0.7) +
+  theme_bw(base_size = 18) +
+  geom_text_repel(data = df_sel |>  filter(selecionado == "Selecionado"),
+                  aes(label = gen),
+                  show.legend = FALSE,
+                  size = 3) +
+  theme(legend.position = "bottom",
+        panel.grid.minor = element_blank())+
+  labs(color = "",
+       y = "Massa de mil grãos (g)",
+       x = "Rendimento de grãos por planta (g)")
+
+ggMarginal(p1, type="boxplot", groupFill = TRUE)
+
+```
+
+# Venn plot
+```{r}
+sel_mgidi <- sel_gen(mod_mgidi) 
+sel_uni <- sel_uni  |> pull(gen)
+venn_plot(sel_mgidi,
+          sel_uni,
+          names = c("MGIDI", "Univariado"))
+
+```
+
+
+# Section info
+```{r}
+sessionInfo()
+```
+

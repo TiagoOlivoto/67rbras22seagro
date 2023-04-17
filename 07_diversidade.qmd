@@ -1,0 +1,144 @@
+---
+title: "07: Diversidade genética entre acessos de linho (Linum usitatissimum, L.) baseada em caracteres morfoagronômicos"
+---
+
+```{r global_options, include = FALSE}
+knitr::opts_chunk$set(cache = FALSE,
+                      comment = "##",
+                      collapse = TRUE,
+                      warning = FALSE,
+                      message = FALSE)
+
+```
+
+
+# Libraries
+
+To reproduce the examples of this material, the R packages the following packages are needed.
+
+```{r warning=FALSE, message=FALSE}
+library(rio)
+library(tidyverse)
+library(metan)
+library(factoextra)
+library(ggstatsplot)
+```
+
+
+# Data
+```{r}
+df <- 
+  rio::import("data/data_mgidi.csv") |> 
+  remove_rows_na()
+
+
+```
+
+# Adjust by season effect
+```{r}
+df_man <- 
+  df |> 
+  remove_cols(gen)
+
+mod <- manova(cbind(ac, ap, nc, ng, areac,  nr, mc, rgpla, icc, ngcap, mmg) ~ epoca,
+              data = df_man)
+df_resi <- 
+  residuals(mod) |> 
+  as.data.frame() |> 
+  mutate(gen = df$gen) |> 
+  column_to_rownames("gen")
+```
+
+
+
+# Distances
+```{r}
+dists <- clustering(df_resi,
+                    scale = TRUE,
+                    clustmethod = "average",
+                    nclust = 16)
+
+fviz_dend(dists$hc,
+          k = 16,
+          cex = 0.5,
+          repel = TRUE,
+          type = "phylo") +
+  theme_void()
+
+ggsave("figs/phylo.jpg",
+       dpi = 600,
+       width = 8,
+       height = 8)
+```
+
+
+# Médias
+```{r}
+df2 <- 
+  df |>
+  mutate(groups = dists$data |> pull(groups)) |> 
+  as_factor(groups)
+
+df3 <- 
+  df2 |> 
+  select(groups, mmg, rgpla, ng) |> 
+  pivot_longer(-groups) |> 
+  filter(groups %in% c(2, 3, 4, 11, 15)) |> 
+  group_by(groups, name) |> 
+  summarise(mean = mean(value),
+            sd = sd(value),
+            n = n(),
+            se = sd / sqrt(n))
+
+df_mean <- 
+  df |> 
+  mean_by(.vars = c(mmg, rgpla, ng)) |> 
+  pivot_longer(everything())
+
+df_meansel <- 
+  df3 |> 
+  mean_by(name)
+
+```
+
+
+
+# Stats
+```{r}
+# correct season effect
+ggplot(df3, aes(x = groups, y = mean, fill = groups)) +
+  geom_col() +
+  geom_hline(data = df_mean,
+             aes(yintercept = value),
+             linetype = 3,
+             linewidth = 1) +
+  geom_hline(data = df_meansel,
+             aes(yintercept = mean),
+             linetype = 8,
+             color = "blue",
+             linewidth = 1) +
+  geom_errorbar(aes(ymin = mean - se,
+                    ymax = mean + se),
+                width = 0.2) +
+  facet_wrap(~name, scales = "free") +
+  theme_bw(base_size = 14) +
+  scale_y_continuous(expand = expansion(c(0, 0.1))) +
+  geom_text(aes(y = 0, label = glue::glue("n = {n}")),
+            vjust = -1) +
+  labs(x = "Grupos",
+       y = "Valor médio do caractere",
+       fill = "Grupos")
+
+ggsave("figs/mean_clusters.jpg",
+       dpi = 600,
+       width = 12,
+       height = 6)
+
+```
+
+
+# Section info
+```{r}
+sessionInfo()
+```
+

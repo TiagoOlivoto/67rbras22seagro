@@ -1,0 +1,129 @@
+---
+title: "06: Correlação canônica entre caracteres morfológicos e componentes de rendimento em genótipos de linho (Linum usitatissimum, L.) "
+---
+
+```{r global_options, include = FALSE}
+knitr::opts_chunk$set(cache = FALSE,
+                      comment = "##",
+                      collapse = TRUE,
+                      warning = FALSE,
+                      message = FALSE)
+
+```
+
+
+# Libraries
+
+```{r warning=FALSE, message=FALSE}
+library(rio)
+library(tidyverse)
+library(metan)
+library(DT)
+# set_wd_here()
+```
+
+
+
+# Dados
+```{r}
+df <- 
+  import("data/data_mgidi.csv") |> 
+  remove_rows_na() |> 
+  filter(epoca  %in% c("E1", "E4")) |> 
+  replace_string(epoca, pattern = "E4", replacement = "E2")
+
+```
+
+
+# Canônica
+
+## Modelo
+```{r}
+can <- 
+  df |> 
+  can_corr(FG = c(ap, ac, nc, nr),
+           SG = c(ngcap, areac, rgpla, mmg, icc),
+           by = epoca)
+```
+
+
+## Correlação canônica
+```{r}
+canc <- gmd(can, "canonical") |> round_cols(digits = 5)
+# export(canc, "data/results_canonica.xlsx", which = "canonica")
+datatable(canc)
+```
+
+
+## Cargas canônicas
+```{r}
+loads <- gmd(can, "loads") |> round_cols(digits = 5)
+# export(loads, "data/results_canonica.xlsx", which = "loads")
+datatable(loads)
+```
+
+
+
+
+# Diagrama
+## Primeiro par
+
+```{mermaid}
+
+flowchart LR
+subgraph Z["Caracteres de planta"]
+direction LR
+A[AP] --> |-0.274|B[planta]
+C[AC] --> |0.222|B
+D[NC] --> |-0.994|B
+E[NR] --> |-0.481|B
+end
+
+subgraph ZA["Componentes do rendimento"]
+direction RL
+F[NGC] --> |-0.249|G[rendimento]
+H[AC] -->  |-0.445|G
+I[RGP] -->  |-0.481|G
+J[MMG] -->  |-0.338|G
+K[ICP] -->  |0.0175|G
+end
+
+Z <--> |0.968| ZA
+
+```
+
+
+## segundo par
+```{mermaid}
+
+flowchart LR
+
+subgraph Z["Caracteres de planta"]
+direction LR
+A([AP]) --> |0.627|B{planta}
+C([AC]) --> |-0.174|B
+D([NC]) --> |0.034|B
+E([NR]) --> |0.301|B
+end
+
+subgraph ZA["Componentes do rendimento"]
+direction RL
+F([NGC]) --> | 0.601|G{rendimento}
+H([AC]) -->  |0.863|G
+I([RGP]) -->  |0.189|G
+J([MMG]) -->  |0.491|G
+K([ICP]) -->  |0.243|G
+end
+
+Z <--> |0.669| ZA
+
+```
+
+
+
+
+# Section info
+```{r}
+sessionInfo()
+```
+

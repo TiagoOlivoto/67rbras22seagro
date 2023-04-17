@@ -1,0 +1,93 @@
+---
+title: "05: Análise de trilha para caracteres agronômicos e componentes de rendimento em genótipos de linhaça (Linum usitatissimum, L.)"
+---
+
+
+```{r global_options, include = FALSE}
+knitr::opts_chunk$set(cache = FALSE,
+                      comment = "##",
+                      collapse = TRUE,
+                      warning = FALSE,
+                      message = FALSE)
+
+```
+
+
+# Libraries
+
+To reproduce the examples of this material, the R packages the following packages are needed.
+
+```{r warning=FALSE, message=FALSE}
+library(rio)
+library(tidyverse)
+library(metan)
+
+```
+
+
+# Dados
+```{r}
+df <- 
+  import("data/data_mgidi.csv") |> 
+  remove_rows_na() |> 
+  filter(epoca  %in% c("E1", "E4")) |> 
+  replace_string(epoca, pattern = "E4", replacement = "E2")
+
+```
+
+
+
+
+# Multicolinearidade
+## Encontrar preditores com baixa colinearidade
+```{r}
+df |> 
+  group_by(epoca) |> 
+  non_collinear_vars(-c(rgpla))
+
+```
+
+## Colinearidade dentro de cada época
+```{r}
+coldiag <- 
+  df |> 
+  group_by(epoca) |>
+  colindiag(-c(rgpla, ng, mc))
+
+
+## INDICADORES
+cold <- gmd(coldiag)
+# export(cold, "data/path_results.xlsx", which = "coldiag")      
+
+## VIFS
+vifs <- get_model_data(coldiag, "VIF")
+# export(vifs, "data/path_results.xlsx", which = "vifs")  
+
+```
+
+# Trilha
+```{r}
+
+mod_trilha <- 
+  df |> 
+  group_by(epoca) |> 
+  path_coeff(resp = rgpla,
+             pred = -c(mc, ng))
+
+p1 <- plot(mod_trilha$data[[1]])
+p2 <- plot(mod_trilha$data[[2]])
+arrange_ggplot(p1, p2, ncol = 1, 
+               guides = "collect",
+               tag_levels = "a")
+
+ggsave("figs/path_coefs.jpg",
+       height = 12,
+       width = 6)
+```
+
+
+# Section info
+```{r}
+sessionInfo()
+```
+

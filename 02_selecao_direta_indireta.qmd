@@ -1,0 +1,232 @@
+---
+title: "02: Diferencial de seleção direto e indireto visando seleção de genótipos de linho"
+---
+
+```{r global_options, include = FALSE}
+knitr::opts_chunk$set(cache = FALSE,
+                      comment = "##",
+                      collapse = TRUE,
+                      warning = FALSE,
+                      message = FALSE)
+
+```
+
+
+# Pacotes
+```{r warning=FALSE, message=FALSE}
+library(rio)
+library(tidyverse)
+library(metan)
+
+gdi <- function(dfrc,
+                gen,
+                vars =  NULL,
+                si = 0.2,
+                ideotype = NULL){
+  
+  if(missing(vars)){
+    gen <-  dfrc |> select({{gen}})
+    vars <- dfrc |> select_numeric_cols()
+    dfrc <- bind_cols(gen, vars)
+  } else{
+    gen <-  dfrc |> select({{gen}})
+    vars <- dfrc |> select({{vars}})
+    dfrc <- bind_cols(gen, vars)
+  }
+  
+  mger <- dfrc |> mean_by()
+  dfrc_num <- dfrc |> select_numeric_cols()
+  nvars <- ncol(dfrc_num)
+  ngen <- nrow(dfrc_num)
+  
+  varn <- colnames(dfrc_num)
+  
+  ifelse(is.null(ideotype), 
+         ideotype <- rep("h", nvars),
+         ideotype <- ideotype)
+  
+  results <- data.frame(matrix(NA, nvars, nvars))
+  results_perc <- data.frame(matrix(NA, nvars, nvars))
+  ngensel <- ceiling(ngen * si)
+  selgen <- list()
+  
+  # selecao direta e indireta
+  for (i  in 1:nvars){
+    if(ideotype[i] == "h"){
+      msel <- 
+        dfrc |> 
+        slice_max(dfrc_num[, i], n = ngensel)
+      
+      selgen[[i]] <- msel |> pull(1)
+      msel <- msel |>  mean_by()
+      results[i, ] <- msel - mger
+      results_perc[i, ] <- (msel - mger) / mger * 100
+    } else{
+      msel <- 
+        dfrc |> 
+        slice_min(dfrc_num[, i], n = ngensel) |> 
+        mean_by()
+      
+      selgen[[i]] <- msel |> pull(1)
+      
+      msel <- msel |>  mean_by()
+      
+      results[i, ] <- msel - mger
+      results_perc[i, ] <- (msel - mger) / mger * 100
+      
+    }
+  }
+  colnames(results) <- rownames(results) <- varn
+  colnames(results_perc) <- rownames(results_perc) <-  varn
+  print(selgen)
+  names(selgen) <- varn
+  
+  return(list(results = results,
+              results_perc = results_perc,
+              selgen = selgen))
+}
+
+
+######## plotar os valores
+plot_gdi <- function(model,
+                     type = c("percent", "absolut"),
+                     range_scale = NULL){
+  type <- type[1]
+  
+  if(type == "percent"){
+    df_plot <- 
+      model$results_perc |> 
+      make_long()
+    
+  } else{
+    df_plot <- 
+      model$results |> 
+      make_long()
+  }
+  
+  
+  fcts <- as.character(unique(factor(df_plot$ENV)))
+  df_plot <-
+    df_plot %>%
+    mutate(lwid = ifelse((ENV == GEN), 1.5, 0.5)) %>%
+    mutate(ENV =  factor(as.factor(ENV), levels = c(fcts, "linear"))) %>%
+    mutate(GEN = factor(as.factor(GEN), levels = rev(fcts))) %>%
+    arrange(lwid)
+  
+  
+  
+  ifelse(is.null(range_scale), 
+         rang <- range(df_plot$Y), 
+         rang <- range_scale)
+  ggplot(df_plot, aes(ENV, GEN, fill = Y)) +
+    geom_tile(color = "black",
+              linewidth = df_plot$lwid) +
+    scale_fill_gradient2(low = "red",
+                         high = "blue",
+                         mid = "white",
+                         midpoint = mean(df_plot$Y),
+                         limit = rang,
+                         space = "Lab",
+                         na.value = "transparent") +
+    geom_text(aes(label = round(Y, 1)),
+              color = "black",
+              size = 3) +
+    guides(fill = guide_colourbar(label = TRUE,
+                                  draw.ulim = TRUE,
+                                  draw.llim = TRUE,
+                                  frame.colour = "black",
+                                  ticks = TRUE,
+                                  nbin = 10,
+                                  label.position = "right",
+                                  barwidth = 1,
+                                  barheight = 11,
+                                  direction = 'vertical')) +
+    scale_y_discrete(expand = expansion(mult = c(0,0))) +
+    scale_x_discrete(position = "top",
+                     expand = expansion(0)) +
+    labs(x = NULL,
+         y = NULL,
+         fill = "SD (%)")
+}
+
+
+```
+
+
+# Dados
+```{r}
+df <-
+  import("data/data_mgidi.csv") |> 
+  remove_rows_na() |> 
+  filter(epoca %in% c("E1", "E4")) |> 
+  replace_string(epoca, pattern = "E4", replacement = "E2")
+
+# por época
+dfe <- 
+  df |> 
+  split_factors(epoca)
+
+
+```
+
+# Correlação parcial
+```{r}
+# correlação parcial
+res_part <- lapply(dfe, corr_coef)
+p1 <- network_plot(res_part$E1)
+p2 <- network_plot(res_part$E2)
+arrange_ggplot(p1, p2)
+ggsave("figs/corr_linear.jpg",
+       width = 10,
+       height = 6)
+```
+
+
+# Histogram
+```{r}
+library(ggridges)
+ggplot(df, aes(rgpla, y = epoca)) +
+  geom_density_ridges(aes(fill = epoca),
+                      scale = 3) +
+  theme_bw() +
+  scale_y_discrete(expand = expansion(c(0.2, 0.2))) +
+  theme_bw(base_size = 18) +
+  theme(legend.position = "bottom")+
+  labs(fill = "",
+       x = "Rendimento de grãos por planta (g)",
+       y = "Época de semeadura")
+ggsave("figs/density_gy.jpg",
+       width = 6,
+       height = 6)
+```
+
+
+# Diferencial de seleção
+```{r}
+
+# diferencial de seleção por época
+res_epoca <- lapply(dfe, gdi, gen,
+                    si = 0.25,
+                    ideotype = c("l", rep("h", 10)))
+g1 <- plot_gdi(res_epoca$E1, range_scale = c(-70, 195))
+g2 <- plot_gdi(res_epoca$E2, range_scale = c(-70, 195))
+arrange_ggplot(g1, g2,
+               tag_levels = "a")
+ggsave("figs/direct_indirect_sd.jpg",
+       width = 10,
+       height = 5)
+
+bind <- 
+rbind_fill_id(res_epoca$E1$results |> rownames_to_column("var"),
+              res_epoca$E2$results |> rownames_to_column("var"),
+              .id = "epoca")
+
+# export(bind, "data/sd_absoluto.xlsx")
+```
+
+
+# Section info
+```{r}
+sessionInfo()
+```
+

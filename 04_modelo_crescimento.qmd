@@ -1,0 +1,459 @@
+---
+title: "04: Modelagem da área foliar de cultivares de linho em diferentes épocas de semeadura utilizando o modelo Logístico"
+---
+
+```{r global_options, include = FALSE}
+knitr::opts_chunk$set(cache = FALSE,
+                      comment = "##",
+                      collapse = TRUE,
+                      warning = FALSE,
+                      message = FALSE)
+
+```
+
+
+# Libraries
+
+To reproduce the examples of this material, the R packages the following packages are needed.
+
+```{r warning=FALSE, message=FALSE}
+library(rio)
+library(tidyverse)
+library(metan)
+library(lubridate)
+library(broom)
+library(emmeans)
+```
+
+# Data
+
+## Temperature
+```{r}
+dft <- 
+  import("data/clima.csv", dec = ",") |> 
+  separate(hora, into = c("dia", "mes", "ano")) |> 
+  unite("data", dia, mes, ano, sep = "/") |> 
+  mutate(data = dmy(data))
+
+dftemp <- 
+  dft |> 
+  group_by(data) |> 
+  summarise(tmin = min(tmin),
+            tmed = mean(tmed),
+            tmax = max(tmax),
+            prec = sum(prec),
+            ur = mean(ur)) |> 
+  mutate(gd = tmed - 5,
+         gd2 = ((tmax + tmin) / 2) - 5) |> 
+  mutate(data = ymd(data))
+
+dftempe1 <- 
+  dftemp |> 
+  slice(1:79) |> 
+  mutate(epoca = "E1")
+
+dftempe2 <- 
+  dftemp |> 
+  slice(79:148) |> 
+  mutate(epoca = "E2")
+
+dftemp2 <- 
+  bind_rows(dftempe1, dftempe2) |> 
+  relocate(epoca, .before = data) |> 
+  group_by(epoca) |> 
+  mutate(gda = cumsum(gd),
+         gda2 = cumsum(gd2)) |> 
+  separate(data, into = c("ano", "mes", "dia")) |> 
+  unite("data", dia, mes, sep = "/")
+
+# GRAUS DIA
+df
+
+```
+
+## gráfico densidade
+```{r}
+library(ggridges)
+dft |> 
+  separate(data, into = c("ano", "mes", "dia")) |> 
+  ggplot(aes(x = tmax, y = mes, fill = after_stat(x))) +
+  geom_density_ridges_gradient() +
+  scale_fill_viridis_c() +
+  labs(x = "Temperatura média (ºC)",
+       y = "Meses do ano",
+       fill = "Temperatura\nmédia (ºC)")
+```
+
+## Gráfico 
+```{r}
+#| out-width: "100%"
+
+ggplot() +
+  geom_bar(dftemp,
+           mapping = aes(x = data, y = prec * 30 / 100),
+           stat = "identity",
+           fill = "skyblue") +
+  geom_line(dftemp,
+            mapping = aes(x = data, y = tmax, colour = "red"),
+            linewidth = 1,
+            alpha = 0.1) +
+  geom_line(dftemp, 
+            mapping = aes(x = data, y = tmin, colour = "blue"),
+            linewidth = 1,
+            alpha = 0.1) +
+  geom_smooth(dftemp,
+              mapping = aes(x = data, y = tmax, colour = "red"),
+              linewidth = 1,
+              se = FALSE) +
+  geom_smooth(dftemp, 
+              mapping = aes(x = data, y = tmin, colour = "blue"),
+              linewidth = 1,
+              se = FALSE) +
+  scale_x_date(date_breaks = "15 days", date_labels =  "%d/%m",
+               expand = expansion(c(0, 0)))+
+  scale_y_continuous(name = expression("Temperatura ("~degree~"C)"),
+                     sec.axis = sec_axis(~ . * 100 / 30 , name = "Precipitação (mm)")) +
+  theme(legend.position = "bottom",
+        legend.title = element_blank(),
+        axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) +
+  scale_color_identity(breaks = c("red", "blue"),
+                       labels = c("Temperatura máxima (ºC)",
+                                  "Temperatura mínima (ºC)"),
+                       guide = "legend") +
+  labs(x = "Dia do ano",
+       color = "") +
+  theme_bw(base_size = 16) +
+  theme(
+    panel.grid.major = element_blank(), #remove major gridlines
+    # panel.grid.minor = element_blank(), #remove minor gridlines
+    legend.background = element_rect(fill='transparent'), #transparent legend bg
+    legend.position = "bottom") #transparent legend panel
+ggsave("figs/temperature.jpg",
+       width = 12,
+       height = 8)
+```
+
+
+# modelo
+
+```{r}
+
+df_model <- import("data/df_model_cresc.xlsx")
+
+formula <- af_planta ~ b1/(1 + exp(b2 - b3 * gda))
+start_af = c(b1 = 60,
+             b2 = 6,
+             b3 = 0.02)
+mod_af <- 
+  df_model |> 
+  filter(data != "04/11") |> 
+  group_by(epoca, cultivar, bloco) |> 
+  doo(~nls(formula,
+           data = .,
+           start = start_af))
+
+parameters <- 
+  mod_af |> 
+  mutate(data = map(data, ~.x |> tidy())) |> 
+  unnest(data) |> 
+  select(epoca, cultivar, bloco, term, estimate) |> 
+  pivot_wider(names_from = term,
+              values_from = estimate)
+
+
+```
+
+# ANOVA
+```{r}
+
+# ANOVAS
+mod_anova <- 
+  mod_af |> 
+  mutate(data = map(data, ~.x |> tidy())) |> 
+  unnest(data) |> 
+  select(epoca, cultivar, bloco, term, estimate) |> 
+  rename(parameter = term) |> 
+  group_by(parameter) %>%
+  doo(~aov(estimate ~ epoca*cultivar + bloco, data = .))
+
+
+# TABELA ANOVA
+tab_anova <- 
+  mod_anova |> 
+  mutate(data = map(data, ~.x |> tidy())) |> 
+  unnest(data) 
+tab_anova
+
+# export(tab_anova, "data/result_logistico.xlsx", which = "anova_par")
+
+
+# comparação de médias
+mcomp_cult <- 
+  mod_anova |> 
+  mutate(data = map(data, ~.x |> emmeans(~cultivar)))
+mcomp_epoca <- 
+  mod_anova |> 
+  mutate(data = map(data, ~.x |> emmeans(~epoca)))
+
+
+# beta1
+b1e <-  
+  plot(mcomp_epoca$data[[1]], comparisons = TRUE, CIs = FALSE) +
+  labs(x = expression(beta[1]),
+       y = "Época") +
+  theme_bw(base_size = 14) +
+  xlim(c(60, 100))
+b1c <-  
+  plot(mcomp_cult$data[[1]], comparisons = TRUE, CIs = FALSE) +
+    labs(x = expression(beta[1]),
+       y = "Cultivar") +
+  theme_bw(base_size = 14)+
+  xlim(c(60, 100))
+
+# beta2 (epoca)
+b2e <- 
+  plot(mcomp_epoca$data[[2]], comparisons = TRUE, CIs = FALSE) +
+    labs(x = expression(beta[2]),
+       y = "Época") +
+  theme_bw(base_size = 14)
+
+arrange_ggplot(b1e, b1c, b2e,
+               ncol = 1,
+               tag_levels = "a")
+
+ggsave("figs/anova_pars.jpg",
+       height = 5,
+       width = 4)
+```
+
+
+## Qualidade de ajuste
+```{r}
+library(hydroGOF)
+get_r2 <- function(model){
+  aic <- AIC(model)
+  fit <- model$m$fitted()
+  res <- model$m$resid()
+  obs <- fit + res
+  gof <- gof(obs, fit, digits = 4)
+  r2 <- gof[which(rownames(gof) == "R2")]
+  data.frame(aic = aic, r2 = r2)
+}
+
+qualidade <- 
+  mod_af |> 
+  mutate(map_dfr(.x = data,
+                 .f = ~get_r2(.))) |> 
+  select(-data)
+
+# export(qualidade, "data/result_logistico.xlsx", which = "qualidade")
+
+```
+
+
+
+
+# Modelo ajustado
+
+```{r}
+
+
+# área foliar
+formula <- y ~ b1/(1 + exp(b2 - b3 * x))
+
+# a <-
+ggplot(df_model |> filter(!data %in% c("04/11")),
+       aes(gda, af_planta, color = cultivar)) +
+  geom_smooth(method = "nls",
+              method.args = list(formula = formula,
+                                 start = c(b1 = 60,
+                                           b2 = 2,
+                                           b3 = 0.02)),
+              se = FALSE,
+              aes(color = cultivar)) +
+  facet_wrap(~epoca) +
+  stat_summary(fun = mean,
+               geom = "point",
+               aes(color = cultivar),
+               size = 2.5,
+               position = position_dodge(width = 0.8)) +
+  scale_y_continuous(breaks = seq(0, 150, by = 25)) +
+  labs(x = "Graus dia acumulado",
+       y = expression(Área~foliar~média~(cm^2~planta^{-1}))) +
+  scale_color_manual(values = c("gold", "brown")) +
+  stat_summary(data = df_model |>  filter(data == "04/11"),
+               aes(x = gda, y = af_planta),
+               fun = mean,
+               alpha = 0.4,
+               shape = 16,
+               show.legend = FALSE) +
+  theme_bw(base_size = 16) +
+  theme(
+    panel.grid.major = element_blank(), #remove major gridlines
+    # panel.grid.minor = element_blank(), #remove minor gridlines
+    legend.background = element_rect(fill='transparent'), #transparent legend bg
+    legend.position = "bottom") #transparent legend panel
+
+ggsave("figs/mod_logistico.jpg",
+       width = 9,
+       height = 6)
+
+```
+
+
+
+
+
+## Primeira derivada
+```{r}
+# primeira derivada
+D(expression(b1/(1 + exp(b2 - b3 * das))), "das")
+
+dy <- function(x,b1,b2,b3){
+  b1 * (exp(b2 - b3 * x) * b3)/(1 + exp(b2 - b3 * x))^2
+}
+
+parameters <- 
+  parameters |> 
+  mean_by(epoca, cultivar) |> 
+  mutate(xpi = b2 / b3,
+         ypi = dy(xpi, b1, b2, b3)) |> 
+  as.data.frame()
+
+# plot_pi <-
+ggplot() + 
+  stat_function(fun = dy,
+                aes(color = "D", linetype = "E1"),
+                n = 500,
+                linewidth = 1,
+                xlim = c(0, 1000),
+                args = c(b1 = parameters[[1, 3]],
+                         b2 = parameters[[1, 4]],
+                         b3 = parameters[[1, 5]])) +
+  stat_function(fun = dy,
+                aes(color = "M", linetype = "E1"),
+                linewidth = 1,
+                xlim = c(0, 1000),
+                args = c(b1 = parameters[[2, 3]],
+                         b2 = parameters[[2, 4]],
+                         b3 = parameters[[2, 5]])) +
+  stat_function(fun = dy,
+                aes(color = "D", linetype = "E2"),
+                linewidth = 1,
+                xlim = c(0, 1000),
+                args = c(b1 = parameters[[3, 3]],
+                         b2 = parameters[[3, 4]],
+                         b3 = parameters[[3, 5]])) +
+  stat_function(fun = dy,
+                aes(color = "M", linetype = "E2"),
+                linewidth = 1,
+                xlim = c(0, 1000),
+                args = c(b1 = parameters[[4, 3]],
+                         b2 = parameters[[4, 4]],
+                         b3 = parameters[[4, 5]])) +
+  geom_point(aes(xpi, ypi, shape = epoca, color = cultivar),
+             data = parameters,
+             size = 3,
+             show.legend = FALSE) +
+  theme_bw(base_size = 16) +
+  scale_x_continuous(breaks = seq(0, 1200, by = 200)) +
+  labs(x = "Graus dia acumulado",
+       y = expression(Emissão~de~área~foliar~(cm^2~planta^{-1}~grau~dia^{-1})),
+       color  = "Cultivar",
+       linetype = "Época") +
+  scale_color_manual(values = c("gold", "brown"))
+
+ggsave("figs/prim_deriv.jpg",
+       height = 7,
+       width = 9)
+
+```
+
+
+
+
+## Segunda derivada
+```{r}
+# segunda derivada
+D(expression(b1 * (exp(b2 - b3 * x) * b3)/(1 + exp(b2 - b3 * x))^2), "x")
+
+d2y <- function(x,b1,b2,b3){
+  -(b1 * (exp(b2 - b3 * x) * b3 * b3)/(1 + exp(b2 - b3 * x))^2 - 
+      b1 * (exp(b2 - b3 * x) * b3) * (2 * (exp(b2 - b3 * x) * b3 * 
+                                             (1 + exp(b2 - b3 * x))))/((1 + exp(b2 - b3 * x))^2)^2)
+}
+
+parameters <- 
+  parameters |> 
+  mutate(xmap = (b2 - 1.3170)/b3,
+         xmdp = (b2 + 1.3170)/b3,
+         ymap = d2y(xmap, b1, b2, b3),
+         ymdp = d2y(xmdp, b1, b2, b3),
+  ) 
+
+
+# df_acel <-
+ggplot() + 
+  geom_hline(yintercept = 0) +
+  stat_function(fun = d2y,
+                aes(color = "D", linetype = "E1"),
+                n = 500,
+                linewidth = 1,
+                xlim = c(0, 1000),
+                args = c(b1 = parameters[[1, 3]],
+                         b2 = parameters[[1, 4]],
+                         b3 = parameters[[1, 5]])) +
+  stat_function(fun = d2y,
+                aes(color = "M", linetype = "E1"),
+                linewidth = 1,
+                xlim = c(0, 1000),
+                args = c(b1 = parameters[[2, 3]],
+                         b2 = parameters[[2, 4]],
+                         b3 = parameters[[2, 5]])) +
+  stat_function(fun = d2y,
+                aes(color = "D", linetype = "E2"),
+                linewidth = 1,
+                xlim = c(0, 1000),
+                args = c(b1 = parameters[[3, 3]],
+                         b2 = parameters[[3, 4]],
+                         b3 = parameters[[3, 5]])) +
+  stat_function(fun = d2y,
+                aes(color = "M", linetype = "E2"),
+                linewidth = 1,
+                xlim = c(0, 1000),
+                args = c(b1 = parameters[[4, 3]],
+                         b2 = parameters[[4, 4]],
+                         b3 = parameters[[4, 5]])) +
+  geom_point(aes(xmap, ymap, fill = cultivar),
+             data = parameters,
+             size = 3,
+             shape = 24,
+             show.legend = FALSE) +
+  geom_point(aes(xmdp, ymdp, fill = cultivar),
+             data = parameters,
+             size = 3,
+             shape = 25,
+             show.legend = FALSE) +
+  theme_bw(base_size = 16) +
+  labs(x = "Graus dia acumulado",
+       y = expression(Aceleração~de~emissão~área~foliar~(cm^2~planta^{-1}~grau~dia^{-2})),
+       color  = "Cultivar",
+       linetype = "Época") +
+  scale_color_manual(values = c("gold", "brown")) +
+  scale_fill_manual(values = c("gold", "brown"))
+
+ggsave("figs/seg_deriv.jpg",
+       height = 7,
+       width = 9)
+
+# export(parameters, "data/result_logistico.xlsx", which = "parametros_logistico")
+
+```
+
+
+
+# Section info
+```{r}
+sessionInfo()
+```
+

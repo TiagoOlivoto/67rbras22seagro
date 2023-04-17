@@ -1,0 +1,191 @@
+---
+title: "08: Índices FAI-BLUP e MGIDI na seleção de genótipos de linho"
+---
+% Analysis 
+
+```{r global_options, include = FALSE}
+knitr::opts_chunk$set(cache = FALSE,
+                      comment = "##",
+                      collapse = TRUE,
+                      warning = FALSE,
+                      message = FALSE)
+
+```
+
+
+# Libraries
+
+To reproduce the examples of this material, the R packages the following packages are needed.
+
+```{r warning=FALSE, message=FALSE}
+library(rio)
+library(tidyverse)
+library(metan)
+```
+
+# Dados
+```{r}
+df <-
+  import("data/data_mgidi.csv") |> 
+  remove_rows_na() |> 
+  filter(epoca == "E1") |> 
+  mutate(cp = ap - ac, .before = ap) |> 
+  select(-c(epoca, ap, ac, icc))
+
+```
+
+
+# Índice MGIDI
+## Sem pesos
+```{r}
+mod_mgidi <-
+  df |> 
+  mgidi(ideotype = c("l, h, h, h, h, h, h,  h, h"),
+        SI = 25)
+
+```
+
+## Com pesos
+```{r}
+mod_mgidi_peso <-
+  df |> 
+  mgidi(ideotype = c("l, h, h, h, h, h, h,  h, h"),
+        weights = c(2, 5, 5, 1, 1, 5, 5, 2, 2),
+        SI = 25)
+
+
+```
+
+
+# FAI-BLUP
+```{r}
+mod_fai <- 
+  df |> 
+  column_to_rownames("gen") |> 
+  fai_blup(DI = c("min, max, max, max, max, max, max, max, max"),
+           UI = c("max, min, min, min, min, min, min, min, min"),
+           SI = 25)
+
+```
+
+
+# Ganhos
+## Individuais
+```{r}
+gmgidisp <- 
+  gmd(mod_mgidi) |> 
+  select(VAR, sense, mgidi_sp = SDperc)
+
+gmgidicp <- 
+  gmd(mod_mgidi_peso) |> 
+  select(VAR,  mgidi_cp = SDperc)
+
+gfai <- 
+  gmd(mod_fai) |> 
+  select(VAR, fai = SDperc)
+
+bind <- 
+  reduce(list(gmgidisp, gmgidicp, gfai), left_join) |> 
+  pivot_longer(-c(VAR, sense))
+
+
+facet_labels <- c("FAI-BLUP", "MGIDI com peso", "MGIDI sem peso")
+names(facet_labels) <- c("fai", "mgidi_cp", "mgidi_sp")
+
+ggplot(bind, aes(value, VAR)) +
+  geom_col(position = position_dodge(),
+           aes(fill = sense),
+           width = 1,
+           linewidth = 0.1,
+           color = "black") +
+  geom_text(aes(label = round(value, 2),
+                hjust = ifelse(value > 0, -0.1, 1.1)),
+            size = 4) + 
+  facet_wrap(~name,
+              labeller = labeller(name = facet_labels)) +
+  theme_bw(base_size = 18) +
+  theme(axis.text = element_text(size = 12, color = "black"),
+        axis.ticks.length = unit(0.2, "cm"),
+        panel.grid.minor = element_blank(),
+        legend.title = element_blank(),
+        legend.position = "bottom",
+        panel.spacing.x = unit(0, "cm")) +
+  geom_vline(xintercept = 0, linetype = 1, linewidth = 1) +
+  scale_x_continuous(expand = expansion(c(0.4, 0.4))) +
+  labs(y = "Caracteres avaliados",
+       x = "Diferencial de seleção (%)") +
+  geom_vline(xintercept = 0)
+
+ggsave("figs/gains_mgidi_fai.jpg",
+       width = 8,
+       height = 5)
+
+```
+
+## Totais
+```{r}
+tot_fai <- mod_fai[["total_gain"]][["ID1"]] |> mutate(indice = "FAI-BLUP")
+tot_mgidi_cp <- mod_mgidi_peso$stat_gain |> mutate(indice = "MGIDI com peso")
+tot_mgidi_sp <- mod_mgidi$stat_gain |> mutate(indice = "MGIDI sem peso")
+
+totais <- 
+  bind_rows(tot_fai, tot_mgidi_cp, tot_mgidi_sp) |> 
+  select(sense, max, sum, indice) |>
+  pivot_longer(cols = max:sum)
+
+facet_labels <- c("Diferenciais máximos", "Soma dos diferenciais")
+names(facet_labels) <- c("max", "sum")
+
+ggplot(totais, aes(indice, value)) +
+  geom_col(aes(fill = sense),
+           position = position_dodge()) +
+  facet_wrap(~name,
+             # scales = "free",
+             labeller = labeller(name = facet_labels)) +
+  theme_bw(base_size = 18) +
+  theme(axis.text = element_text(size = 12, color = "black"),
+        axis.text.x = element_text(angle = 30, vjust = 1, hjust = 1),
+        axis.ticks.length = unit(0.2, "cm"),
+        panel.grid.minor = element_blank(),
+        legend.title = element_blank(),
+        legend.position = "bottom",
+        panel.spacing.x = unit(0, "cm")) +
+  labs(x = "Índices",
+       y = "Diferencial de seleção (%)") +
+  geom_text(aes(label = round(value, 2),
+                vjust = ifelse(value < 0, 1.2, -0.8)),
+            position = position_dodge2(width = 0.9)) +
+  scale_y_continuous(expand = expansion(0.1)) +
+  geom_hline(yintercept = 0,
+             linewidth = 0.9)
+
+ggsave("figs/total_gains_mgidi_fai.jpg",
+       width = 6,
+       height = 7)
+  
+```
+
+
+
+
+# Venn plot
+```{r}
+sel_mgidi_sp <- sel_gen(mod_mgidi)
+sel_mgidi_cp <- sel_gen(mod_mgidi_peso)
+sel_fai <- sel_gen(mod_fai)[[1]]
+
+venn_plot(sel_mgidi_cp, sel_mgidi_sp, sel_fai,
+          split_labels = TRUE,
+          split_each = 3,
+          show_elements = TRUE,
+          text_size = 5,
+          names = c("MGIDI com pesos", "MGIDI sem pesos", "FAI-BLUP"))
+```
+
+
+
+# Section info
+```{r}
+sessionInfo()
+```
+

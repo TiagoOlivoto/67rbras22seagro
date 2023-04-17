@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.298">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>67 RBras e 22 SEAGRO - 06: Correlação canônica entre caracteres morfológicos e componentes de rendimento em genótipos de linho (Linum usitatissimum, L.)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./07_diversidade.html" rel="next">
+<link href="./05_trilha.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script><style>html{ scroll-behavior: smooth; }</style>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script><script src="site_libs/quarto-diagram/mermaid-init.js"></script><link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+<script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script><link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="site_libs/datatables-binding-0.27/datatables.js"></script><script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><link href="site_libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="site_libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="site_libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script><link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+</head>
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">67 RBras e 22 SEAGRO</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+<li class="nav-item">
+    <a class="nav-link" href="./00_about.html" rel="" target=""><i class="bi bi-fa fa-home" role="img">
+</i> 
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+<ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item compact">
+    <a class="nav-link" href="https://www.researchgate.net/profile/Tiago_Olivoto" rel="" target=""><i class="bi bi-fab fa-researchgate fa" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/TiagoOlivoto/pliman" rel="" target=""><i class="bi bi-bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/tolivoto" rel="" target=""><i class="bi bi-bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.mendeley.com/profiles/tiago-olivoto/" rel="" target=""><i class="bi bi-fab fa-mendeley fa" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+<div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06_canonica.html">06: Correlação canônica entre caracteres morfológicos e componentes de rendimento em genótipos de linho (Linum usitatissimum, L.)</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto"><div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_medias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01: Desempenho agronômico do linho em diferentes épocas de semeadura</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_selecao_direta_indireta.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02: Diferencial de seleção direto e indireto visando seleção de genótipos de linho</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_indice_selecao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03: Seleção multivariada de genótipos de linho usando o índice MGIDI</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_modelo_crescimento.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04: Modelagem da área foliar de cultivares de linho em diferentes épocas de semeadura utilizando o modelo Logístico</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_trilha.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05: Análise de trilha para caracteres agronômicos e componentes de rendimento em genótipos de linhaça (Linum usitatissimum, L.)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_canonica.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">06: Correlação canônica entre caracteres morfológicos e componentes de rendimento em genótipos de linho (Linum usitatissimum, L.)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07_diversidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">07: Diversidade genética entre acessos de linho (Linum usitatissimum, L.) baseada em caracteres morfoagronômicos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08_mgidi_fai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">08: Índices FAI-BLUP e MGIDI na seleção de genótipos de linho</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09_dgci.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09: Relação entre SPAD e o índice DGCI em folhas de linho obtido em diferentes condições de iluminação</span></a>
+  </div>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">In this page</h2>
+   
+  <ul>
+<li><a href="#libraries" id="toc-libraries" class="nav-link active" data-scroll-target="#libraries"><span class="header-section-number">1</span> Libraries</a></li>
+  <li><a href="#dados" id="toc-dados" class="nav-link" data-scroll-target="#dados"><span class="header-section-number">2</span> Dados</a></li>
+  <li>
+<a href="#can%C3%B4nica" id="toc-canônica" class="nav-link" data-scroll-target="#can%C3%B4nica"><span class="header-section-number">3</span> Canônica</a>
+  <ul class="collapse">
+<li><a href="#modelo" id="toc-modelo" class="nav-link" data-scroll-target="#modelo"><span class="header-section-number">3.1</span> Modelo</a></li>
+  <li><a href="#correla%C3%A7%C3%A3o-can%C3%B4nica" id="toc-correlação-canônica" class="nav-link" data-scroll-target="#correla%C3%A7%C3%A3o-can%C3%B4nica"><span class="header-section-number">3.2</span> Correlação canônica</a></li>
+  <li><a href="#cargas-can%C3%B4nicas" id="toc-cargas-canônicas" class="nav-link" data-scroll-target="#cargas-can%C3%B4nicas"><span class="header-section-number">3.3</span> Cargas canônicas</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#diagrama" id="toc-diagrama" class="nav-link" data-scroll-target="#diagrama"><span class="header-section-number">4</span> Diagrama</a>
+  <ul class="collapse">
+<li><a href="#primeiro-par" id="toc-primeiro-par" class="nav-link" data-scroll-target="#primeiro-par"><span class="header-section-number">4.1</span> Primeiro par</a></li>
+  <li><a href="#segundo-par" id="toc-segundo-par" class="nav-link" data-scroll-target="#segundo-par"><span class="header-section-number">4.2</span> segundo par</a></li>
+  </ul>
+</li>
+  <li><a href="#section-info" id="toc-section-info" class="nav-link" data-scroll-target="#section-info"><span class="header-section-number">5</span> Section info</a></li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">06: Correlação canônica entre caracteres morfológicos e componentes de rendimento em genótipos de linho (Linum usitatissimum, L.)</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header><section id="libraries" class="level1" data-number="1"><h1 data-number="1">
+<span class="header-section-number">1</span> Libraries</h1>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leeper/rio">rio</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TiagoOlivoto/metan">metan</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/DT">DT</a></span><span class="op">)</span></span>
+<span><span class="co"># set_wd_here()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="dados" class="level1" data-number="2"><h1 data-number="2">
+<span class="header-section-number">2</span> Dados</h1>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="st">"data/data_mgidi.csv"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_na_zero.html">remove_rows_na</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">epoca</span>  <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"E1"</span>, <span class="st">"E4"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_num_str.html">replace_string</a></span><span class="op">(</span><span class="va">epoca</span>, pattern <span class="op">=</span> <span class="st">"E4"</span>, replacement <span class="op">=</span> <span class="st">"E2"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="canônica" class="level1" data-number="3"><h1 data-number="3">
+<span class="header-section-number">3</span> Canônica</h1>
+<section id="modelo" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="modelo">
+<span class="header-section-number">3.1</span> Modelo</h2>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">can</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="va">df</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/metan/man/can_corr.html">can_corr</a></span><span class="op">(</span>FG <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">ap</span>, <span class="va">ac</span>, <span class="va">nc</span>, <span class="va">nr</span><span class="op">)</span>,</span>
+<span>           SG <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">ngcap</span>, <span class="va">areac</span>, <span class="va">rgpla</span>, <span class="va">mmg</span>, <span class="va">icc</span><span class="op">)</span>,</span>
+<span>           by <span class="op">=</span> <span class="va">epoca</span><span class="op">)</span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">## Matrix (correlation/covariance) between variables of first group (FG)</span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">##            ap         ac          nc          nr</span></span>
+<span><span class="co">## ap 1.00000000  0.7844126  0.04763441  0.09243319</span></span>
+<span><span class="co">## ac 0.78441262  1.0000000 -0.14838350 -0.13030800</span></span>
+<span><span class="co">## nc 0.04763441 -0.1483835  1.00000000  0.42824058</span></span>
+<span><span class="co">## nr 0.09243319 -0.1303080  0.42824058  1.00000000</span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">## Collinearity within first group </span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">## Weak multicollinearity in the matrix</span></span>
+<span><span class="co">## cn = 9.999</span></span>
+<span><span class="co">## Matrix determinant: 0.2681244 </span></span>
+<span><span class="co">## Largest correlation: ap x ac = 0.784 </span></span>
+<span><span class="co">## Smallest correlation: ap x nc = 0.048 </span></span>
+<span><span class="co">## Number of VIFs &gt; 10: 0 </span></span>
+<span><span class="co">## Number of correlations with r &gt;= |0.8|:  </span></span>
+<span><span class="co">## Variables with largest weight in the last eigenvalues: </span></span>
+<span><span class="co">## ac &gt; ap &gt; nr &gt; nc </span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">## Matrix (correlation/covariance) between variables of second group (SG)</span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">##             ngcap      areac       rgpla        mmg         icc</span></span>
+<span><span class="co">## ngcap  1.00000000  0.3132724  0.04673693 -0.6209769  0.11467151</span></span>
+<span><span class="co">## areac  0.31327243  1.0000000  0.33529058  0.1669935 -0.30264644</span></span>
+<span><span class="co">## rgpla  0.04673693  0.3352906  1.00000000  0.2874512 -0.08985607</span></span>
+<span><span class="co">## mmg   -0.62097694  0.1669935  0.28745120  1.0000000 -0.13042347</span></span>
+<span><span class="co">## icc    0.11467151 -0.3026464 -0.08985607 -0.1304235  1.00000000</span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">## Collinearity within second group </span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">## Weak multicollinearity in the matrix</span></span>
+<span><span class="co">## cn = 8.679</span></span>
+<span><span class="co">## Matrix determinant: 0.290047 </span></span>
+<span><span class="co">## Largest correlation: ngcap x mmg = -0.621 </span></span>
+<span><span class="co">## Smallest correlation: ngcap x rgpla = 0.047 </span></span>
+<span><span class="co">## Number of VIFs &gt; 10: 0 </span></span>
+<span><span class="co">## Number of correlations with r &gt;= |0.8|:  </span></span>
+<span><span class="co">## Variables with largest weight in the last eigenvalues: </span></span>
+<span><span class="co">## ngcap &gt; mmg &gt; areac &gt; icc &gt; rgpla </span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">## Matrix (correlation/covariance) between FG and SG</span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">##          ngcap      areac       rgpla         mmg         icc</span></span>
+<span><span class="co">## ap -0.09666049 0.08786152  0.04465416  0.02753692  0.02642461</span></span>
+<span><span class="co">## ac -0.05026028 0.04086389 -0.15119903 -0.07567565  0.04713145</span></span>
+<span><span class="co">## nc -0.01846511 0.22783327  0.96609347  0.22305276 -0.10852377</span></span>
+<span><span class="co">## nr  0.13863943 0.17054753  0.38195178  0.01446315 -0.01918792</span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">## Correlation of the canonical pairs and hypothesis testing </span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">##              Var    Percent       Sum       Corr  Lambda     Chisq DF   p_val</span></span>
+<span><span class="co">## U1V1 0.960696409 90.7023210  90.70232 0.98015122 0.03553 200.23661 20 0.00000</span></span>
+<span><span class="co">## U2V2 0.055799908  5.2682420  95.97056 0.23622004 0.90408   6.05025 12 0.91353</span></span>
+<span><span class="co">## U3V3 0.037702849  3.5596427  99.53021 0.19417222 0.95751   2.60522  6 0.85651</span></span>
+<span><span class="co">## U4V4 0.004975945  0.4697944 100.00000 0.07054038 0.99502   0.29930  2 0.86101</span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">## Canonical coefficients of the first group </span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">##             U1         U2         U3         U4</span></span>
+<span><span class="co">## ap -0.03480811  0.7472199 -0.7361286 -1.3640093</span></span>
+<span><span class="co">## ac  0.03208783  0.2416120  1.1151163  1.3101469</span></span>
+<span><span class="co">## nc -1.02051360  0.1473196 -0.1689635  0.4211887</span></span>
+<span><span class="co">## nr  0.06696724 -0.3982664  0.9840968 -0.4138673</span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">## Canonical coefficients of the second group </span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">##                V1           V2          V3         V4</span></span>
+<span><span class="co">## ngcap  0.15419722 -1.511344374  0.11123799 -0.4375143</span></span>
+<span><span class="co">## areac  0.06429751  0.929299451  0.72322481 -0.4865031</span></span>
+<span><span class="co">## rgpla -1.05733162  0.005934825  0.03204761  0.2977884</span></span>
+<span><span class="co">## mmg    0.15943915 -0.914599114 -0.68319034 -1.0158219</span></span>
+<span><span class="co">## icc    0.03985065  0.432269447  0.28758190 -0.3737915</span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">## Canonical loads of the first group </span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">##             U1          U2         U3          U4</span></span>
+<span><span class="co">## ap -0.05205958  0.90694788 0.22149744 -0.35450560</span></span>
+<span><span class="co">## ac  0.14748492  0.85777824 0.43452344  0.23163347</span></span>
+<span><span class="co">## nc -0.99825488 -0.02349206 0.05193675 -0.01542401</span></span>
+<span><span class="co">## nr -0.37745681 -0.29759423 0.69838847 -0.53029952</span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">## Canonical loads of the second group </span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">##                V1          V2          V3          V4</span></span>
+<span><span class="co">## ngcap  0.03048512 -0.60242915  0.79652509  0.01193414</span></span>
+<span><span class="co">## areac -0.22734544  0.17426989  0.56769388 -0.58022761</span></span>
+<span><span class="co">## rgpla -0.98631642 -0.05486007  0.05751213 -0.14419136</span></span>
+<span><span class="co">## mmg   -0.23470521  0.12442577 -0.65978801 -0.69102764</span></span>
+<span><span class="co">## icc    0.11228632  0.09646404  0.16768069 -0.17099459</span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">## Matrix (correlation/covariance) between variables of first group (FG)</span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">##           ap          ac         nc         nr</span></span>
+<span><span class="co">## ap 1.0000000  0.81117773 0.45121525  0.1331742</span></span>
+<span><span class="co">## ac 0.8111777  1.00000000 0.08482991 -0.1869709</span></span>
+<span><span class="co">## nc 0.4512153  0.08482991 1.00000000  0.7316597</span></span>
+<span><span class="co">## nr 0.1331742 -0.18697085 0.73165968  1.0000000</span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">## Collinearity within first group </span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">## Weak multicollinearity in the matrix</span></span>
+<span><span class="co">## cn = 19.629</span></span>
+<span><span class="co">## Matrix determinant: 0.0777358 </span></span>
+<span><span class="co">## Largest correlation: ap x ac = 0.811 </span></span>
+<span><span class="co">## Smallest correlation: ac x nc = 0.085 </span></span>
+<span><span class="co">## Number of VIFs &gt; 10: 0 </span></span>
+<span><span class="co">## Number of correlations with r &gt;= |0.8|:  </span></span>
+<span><span class="co">## Variables with largest weight in the last eigenvalues: </span></span>
+<span><span class="co">## ap &gt; ac &gt; nc &gt; nr </span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">## Matrix (correlation/covariance) between variables of second group (SG)</span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">##            ngcap      areac      rgpla         mmg        icc</span></span>
+<span><span class="co">## ngcap  1.0000000 0.26296383 0.40088894 -0.23916680 0.14603842</span></span>
+<span><span class="co">## areac  0.2629638 1.00000000 0.15963744  0.12350766 0.02627419</span></span>
+<span><span class="co">## rgpla  0.4008889 0.15963744 1.00000000  0.01242064 0.21134740</span></span>
+<span><span class="co">## mmg   -0.2391668 0.12350766 0.01242064  1.00000000 0.77448269</span></span>
+<span><span class="co">## icc    0.1460384 0.02627419 0.21134740  0.77448269 1.00000000</span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">## Collinearity within second group </span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">## Weak multicollinearity in the matrix</span></span>
+<span><span class="co">## cn = 16.336</span></span>
+<span><span class="co">## Matrix determinant: 0.1707248 </span></span>
+<span><span class="co">## Largest correlation: mmg x icc = 0.774 </span></span>
+<span><span class="co">## Smallest correlation: rgpla x mmg = 0.012 </span></span>
+<span><span class="co">## Number of VIFs &gt; 10: 0 </span></span>
+<span><span class="co">## Number of correlations with r &gt;= |0.8|:  </span></span>
+<span><span class="co">## Variables with largest weight in the last eigenvalues: </span></span>
+<span><span class="co">## mmg &gt; icc &gt; ngcap &gt; areac &gt; rgpla </span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">## Matrix (correlation/covariance) between FG and SG</span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">##          ngcap       areac      rgpla         mmg         icc</span></span>
+<span><span class="co">## ap  0.14297684  0.23159477 0.45239984 -0.01659384 -0.03173008</span></span>
+<span><span class="co">## ac  0.02036806  0.17866011 0.06404277 -0.02774216 -0.07502240</span></span>
+<span><span class="co">## nc  0.09216551 -0.03775157 0.88011487 -0.08016477  0.03356952</span></span>
+<span><span class="co">## nr -0.10075528 -0.05986922 0.52866421 -0.02400980 -0.03492156</span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">## Correlation of the canonical pairs and hypothesis testing </span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">##             Var    Percent       Sum      Corr  Lambda     Chisq DF   p_val</span></span>
+<span><span class="co">## U1V1 0.91310944 79.3088184  79.30882 0.9555676 0.06746 132.11351 20 0.00000</span></span>
+<span><span class="co">## U2V2 0.13923345 12.0932274  91.40205 0.3731400 0.77640  12.40133 12 0.41401</span></span>
+<span><span class="co">## U3V3 0.08787140  7.6321379  99.03418 0.2964311 0.90199   5.05466  6 0.53682</span></span>
+<span><span class="co">## U4V4 0.01111977  0.9658164 100.00000 0.1054503 0.98888   0.54792  2 0.76036</span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">## Canonical coefficients of the first group </span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">##            U1         U2          U3         U4</span></span>
+<span><span class="co">## ap  0.1318045  2.0647470 -0.05036115  0.9239474</span></span>
+<span><span class="co">## ac -0.1902024 -1.3018051 -0.71664705 -1.4202436</span></span>
+<span><span class="co">## nc  1.1040883 -0.6990869  0.99162453 -0.7147258</span></span>
+<span><span class="co">## nr -0.2178000 -0.2566235 -1.43155729  0.5691646</span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">## Canonical coefficients of the second group </span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">##                V1          V2         V3         V4</span></span>
+<span><span class="co">## ngcap -0.29001668  0.84872570  0.6838592  0.5434319</span></span>
+<span><span class="co">## areac -0.11345558  0.44454560 -0.4161227 -0.7872274</span></span>
+<span><span class="co">## rgpla  1.08673734  0.02402766 -0.2105769  0.1068407</span></span>
+<span><span class="co">## mmg   -0.13587777  0.97908038 -0.4812450  1.7136499</span></span>
+<span><span class="co">## icc   -0.02180659 -0.85170140  0.7959921 -1.0920551</span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">## Canonical loads of the first group </span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">##            U1          U2         U3           U4</span></span>
+<span><span class="co">## ap 0.44669270  0.65913739 -0.3748997 -0.474819688</span></span>
+<span><span class="co">## ac 0.05109647  0.36174933 -0.4057200 -0.837805385</span></span>
+<span><span class="co">## nc 0.98807019 -0.06563468 -0.1393050 -0.001870929</span></span>
+<span><span class="co">## nr 0.64313217 -0.24974653 -0.5787403  0.434818761</span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">## Canonical loads of the second group </span></span>
+<span><span class="co">## ---------------------------------------------------------------------------</span></span>
+<span><span class="co">##                V1         V2          V3          V4</span></span>
+<span><span class="co">## ngcap  0.14512244 0.61671288  0.72135932 -0.19007936</span></span>
+<span><span class="co">## areac -0.03359040 0.77011164 -0.30843180 -0.44431266</span></span>
+<span><span class="co">## rgpla  0.94606465 0.26739445  0.15939945 -0.01049281</span></span>
+<span><span class="co">## mmg   -0.08391889 0.17166861 -0.08232917  0.64199973</span></span>
+<span><span class="co">## icc    0.05730301 0.04728423  0.46770772  0.31639580</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="correlação-canônica" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="correlação-canônica">
+<span class="header-section-number">3.2</span> Correlação canônica</h2>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">canc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/metan/man/get_model_data.html">gmd</a></span><span class="op">(</span><span class="va">can</span>, <span class="st">"canonical"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_num_str.html">round_cols</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
+<span><span class="co"># export(canc, "data/results_canonica.xlsx", which = "canonica")</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/DT/man/datatable.html">datatable</a></span><span class="op">(</span><span class="va">canc</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-d141a4a16314d6ded11c" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-d141a4a16314d6ded11c">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8"],["E1","E1","E1","E1","E2","E2","E2","E2"],[0.9607,0.0558,0.0377,0.00498,0.91311,0.13923,0.08787,0.01112],[90.70232,5.26824,3.55964,0.46979,79.30882,12.09323,7.63214,0.96582],[90.70232,95.97056,99.53021,100,79.30882,91.40205,99.03418,100],[0.98015,0.23622,0.19417,0.07054,0.95557,0.37314,0.29643,0.10545],[0.03553,0.90408,0.95751,0.99502,0.06746,0.7764,0.90199,0.98888],[200.23661,6.05025,2.60522,0.2993,132.11351,12.40133,5.05466,0.54792],[20,12,6,2,20,12,6,2],[0,0.91353,0.85651,0.86101,0,0.41401,0.53682,0.76036]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>epoca<\/th>\n      <th>Var<\/th>\n      <th>Percent<\/th>\n      <th>Sum<\/th>\n      <th>Corr<\/th>\n      <th>Lambda<\/th>\n      <th>Chisq<\/th>\n      <th>DF<\/th>\n      <th>p_val<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7,8,9]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section><section id="cargas-canônicas" class="level2" data-number="3.3"><h2 data-number="3.3" class="anchored" data-anchor-id="cargas-canônicas">
+<span class="header-section-number">3.3</span> Cargas canônicas</h2>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">loads</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/metan/man/get_model_data.html">gmd</a></span><span class="op">(</span><span class="va">can</span>, <span class="st">"loads"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_num_str.html">round_cols</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
+<span><span class="co"># export(loads, "data/results_canonica.xlsx", which = "loads")</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/DT/man/datatable.html">datatable</a></span><span class="op">(</span><span class="va">loads</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-72aa3b022f482a0e47a3" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-72aa3b022f482a0e47a3">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18"],["E1","E1","E1","E1","E2","E2","E2","E2","E1","E1","E1","E1","E1","E2","E2","E2","E2","E2"],["FG","FG","FG","FG","FG","FG","FG","FG","SG","SG","SG","SG","SG","SG","SG","SG","SG","SG"],["ap","ac","nc","nr","ap","ac","nc","nr","ngcap","areac","rgpla","mmg","icc","ngcap","areac","rgpla","mmg","icc"],[-0.05206,0.14748,-0.99825,-0.37746,0.44669,0.0511,0.98807,0.64313,0.03049,-0.22735,-0.98632,-0.23471,0.11229,0.14512,-0.03359,0.94606,-0.08392,0.0573],[0.90695,0.85778,-0.02349,-0.29759,0.65914,0.36175,-0.06563,-0.24975,-0.60243,0.17427,-0.05486,0.12443,0.09646,0.61671,0.77011,0.26739,0.17167,0.04728],[0.2215,0.43452,0.05194,0.69839,-0.3749,-0.40572,-0.13931,-0.57874,0.79653,0.56769,0.05751,-0.65979,0.16768,0.72136,-0.30843,0.1594,-0.08233,0.46771],[-0.35451,0.23163,-0.01542,-0.5303,-0.47482,-0.83781,-0.00187,0.43482,0.01193,-0.58023,-0.14419,-0.69103,-0.17099,-0.19008,-0.44431,-0.01049,0.642,0.3164]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>epoca<\/th>\n      <th>GROUP<\/th>\n      <th>VAR<\/th>\n      <th>CP1<\/th>\n      <th>CP2<\/th>\n      <th>CP3<\/th>\n      <th>CP4<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[4,5,6,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section></section><section id="diagrama" class="level1" data-number="4"><h1 data-number="4">
+<span class="header-section-number">4</span> Diagrama</h1>
+<section id="primeiro-par" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="primeiro-par">
+<span class="header-section-number">4.1</span> Primeiro par</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+subgraph Z["Caracteres de planta"]
+direction LR
+A[AP] --&gt; |-0.274|B[planta]
+C[AC] --&gt; |0.222|B
+D[NC] --&gt; |-0.994|B
+E[NR] --&gt; |-0.481|B
+end
+
+subgraph ZA["Componentes do rendimento"]
+direction RL
+F[NGC] --&gt; |-0.249|G[rendimento]
+H[AC] --&gt;  |-0.445|G
+I[RGP] --&gt;  |-0.481|G
+J[MMG] --&gt;  |-0.338|G
+K[ICP] --&gt;  |0.0175|G
+end
+
+Z &lt;--&gt; |0.968| ZA
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</section><section id="segundo-par" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="segundo-par">
+<span class="header-section-number">4.2</span> segundo par</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+
+subgraph Z["Caracteres de planta"]
+direction LR
+A([AP]) --&gt; |0.627|B{planta}
+C([AC]) --&gt; |-0.174|B
+D([NC]) --&gt; |0.034|B
+E([NR]) --&gt; |0.301|B
+end
+
+subgraph ZA["Componentes do rendimento"]
+direction RL
+F([NGC]) --&gt; | 0.601|G{rendimento}
+H([AC]) --&gt;  |0.863|G
+I([RGP]) --&gt;  |0.189|G
+J([MMG]) --&gt;  |0.491|G
+K([ICP]) --&gt;  |0.243|G
+end
+
+Z &lt;--&gt; |0.669| ZA
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</section></section><section id="section-info" class="level1" data-number="5"><h1 data-number="5">
+<span class="header-section-number">5</span> Section info</h1>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">## R version 4.2.2 (2022-10-31 ucrt)</span></span>
+<span><span class="co">## Platform: x86_64-w64-mingw32/x64 (64-bit)</span></span>
+<span><span class="co">## Running under: Windows 10 x64 (build 22621)</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## Matrix products: default</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## locale:</span></span>
+<span><span class="co">## [1] LC_COLLATE=Portuguese_Brazil.utf8  LC_CTYPE=Portuguese_Brazil.utf8   </span></span>
+<span><span class="co">## [3] LC_MONETARY=Portuguese_Brazil.utf8 LC_NUMERIC=C                      </span></span>
+<span><span class="co">## [5] LC_TIME=Portuguese_Brazil.utf8    </span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## attached base packages:</span></span>
+<span><span class="co">## [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## other attached packages:</span></span>
+<span><span class="co">##  [1] DT_0.27         metan_1.18.0    lubridate_1.9.2 forcats_1.0.0  </span></span>
+<span><span class="co">##  [5] stringr_1.5.0   dplyr_1.1.1     purrr_1.0.1     readr_2.1.4    </span></span>
+<span><span class="co">##  [9] tidyr_1.3.0     tibble_3.2.1    ggplot2_3.4.1   tidyverse_2.0.0</span></span>
+<span><span class="co">## [13] rio_0.5.29     </span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## loaded via a namespace (and not attached):</span></span>
+<span><span class="co">##  [1] sass_0.4.5          jsonlite_1.8.4      splines_4.2.2      </span></span>
+<span><span class="co">##  [4] bslib_0.4.2.9000    cellranger_1.1.0    yaml_2.3.7         </span></span>
+<span><span class="co">##  [7] ggrepel_0.9.3       numDeriv_2016.8-1.1 pillar_1.9.0       </span></span>
+<span><span class="co">## [10] lattice_0.20-45     glue_1.6.2          digest_0.6.31      </span></span>
+<span><span class="co">## [13] RColorBrewer_1.1-3  polyclip_1.10-4     minqa_1.2.5        </span></span>
+<span><span class="co">## [16] colorspace_2.1-0    htmltools_0.5.5     Matrix_1.5-3       </span></span>
+<span><span class="co">## [19] plyr_1.8.8          pkgconfig_2.0.3     haven_2.5.2        </span></span>
+<span><span class="co">## [22] patchwork_1.1.2     scales_1.2.1        tweenr_2.0.2       </span></span>
+<span><span class="co">## [25] openxlsx_4.2.5.2    tzdb_0.3.0          lme4_1.1-32        </span></span>
+<span><span class="co">## [28] ggforce_0.4.1       timechange_0.2.0    generics_0.1.3     </span></span>
+<span><span class="co">## [31] farver_2.1.1        ellipsis_0.3.2      cachem_1.0.7       </span></span>
+<span><span class="co">## [34] withr_2.5.0         cli_3.6.1           magrittr_2.0.3     </span></span>
+<span><span class="co">## [37] readxl_1.4.2        evaluate_0.20       GGally_2.1.2       </span></span>
+<span><span class="co">## [40] fansi_1.0.4         nlme_3.1-160        MASS_7.3-58.3      </span></span>
+<span><span class="co">## [43] foreign_0.8-83      tools_4.2.2         data.table_1.14.8  </span></span>
+<span><span class="co">## [46] hms_1.1.3           lifecycle_1.0.3     munsell_0.5.0      </span></span>
+<span><span class="co">## [49] zip_2.2.2           jquerylib_0.1.4     compiler_4.2.2     </span></span>
+<span><span class="co">## [52] rlang_1.1.0         grid_4.2.2          nloptr_2.0.3       </span></span>
+<span><span class="co">## [55] rstudioapi_0.14     htmlwidgets_1.6.2   crosstalk_1.2.0    </span></span>
+<span><span class="co">## [58] rmarkdown_2.20      boot_1.3-28         gtable_0.3.3       </span></span>
+<span><span class="co">## [61] lmerTest_3.1-3      reshape_0.8.9       curl_5.0.0         </span></span>
+<span><span class="co">## [64] R6_2.5.1            knitr_1.42          fastmap_1.1.1      </span></span>
+<span><span class="co">## [67] utf8_1.2.3          mathjaxr_1.6-0      stringi_1.7.12     </span></span>
+<span><span class="co">## [70] Rcpp_1.0.10         vctrs_0.6.1         tidyselect_1.2.0   </span></span>
+<span><span class="co">## [73] xfun_0.37</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+<!-- -->
+
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./05_trilha.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">05: Análise de trilha para caracteres agronômicos e componentes de rendimento em genótipos de linhaça (Linum usitatissimum, L.)</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./07_diversidade.html" class="pagination-link">
+        <span class="nav-page-text">07: Diversidade genética entre acessos de linho (Linum usitatissimum, L.) baseada em caracteres morfoagronômicos</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "06: Correlação canônica entre caracteres morfológicos e componentes de rendimento em genótipos de linho (Linum usitatissimum, L.) "</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="in">```{r global_options, include = FALSE}</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">cache =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">comment =</span> <span class="st">"##"</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">collapse =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">warning =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>                      <span class="at">message =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="fu"># Libraries</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="in">```{r warning=FALSE, message=FALSE}</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DT)</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="co"># set_wd_here()</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="fu"># Dados</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> </span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">import</span>(<span class="st">"data/data_mgidi.csv"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">remove_rows_na</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(epoca  <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"E1"</span>, <span class="st">"E4"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">replace_string</span>(epoca, <span class="at">pattern =</span> <span class="st">"E4"</span>, <span class="at">replacement =</span> <span class="st">"E2"</span>)</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a><span class="fu"># Canônica</span></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## Modelo</span></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>can <span class="ot">&lt;-</span> </span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">can_corr</span>(<span class="at">FG =</span> <span class="fu">c</span>(ap, ac, nc, nr),</span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>           <span class="at">SG =</span> <span class="fu">c</span>(ngcap, areac, rgpla, mmg, icc),</span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>           <span class="at">by =</span> epoca)</span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a><span class="fu">## Correlação canônica</span></span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>canc <span class="ot">&lt;-</span> <span class="fu">gmd</span>(can, <span class="st">"canonical"</span>) <span class="sc">|&gt;</span> <span class="fu">round_cols</span>(<span class="at">digits =</span> <span class="dv">5</span>)</span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a><span class="co"># export(canc, "data/results_canonica.xlsx", which = "canonica")</span></span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(canc)</span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cargas canônicas</span></span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a>loads <span class="ot">&lt;-</span> <span class="fu">gmd</span>(can, <span class="st">"loads"</span>) <span class="sc">|&gt;</span> <span class="fu">round_cols</span>(<span class="at">digits =</span> <span class="dv">5</span>)</span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a><span class="co"># export(loads, "data/results_canonica.xlsx", which = "loads")</span></span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(loads)</span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a><span class="fu"># Diagrama</span></span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a><span class="fu">## Primeiro par</span></span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a>subgraph Z[<span class="ot">"</span><span class="st">Caracteres de planta</span><span class="ot">"</span>]</span>
+<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a>direction LR</span>
+<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a>A[AP] --&gt; |-<span class="fl">0.274</span>|B[planta]</span>
+<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a>C[AC] --&gt; |<span class="fl">0.222</span>|B</span>
+<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a>D[NC] --&gt; |-<span class="fl">0.994</span>|B</span>
+<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a>E[NR] --&gt; |-<span class="fl">0.481</span>|B</span>
+<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a>end</span>
+<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a>subgraph ZA[<span class="ot">"</span><span class="st">Componentes do rendimento</span><span class="ot">"</span>]</span>
+<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a>direction RL</span>
+<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a>F[NGC] --&gt; |-<span class="fl">0.249</span>|G[rendimento]</span>
+<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a>H[AC] --&gt;  |-<span class="fl">0.445</span>|G</span>
+<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a>I[RGP] --&gt;  |-<span class="fl">0.481</span>|G</span>
+<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a>J[MMG] --&gt;  |-<span class="fl">0.338</span>|G</span>
+<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a>K[ICP] --&gt;  |<span class="fl">0.0175</span>|G</span>
+<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a>end</span>
+<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a>Z &lt;--&gt; |<span class="fl">0.968</span>| ZA</span>
+<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-105"><a href="#cb7-105" aria-hidden="true" tabindex="-1"></a><span class="fu">## segundo par</span></span>
+<span id="cb7-108"><a href="#cb7-108" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb7-109"><a href="#cb7-109" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<span id="cb7-110"><a href="#cb7-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-111"><a href="#cb7-111" aria-hidden="true" tabindex="-1"></a>subgraph Z[<span class="ot">"</span><span class="st">Caracteres de planta</span><span class="ot">"</span>]</span>
+<span id="cb7-112"><a href="#cb7-112" aria-hidden="true" tabindex="-1"></a>direction LR</span>
+<span id="cb7-113"><a href="#cb7-113" aria-hidden="true" tabindex="-1"></a>A([AP]) --&gt; |<span class="fl">0.627</span>|B{planta}</span>
+<span id="cb7-114"><a href="#cb7-114" aria-hidden="true" tabindex="-1"></a>C([AC]) --&gt; |-<span class="fl">0.174</span>|B</span>
+<span id="cb7-115"><a href="#cb7-115" aria-hidden="true" tabindex="-1"></a>D([NC]) --&gt; |<span class="fl">0.034</span>|B</span>
+<span id="cb7-116"><a href="#cb7-116" aria-hidden="true" tabindex="-1"></a>E([NR]) --&gt; |<span class="fl">0.301</span>|B</span>
+<span id="cb7-117"><a href="#cb7-117" aria-hidden="true" tabindex="-1"></a>end</span>
+<span id="cb7-118"><a href="#cb7-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-119"><a href="#cb7-119" aria-hidden="true" tabindex="-1"></a>subgraph ZA[<span class="ot">"</span><span class="st">Componentes do rendimento</span><span class="ot">"</span>]</span>
+<span id="cb7-120"><a href="#cb7-120" aria-hidden="true" tabindex="-1"></a>direction RL</span>
+<span id="cb7-121"><a href="#cb7-121" aria-hidden="true" tabindex="-1"></a>F([NGC]) --&gt; | <span class="fl">0.601</span>|G{rendimento}</span>
+<span id="cb7-122"><a href="#cb7-122" aria-hidden="true" tabindex="-1"></a>H([AC]) --&gt;  |<span class="fl">0.863</span>|G</span>
+<span id="cb7-123"><a href="#cb7-123" aria-hidden="true" tabindex="-1"></a>I([RGP]) --&gt;  |<span class="fl">0.189</span>|G</span>
+<span id="cb7-124"><a href="#cb7-124" aria-hidden="true" tabindex="-1"></a>J([MMG]) --&gt;  |<span class="fl">0.491</span>|G</span>
+<span id="cb7-125"><a href="#cb7-125" aria-hidden="true" tabindex="-1"></a>K([ICP]) --&gt;  |<span class="fl">0.243</span>|G</span>
+<span id="cb7-126"><a href="#cb7-126" aria-hidden="true" tabindex="-1"></a>end</span>
+<span id="cb7-127"><a href="#cb7-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-128"><a href="#cb7-128" aria-hidden="true" tabindex="-1"></a>Z &lt;--&gt; |<span class="fl">0.669</span>| ZA</span>
+<span id="cb7-129"><a href="#cb7-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-130"><a href="#cb7-130" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-131"><a href="#cb7-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-132"><a href="#cb7-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-133"><a href="#cb7-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-134"><a href="#cb7-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-135"><a href="#cb7-135" aria-hidden="true" tabindex="-1"></a><span class="fu"># Section info</span></span>
+<span id="cb7-138"><a href="#cb7-138" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-139"><a href="#cb7-139" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span>
+<span id="cb7-140"><a href="#cb7-140" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">Núcleo de Estudos e Pesquisas em Experimentação e Melhoramento Vegetal - NEPEM</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">FIT/CCA/UFSC</div>
+  </div>
+</footer>
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

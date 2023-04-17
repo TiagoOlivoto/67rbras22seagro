@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.298">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>67 RBras e 22 SEAGRO - 08: Índices FAI-BLUP e MGIDI na seleção de genótipos de linho</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./09_dgci.html" rel="next">
+<link href="./07_diversidade.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script><style>html{ scroll-behavior: smooth; }</style>
+</head>
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">67 RBras e 22 SEAGRO</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+<li class="nav-item">
+    <a class="nav-link" href="./00_about.html" rel="" target=""><i class="bi bi-fa fa-home" role="img">
+</i> 
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+<ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item compact">
+    <a class="nav-link" href="https://www.researchgate.net/profile/Tiago_Olivoto" rel="" target=""><i class="bi bi-fab fa-researchgate fa" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/TiagoOlivoto/pliman" rel="" target=""><i class="bi bi-bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/tolivoto" rel="" target=""><i class="bi bi-bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.mendeley.com/profiles/tiago-olivoto/" rel="" target=""><i class="bi bi-fab fa-mendeley fa" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+<div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08_mgidi_fai.html">08: Índices FAI-BLUP e MGIDI na seleção de genótipos de linho</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto"><div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_medias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01: Desempenho agronômico do linho em diferentes épocas de semeadura</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_selecao_direta_indireta.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02: Diferencial de seleção direto e indireto visando seleção de genótipos de linho</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_indice_selecao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03: Seleção multivariada de genótipos de linho usando o índice MGIDI</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_modelo_crescimento.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04: Modelagem da área foliar de cultivares de linho em diferentes épocas de semeadura utilizando o modelo Logístico</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_trilha.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05: Análise de trilha para caracteres agronômicos e componentes de rendimento em genótipos de linhaça (Linum usitatissimum, L.)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_canonica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">06: Correlação canônica entre caracteres morfológicos e componentes de rendimento em genótipos de linho (Linum usitatissimum, L.)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07_diversidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">07: Diversidade genética entre acessos de linho (Linum usitatissimum, L.) baseada em caracteres morfoagronômicos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08_mgidi_fai.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">08: Índices FAI-BLUP e MGIDI na seleção de genótipos de linho</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09_dgci.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09: Relação entre SPAD e o índice DGCI em folhas de linho obtido em diferentes condições de iluminação</span></a>
+  </div>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">In this page</h2>
+   
+  <ul>
+<li><a href="#libraries" id="toc-libraries" class="nav-link active" data-scroll-target="#libraries"><span class="header-section-number">1</span> Libraries</a></li>
+  <li><a href="#dados" id="toc-dados" class="nav-link" data-scroll-target="#dados"><span class="header-section-number">2</span> Dados</a></li>
+  <li>
+<a href="#%C3%ADndice-mgidi" id="toc-índice-mgidi" class="nav-link" data-scroll-target="#%C3%ADndice-mgidi"><span class="header-section-number">3</span> Índice MGIDI</a>
+  <ul class="collapse">
+<li><a href="#sem-pesos" id="toc-sem-pesos" class="nav-link" data-scroll-target="#sem-pesos"><span class="header-section-number">3.1</span> Sem pesos</a></li>
+  <li><a href="#com-pesos" id="toc-com-pesos" class="nav-link" data-scroll-target="#com-pesos"><span class="header-section-number">3.2</span> Com pesos</a></li>
+  </ul>
+</li>
+  <li><a href="#fai-blup" id="toc-fai-blup" class="nav-link" data-scroll-target="#fai-blup"><span class="header-section-number">4</span> FAI-BLUP</a></li>
+  <li>
+<a href="#ganhos" id="toc-ganhos" class="nav-link" data-scroll-target="#ganhos"><span class="header-section-number">5</span> Ganhos</a>
+  <ul class="collapse">
+<li><a href="#individuais" id="toc-individuais" class="nav-link" data-scroll-target="#individuais"><span class="header-section-number">5.1</span> Individuais</a></li>
+  <li><a href="#totais" id="toc-totais" class="nav-link" data-scroll-target="#totais"><span class="header-section-number">5.2</span> Totais</a></li>
+  </ul>
+</li>
+  <li><a href="#venn-plot" id="toc-venn-plot" class="nav-link" data-scroll-target="#venn-plot"><span class="header-section-number">6</span> Venn plot</a></li>
+  <li><a href="#section-info" id="toc-section-info" class="nav-link" data-scroll-target="#section-info"><span class="header-section-number">7</span> Section info</a></li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">08: Índices FAI-BLUP e MGIDI na seleção de genótipos de linho</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header><p>% Analysis</p>
+<section id="libraries" class="level1" data-number="1"><h1 data-number="1">
+<span class="header-section-number">1</span> Libraries</h1>
+<p>To reproduce the examples of this material, the R packages the following packages are needed.</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leeper/rio">rio</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TiagoOlivoto/metan">metan</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="dados" class="level1" data-number="2"><h1 data-number="2">
+<span class="header-section-number">2</span> Dados</h1>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="st">"data/data_mgidi.csv"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_na_zero.html">remove_rows_na</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">epoca</span> <span class="op">==</span> <span class="st">"E1"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>cp <span class="op">=</span> <span class="va">ap</span> <span class="op">-</span> <span class="va">ac</span>, .before <span class="op">=</span> <span class="va">ap</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">epoca</span>, <span class="va">ap</span>, <span class="va">ac</span>, <span class="va">icc</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="índice-mgidi" class="level1" data-number="3"><h1 data-number="3">
+<span class="header-section-number">3</span> Índice MGIDI</h1>
+<section id="sem-pesos" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="sem-pesos">
+<span class="header-section-number">3.1</span> Sem pesos</h2>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mod_mgidi</span> <span class="op">&lt;-</span></span>
+<span>  <span class="va">df</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/metan/man/mgidi.html">mgidi</a></span><span class="op">(</span>ideotype <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"l, h, h, h, h, h, h,  h, h"</span><span class="op">)</span>,</span>
+<span>        SI <span class="op">=</span> <span class="fl">25</span><span class="op">)</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## -------------------------------------------------------------------------------</span></span>
+<span><span class="co">## Principal Component Analysis</span></span>
+<span><span class="co">## -------------------------------------------------------------------------------</span></span>
+<span><span class="co">## # A tibble: 9 × 4</span></span>
+<span><span class="co">##   PC    Eigenvalues `Variance (%)` `Cum. variance (%)`</span></span>
+<span><span class="co">##   &lt;chr&gt;       &lt;dbl&gt;          &lt;dbl&gt;               &lt;dbl&gt;</span></span>
+<span><span class="co">## 1 PC1          4.43          49.2                 49.2</span></span>
+<span><span class="co">## 2 PC2          1.72          19.1                 68.3</span></span>
+<span><span class="co">## 3 PC3          1.03          11.4                 79.8</span></span>
+<span><span class="co">## 4 PC4          0.94          10.4                 90.2</span></span>
+<span><span class="co">## 5 PC5          0.62           6.86                97.1</span></span>
+<span><span class="co">## 6 PC6          0.23           2.56                99.6</span></span>
+<span><span class="co">## 7 PC7          0.02           0.24                99.9</span></span>
+<span><span class="co">## 8 PC8          0.01           0.11               100. </span></span>
+<span><span class="co">## 9 PC9          0              0.02               100  </span></span>
+<span><span class="co">## -------------------------------------------------------------------------------</span></span>
+<span><span class="co">## Factor Analysis - factorial loadings after rotation-</span></span>
+<span><span class="co">## -------------------------------------------------------------------------------</span></span>
+<span><span class="co">## # A tibble: 9 × 6</span></span>
+<span><span class="co">##   VAR     FA1   FA2   FA3 Communality Uniquenesses</span></span>
+<span><span class="co">##   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;</span></span>
+<span><span class="co">## 1 cp     0.13 -0.13  0.78        0.65         0.35</span></span>
+<span><span class="co">## 2 nc    -0.9   0.13 -0.32        0.93         0.07</span></span>
+<span><span class="co">## 3 ng    -0.93 -0.12 -0.27        0.95         0.05</span></span>
+<span><span class="co">## 4 areac -0.55 -0.18  0.31        0.44         0.56</span></span>
+<span><span class="co">## 5 nr    -0.32 -0.18 -0.67        0.58         0.42</span></span>
+<span><span class="co">## 6 mc    -0.95  0.11 -0.25        0.97         0.03</span></span>
+<span><span class="co">## 7 rgpla -0.95  0.12 -0.23        0.97         0.03</span></span>
+<span><span class="co">## 8 ngcap -0.18 -0.92  0.08        0.88         0.12</span></span>
+<span><span class="co">## 9 mmg   -0.24  0.86  0.06        0.81         0.19</span></span>
+<span><span class="co">## -------------------------------------------------------------------------------</span></span>
+<span><span class="co">## Comunalit Mean: 0.7976177 </span></span>
+<span><span class="co">## -------------------------------------------------------------------------------</span></span>
+<span><span class="co">## Selection differential </span></span>
+<span><span class="co">## -------------------------------------------------------------------------------</span></span>
+<span><span class="co">## # A tibble: 9 × 8</span></span>
+<span><span class="co">##   VAR   Factor      Xo      Xs       SD SDperc sense     goal</span></span>
+<span><span class="co">##   &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;</span></span>
+<span><span class="co">## 1 nc    FA1     33.5    57.6    24.0     71.8  increase   100</span></span>
+<span><span class="co">## 2 ng    FA1    216.    394.    178.      82.3  increase   100</span></span>
+<span><span class="co">## 3 areac FA1      0.394   0.423   0.0290   7.35 increase   100</span></span>
+<span><span class="co">## 4 mc    FA1      1.64    3.07    1.43    87.7  increase   100</span></span>
+<span><span class="co">## 5 rgpla FA1      1.22    2.34    1.12    92.3  increase   100</span></span>
+<span><span class="co">## 6 ngcap FA2      6.47    6.90    0.431    6.67 increase   100</span></span>
+<span><span class="co">## 7 mmg   FA2      5.60    6.11    0.511    9.14 increase   100</span></span>
+<span><span class="co">## 8 cp    FA3     27.6    26.8    -0.775   -2.81 decrease   100</span></span>
+<span><span class="co">## 9 nr    FA3      1.29    1.62    0.337   26.2  increase   100</span></span>
+<span><span class="co">## ------------------------------------------------------------------------------</span></span>
+<span><span class="co">## Selected genotypes</span></span>
+<span><span class="co">## -------------------------------------------------------------------------------</span></span>
+<span><span class="co">## G48 G228 G4 G13 G222 G9 G31 G10 G23 G14 G36 G17 G21 G3 G29 G215</span></span>
+<span><span class="co">## -------------------------------------------------------------------------------</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="com-pesos" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="com-pesos">
+<span class="header-section-number">3.2</span> Com pesos</h2>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mod_mgidi_peso</span> <span class="op">&lt;-</span></span>
+<span>  <span class="va">df</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/metan/man/mgidi.html">mgidi</a></span><span class="op">(</span>ideotype <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"l, h, h, h, h, h, h,  h, h"</span><span class="op">)</span>,</span>
+<span>        weights <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">5</span>, <span class="fl">5</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">5</span>, <span class="fl">5</span>, <span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span>,</span>
+<span>        SI <span class="op">=</span> <span class="fl">25</span><span class="op">)</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## -------------------------------------------------------------------------------</span></span>
+<span><span class="co">## Principal Component Analysis</span></span>
+<span><span class="co">## -------------------------------------------------------------------------------</span></span>
+<span><span class="co">## # A tibble: 9 × 4</span></span>
+<span><span class="co">##   PC    Eigenvalues `Variance (%)` `Cum. variance (%)`</span></span>
+<span><span class="co">##   &lt;chr&gt;       &lt;dbl&gt;          &lt;dbl&gt;               &lt;dbl&gt;</span></span>
+<span><span class="co">## 1 PC1          4.43          49.2                 49.2</span></span>
+<span><span class="co">## 2 PC2          1.72          19.1                 68.3</span></span>
+<span><span class="co">## 3 PC3          1.03          11.4                 79.8</span></span>
+<span><span class="co">## 4 PC4          0.94          10.4                 90.2</span></span>
+<span><span class="co">## 5 PC5          0.62           6.86                97.1</span></span>
+<span><span class="co">## 6 PC6          0.23           2.56                99.6</span></span>
+<span><span class="co">## 7 PC7          0.02           0.24                99.9</span></span>
+<span><span class="co">## 8 PC8          0.01           0.11               100. </span></span>
+<span><span class="co">## 9 PC9          0              0.02               100  </span></span>
+<span><span class="co">## -------------------------------------------------------------------------------</span></span>
+<span><span class="co">## Factor Analysis - factorial loadings after rotation-</span></span>
+<span><span class="co">## -------------------------------------------------------------------------------</span></span>
+<span><span class="co">## # A tibble: 9 × 6</span></span>
+<span><span class="co">##   VAR     FA1   FA2   FA3 Communality Uniquenesses</span></span>
+<span><span class="co">##   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;</span></span>
+<span><span class="co">## 1 cp     0.13 -0.13  0.78        0.65         0.35</span></span>
+<span><span class="co">## 2 nc    -0.9   0.13 -0.32        0.93         0.07</span></span>
+<span><span class="co">## 3 ng    -0.93 -0.12 -0.27        0.95         0.05</span></span>
+<span><span class="co">## 4 areac -0.55 -0.18  0.31        0.44         0.56</span></span>
+<span><span class="co">## 5 nr    -0.32 -0.18 -0.67        0.58         0.42</span></span>
+<span><span class="co">## 6 mc    -0.95  0.11 -0.25        0.97         0.03</span></span>
+<span><span class="co">## 7 rgpla -0.95  0.12 -0.23        0.97         0.03</span></span>
+<span><span class="co">## 8 ngcap -0.18 -0.92  0.08        0.88         0.12</span></span>
+<span><span class="co">## 9 mmg   -0.24  0.86  0.06        0.81         0.19</span></span>
+<span><span class="co">## -------------------------------------------------------------------------------</span></span>
+<span><span class="co">## Comunalit Mean: 0.7976177 </span></span>
+<span><span class="co">## -------------------------------------------------------------------------------</span></span>
+<span><span class="co">## Selection differential </span></span>
+<span><span class="co">## -------------------------------------------------------------------------------</span></span>
+<span><span class="co">## # A tibble: 9 × 8</span></span>
+<span><span class="co">##   VAR   Factor      Xo      Xs       SD SDperc sense     goal</span></span>
+<span><span class="co">##   &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;</span></span>
+<span><span class="co">## 1 nc    FA1     33.5    59.8    26.2    78.3   increase   100</span></span>
+<span><span class="co">## 2 ng    FA1    216.    390.    174.     80.3   increase   100</span></span>
+<span><span class="co">## 3 areac FA1      0.394   0.423   0.0286  7.24  increase   100</span></span>
+<span><span class="co">## 4 mc    FA1      1.64    3.12    1.48   90.8   increase   100</span></span>
+<span><span class="co">## 5 rgpla FA1      1.22    2.36    1.15   94.1   increase   100</span></span>
+<span><span class="co">## 6 ngcap FA2      6.47    6.51    0.0449  0.694 increase   100</span></span>
+<span><span class="co">## 7 mmg   FA2      5.60    6.50    0.906  16.2   increase   100</span></span>
+<span><span class="co">## 8 cp    FA3     27.6    26.5    -1.09   -3.95  decrease   100</span></span>
+<span><span class="co">## 9 nr    FA3      1.29    1.69    0.400  31.0   increase   100</span></span>
+<span><span class="co">## ------------------------------------------------------------------------------</span></span>
+<span><span class="co">## Selected genotypes</span></span>
+<span><span class="co">## -------------------------------------------------------------------------------</span></span>
+<span><span class="co">## G228 G4 G48 G13 G222 G31 G9 G36 G28 G29 G10 G21 G23 G41 G14 G17</span></span>
+<span><span class="co">## -------------------------------------------------------------------------------</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="fai-blup" class="level1" data-number="4"><h1 data-number="4">
+<span class="header-section-number">4</span> FAI-BLUP</h1>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mod_fai</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="va">df</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_rows_cols.html">column_to_rownames</a></span><span class="op">(</span><span class="st">"gen"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/metan/man/fai_blup.html">fai_blup</a></span><span class="op">(</span>DI <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"min, max, max, max, max, max, max, max, max"</span><span class="op">)</span>,</span>
+<span>           UI <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"max, min, min, min, min, min, min, min, min"</span><span class="op">)</span>,</span>
+<span>           SI <span class="op">=</span> <span class="fl">25</span><span class="op">)</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## -----------------------------------------------------------------------------------</span></span>
+<span><span class="co">## Principal Component Analysis</span></span>
+<span><span class="co">## -----------------------------------------------------------------------------------</span></span>
+<span><span class="co">##     eigen.values cumulative.var</span></span>
+<span><span class="co">## PC1         4.43          49.23</span></span>
+<span><span class="co">## PC2         1.72          68.31</span></span>
+<span><span class="co">## PC3         1.03          79.76</span></span>
+<span><span class="co">## PC4         0.94          90.20</span></span>
+<span><span class="co">## PC5         0.62          97.06</span></span>
+<span><span class="co">## PC6         0.23          99.63</span></span>
+<span><span class="co">## PC7         0.02          99.87</span></span>
+<span><span class="co">## PC8         0.01          99.98</span></span>
+<span><span class="co">## PC9         0.00         100.00</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## -----------------------------------------------------------------------------------</span></span>
+<span><span class="co">## Factor Analysis</span></span>
+<span><span class="co">## -----------------------------------------------------------------------------------</span></span>
+<span><span class="co">##         FA1   FA2   FA3 comunalits</span></span>
+<span><span class="co">## cp    -0.13  0.13  0.78       0.65</span></span>
+<span><span class="co">## nc    -0.90  0.13  0.32       0.93</span></span>
+<span><span class="co">## ng    -0.93 -0.12  0.27       0.95</span></span>
+<span><span class="co">## areac -0.55 -0.18 -0.31       0.44</span></span>
+<span><span class="co">## nr    -0.32 -0.18  0.67       0.58</span></span>
+<span><span class="co">## mc    -0.95  0.11  0.25       0.97</span></span>
+<span><span class="co">## rgpla -0.95  0.12  0.23       0.97</span></span>
+<span><span class="co">## ngcap -0.18 -0.92 -0.08       0.88</span></span>
+<span><span class="co">## mmg   -0.24  0.86 -0.06       0.81</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## -----------------------------------------------------------------------------------</span></span>
+<span><span class="co">## Comunalit Mean: 0.7976177 </span></span>
+<span><span class="co">## Selection differential</span></span>
+<span><span class="co">## -----------------------------------------------------------------------------------</span></span>
+<span><span class="co">##     VAR Factor          Xo          Xs          SD     SDperc    sense goal</span></span>
+<span><span class="co">## 1    nc      1  33.5151515  42.3125000  8.79734848  26.248870 increase  100</span></span>
+<span><span class="co">## 2    ng      1 216.0757576 286.3750000 70.29924242  32.534535 increase  100</span></span>
+<span><span class="co">## 3 areac      1   0.3942657   0.4272672  0.03300152   8.370376 increase  100</span></span>
+<span><span class="co">## 4    mc      1   1.6351515   2.2025000  0.56734848  34.696998 increase  100</span></span>
+<span><span class="co">## 5 rgpla      1   1.2174242   1.6550000  0.43757576  35.942750 increase  100</span></span>
+<span><span class="co">## 6 ngcap      2   6.4669836   6.8869142  0.41993055   6.493453 increase  100</span></span>
+<span><span class="co">## 7   mmg      2   5.5972761   6.0208227  0.42354665   7.567014 increase  100</span></span>
+<span><span class="co">## 8    cp      3  27.5560606  22.8562500 -4.69981061 -17.055452 decrease  100</span></span>
+<span><span class="co">## 9    nr      3   1.2878788   1.0000000 -0.28787879 -22.352941 increase    0</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## -----------------------------------------------------------------------------------</span></span>
+<span><span class="co">## Selected genotypes</span></span>
+<span><span class="co">## G48 G31 G9 G28 G8 G35 G5 G17 G15 G21 G12 G222 G30 G228 G23 G13</span></span>
+<span><span class="co">## -----------------------------------------------------------------------------------</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="ganhos" class="level1" data-number="5"><h1 data-number="5">
+<span class="header-section-number">5</span> Ganhos</h1>
+<section id="individuais" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="individuais">
+<span class="header-section-number">5.1</span> Individuais</h2>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">gmgidisp</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/metan/man/get_model_data.html">gmd</a></span><span class="op">(</span><span class="va">mod_mgidi</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">VAR</span>, <span class="va">sense</span>, mgidi_sp <span class="op">=</span> <span class="va">SDperc</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">gmgidicp</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/metan/man/get_model_data.html">gmd</a></span><span class="op">(</span><span class="va">mod_mgidi_peso</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">VAR</span>,  mgidi_cp <span class="op">=</span> <span class="va">SDperc</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">gfai</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/metan/man/get_model_data.html">gmd</a></span><span class="op">(</span><span class="va">mod_fai</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">VAR</span>, fai <span class="op">=</span> <span class="va">SDperc</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">bind</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="fu"><a href="https://purrr.tidyverse.org/reference/reduce.html">reduce</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">gmgidisp</span>, <span class="va">gmgidicp</span>, <span class="va">gfai</span><span class="op">)</span>, <span class="va">left_join</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">VAR</span>, <span class="va">sense</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="va">facet_labels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"FAI-BLUP"</span>, <span class="st">"MGIDI com peso"</span>, <span class="st">"MGIDI sem peso"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">facet_labels</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"fai"</span>, <span class="st">"mgidi_cp"</span>, <span class="st">"mgidi_sp"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">bind</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">value</span>, <span class="va">VAR</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span>position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">position_dodge</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>           <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">sense</span><span class="op">)</span>,</span>
+<span>           width <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>           linewidth <span class="op">=</span> <span class="fl">0.1</span>,</span>
+<span>           color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">value</span>, <span class="fl">2</span><span class="op">)</span>,</span>
+<span>                hjust <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">value</span> <span class="op">&gt;</span> <span class="fl">0</span>, <span class="op">-</span><span class="fl">0.1</span>, <span class="fl">1.1</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>            size <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">name</span>,</span>
+<span>              labeller <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labeller.html">labeller</a></span><span class="op">(</span>name <span class="op">=</span> <span class="va">facet_labels</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">18</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>axis.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>        axis.ticks.length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="st">"cm"</span><span class="op">)</span>,</span>
+<span>        panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        legend.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        legend.position <span class="op">=</span> <span class="st">"bottom"</span>,</span>
+<span>        panel.spacing.x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">0</span>, <span class="st">"cm"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_vline</a></span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fl">0</span>, linetype <span class="op">=</span> <span class="fl">1</span>, linewidth <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html">expansion</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.4</span>, <span class="fl">0.4</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>y <span class="op">=</span> <span class="st">"Caracteres avaliados"</span>,</span>
+<span>       x <span class="op">=</span> <span class="st">"Diferencial de seleção (%)"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_vline</a></span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="08_mgidi_fai_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"figs/gains_mgidi_fai.jpg"</span>,</span>
+<span>       width <span class="op">=</span> <span class="fl">8</span>,</span>
+<span>       height <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="totais" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="totais">
+<span class="header-section-number">5.2</span> Totais</h2>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tot_fai</span> <span class="op">&lt;-</span> <span class="va">mod_fai</span><span class="op">[[</span><span class="st">"total_gain"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"ID1"</span><span class="op">]</span><span class="op">]</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>indice <span class="op">=</span> <span class="st">"FAI-BLUP"</span><span class="op">)</span></span>
+<span><span class="va">tot_mgidi_cp</span> <span class="op">&lt;-</span> <span class="va">mod_mgidi_peso</span><span class="op">$</span><span class="va">stat_gain</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>indice <span class="op">=</span> <span class="st">"MGIDI com peso"</span><span class="op">)</span></span>
+<span><span class="va">tot_mgidi_sp</span> <span class="op">&lt;-</span> <span class="va">mod_mgidi</span><span class="op">$</span><span class="va">stat_gain</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>indice <span class="op">=</span> <span class="st">"MGIDI sem peso"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">totais</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows</a></span><span class="op">(</span><span class="va">tot_fai</span>, <span class="va">tot_mgidi_cp</span>, <span class="va">tot_mgidi_sp</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">sense</span>, <span class="va">max</span>, <span class="va">sum</span>, <span class="va">indice</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="va">max</span><span class="op">:</span><span class="va">sum</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">facet_labels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Diferenciais máximos"</span>, <span class="st">"Soma dos diferenciais"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">facet_labels</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"max"</span>, <span class="st">"sum"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">totais</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">indice</span>, <span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">sense</span><span class="op">)</span>,</span>
+<span>           position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">position_dodge</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">name</span>,</span>
+<span>             <span class="co"># scales = "free",</span></span>
+<span>             labeller <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labeller.html">labeller</a></span><span class="op">(</span>name <span class="op">=</span> <span class="va">facet_labels</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">18</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>axis.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>        axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">30</span>, vjust <span class="op">=</span> <span class="fl">1</span>, hjust <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
+<span>        axis.ticks.length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="st">"cm"</span><span class="op">)</span>,</span>
+<span>        panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        legend.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        legend.position <span class="op">=</span> <span class="st">"bottom"</span>,</span>
+<span>        panel.spacing.x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">0</span>, <span class="st">"cm"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Índices"</span>,</span>
+<span>       y <span class="op">=</span> <span class="st">"Diferencial de seleção (%)"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">value</span>, <span class="fl">2</span><span class="op">)</span>,</span>
+<span>                vjust <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">value</span> <span class="op">&lt;</span> <span class="fl">0</span>, <span class="fl">1.2</span>, <span class="op">-</span><span class="fl">0.8</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>            position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">position_dodge2</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html">expansion</a></span><span class="op">(</span><span class="fl">0.1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_hline</a></span><span class="op">(</span>yintercept <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>             linewidth <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="08_mgidi_fai_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"figs/total_gains_mgidi_fai.jpg"</span>,</span>
+<span>       width <span class="op">=</span> <span class="fl">6</span>,</span>
+<span>       height <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></span>
+<span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="venn-plot" class="level1" data-number="6"><h1 data-number="6">
+<span class="header-section-number">6</span> Venn plot</h1>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sel_mgidi_sp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/metan/man/get_model_data.html">sel_gen</a></span><span class="op">(</span><span class="va">mod_mgidi</span><span class="op">)</span></span>
+<span><span class="va">sel_mgidi_cp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/metan/man/get_model_data.html">sel_gen</a></span><span class="op">(</span><span class="va">mod_mgidi_peso</span><span class="op">)</span></span>
+<span><span class="va">sel_fai</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/metan/man/get_model_data.html">sel_gen</a></span><span class="op">(</span><span class="va">mod_fai</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/venn_plot.html">venn_plot</a></span><span class="op">(</span><span class="va">sel_mgidi_cp</span>, <span class="va">sel_mgidi_sp</span>, <span class="va">sel_fai</span>,</span>
+<span>          split_labels <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>          split_each <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>          show_elements <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>          text_size <span class="op">=</span> <span class="fl">5</span>,</span>
+<span>          names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"MGIDI com pesos"</span>, <span class="st">"MGIDI sem pesos"</span>, <span class="st">"FAI-BLUP"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="08_mgidi_fai_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section><section id="section-info" class="level1" data-number="7"><h1 data-number="7">
+<span class="header-section-number">7</span> Section info</h1>
+<div class="cell">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">## R version 4.2.2 (2022-10-31 ucrt)</span></span>
+<span><span class="co">## Platform: x86_64-w64-mingw32/x64 (64-bit)</span></span>
+<span><span class="co">## Running under: Windows 10 x64 (build 22621)</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## Matrix products: default</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## locale:</span></span>
+<span><span class="co">## [1] LC_COLLATE=Portuguese_Brazil.utf8  LC_CTYPE=Portuguese_Brazil.utf8   </span></span>
+<span><span class="co">## [3] LC_MONETARY=Portuguese_Brazil.utf8 LC_NUMERIC=C                      </span></span>
+<span><span class="co">## [5] LC_TIME=Portuguese_Brazil.utf8    </span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## attached base packages:</span></span>
+<span><span class="co">## [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## other attached packages:</span></span>
+<span><span class="co">##  [1] metan_1.18.0    lubridate_1.9.2 forcats_1.0.0   stringr_1.5.0  </span></span>
+<span><span class="co">##  [5] dplyr_1.1.1     purrr_1.0.1     readr_2.1.4     tidyr_1.3.0    </span></span>
+<span><span class="co">##  [9] tibble_3.2.1    ggplot2_3.4.1   tidyverse_2.0.0 rio_0.5.29     </span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## loaded via a namespace (and not attached):</span></span>
+<span><span class="co">##  [1] jsonlite_1.8.4      splines_4.2.2       cellranger_1.1.0   </span></span>
+<span><span class="co">##  [4] yaml_2.3.7          ggrepel_0.9.3       numDeriv_2016.8-1.1</span></span>
+<span><span class="co">##  [7] pillar_1.9.0        lattice_0.20-45     glue_1.6.2         </span></span>
+<span><span class="co">## [10] digest_0.6.31       RColorBrewer_1.1-3  polyclip_1.10-4    </span></span>
+<span><span class="co">## [13] minqa_1.2.5         colorspace_2.1-0    htmltools_0.5.5    </span></span>
+<span><span class="co">## [16] Matrix_1.5-3        plyr_1.8.8          pkgconfig_2.0.3    </span></span>
+<span><span class="co">## [19] haven_2.5.2         patchwork_1.1.2     scales_1.2.1       </span></span>
+<span><span class="co">## [22] tweenr_2.0.2        openxlsx_4.2.5.2    tzdb_0.3.0         </span></span>
+<span><span class="co">## [25] lme4_1.1-32         ggforce_0.4.1       timechange_0.2.0   </span></span>
+<span><span class="co">## [28] generics_0.1.3      farver_2.1.1        withr_2.5.0        </span></span>
+<span><span class="co">## [31] cli_3.6.1           magrittr_2.0.3      readxl_1.4.2       </span></span>
+<span><span class="co">## [34] evaluate_0.20       GGally_2.1.2        fansi_1.0.4        </span></span>
+<span><span class="co">## [37] nlme_3.1-160        MASS_7.3-58.3       foreign_0.8-83     </span></span>
+<span><span class="co">## [40] textshaping_0.3.6   tools_4.2.2         data.table_1.14.8  </span></span>
+<span><span class="co">## [43] hms_1.1.3           lifecycle_1.0.3     munsell_0.5.0      </span></span>
+<span><span class="co">## [46] zip_2.2.2           compiler_4.2.2      systemfonts_1.0.4  </span></span>
+<span><span class="co">## [49] rlang_1.1.0         grid_4.2.2          nloptr_2.0.3       </span></span>
+<span><span class="co">## [52] rstudioapi_0.14     htmlwidgets_1.6.2   labeling_0.4.2     </span></span>
+<span><span class="co">## [55] rmarkdown_2.20      boot_1.3-28         gtable_0.3.3       </span></span>
+<span><span class="co">## [58] lmerTest_3.1-3      reshape_0.8.9       curl_5.0.0         </span></span>
+<span><span class="co">## [61] R6_2.5.1            knitr_1.42          fastmap_1.1.1      </span></span>
+<span><span class="co">## [64] utf8_1.2.3          mathjaxr_1.6-0      ragg_1.2.5         </span></span>
+<span><span class="co">## [67] stringi_1.7.12      Rcpp_1.0.10         vctrs_0.6.1        </span></span>
+<span><span class="co">## [70] tidyselect_1.2.0    xfun_0.37</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+<!-- -->
+
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./07_diversidade.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">07: Diversidade genética entre acessos de linho (Linum usitatissimum, L.) baseada em caracteres morfoagronômicos</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./09_dgci.html" class="pagination-link">
+        <span class="nav-page-text">09: Relação entre SPAD e o índice DGCI em folhas de linho obtido em diferentes condições de iluminação</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb12" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "08: Índices FAI-BLUP e MGIDI na seleção de genótipos de linho"</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>% Analysis </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="in">```{r global_options, include = FALSE}</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">cache =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">comment =</span> <span class="st">"##"</span>,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">collapse =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>                      <span class="at">warning =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>                      <span class="at">message =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="fu"># Libraries</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>To reproduce the examples of this material, the R packages the following packages are needed.</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="in">```{r warning=FALSE, message=FALSE}</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="fu"># Dados</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">import</span>(<span class="st">"data/data_mgidi.csv"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">remove_rows_na</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(epoca <span class="sc">==</span> <span class="st">"E1"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cp =</span> ap <span class="sc">-</span> ac, <span class="at">.before =</span> ap) <span class="sc">|&gt;</span> </span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(epoca, ap, ac, icc))</span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a><span class="fu"># Índice MGIDI</span></span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## Sem pesos</span></span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>mod_mgidi <span class="ot">&lt;-</span></span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mgidi</span>(<span class="at">ideotype =</span> <span class="fu">c</span>(<span class="st">"l, h, h, h, h, h, h,  h, h"</span>),</span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>        <span class="at">SI =</span> <span class="dv">25</span>)</span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a><span class="fu">## Com pesos</span></span>
+<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a>mod_mgidi_peso <span class="ot">&lt;-</span></span>
+<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mgidi</span>(<span class="at">ideotype =</span> <span class="fu">c</span>(<span class="st">"l, h, h, h, h, h, h,  h, h"</span>),</span>
+<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a>        <span class="at">weights =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">2</span>),</span>
+<span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a>        <span class="at">SI =</span> <span class="dv">25</span>)</span>
+<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a><span class="fu"># FAI-BLUP</span></span>
+<span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a>mod_fai <span class="ot">&lt;-</span> </span>
+<span id="cb12-71"><a href="#cb12-71" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb12-72"><a href="#cb12-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_to_rownames</span>(<span class="st">"gen"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb12-73"><a href="#cb12-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fai_blup</span>(<span class="at">DI =</span> <span class="fu">c</span>(<span class="st">"min, max, max, max, max, max, max, max, max"</span>),</span>
+<span id="cb12-74"><a href="#cb12-74" aria-hidden="true" tabindex="-1"></a>           <span class="at">UI =</span> <span class="fu">c</span>(<span class="st">"max, min, min, min, min, min, min, min, min"</span>),</span>
+<span id="cb12-75"><a href="#cb12-75" aria-hidden="true" tabindex="-1"></a>           <span class="at">SI =</span> <span class="dv">25</span>)</span>
+<span id="cb12-76"><a href="#cb12-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-77"><a href="#cb12-77" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-78"><a href="#cb12-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-79"><a href="#cb12-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-80"><a href="#cb12-80" aria-hidden="true" tabindex="-1"></a><span class="fu"># Ganhos</span></span>
+<span id="cb12-81"><a href="#cb12-81" aria-hidden="true" tabindex="-1"></a><span class="fu">## Individuais</span></span>
+<span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a>gmgidisp <span class="ot">&lt;-</span> </span>
+<span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gmd</span>(mod_mgidi) <span class="sc">|&gt;</span> </span>
+<span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(VAR, sense, <span class="at">mgidi_sp =</span> SDperc)</span>
+<span id="cb12-88"><a href="#cb12-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-89"><a href="#cb12-89" aria-hidden="true" tabindex="-1"></a>gmgidicp <span class="ot">&lt;-</span> </span>
+<span id="cb12-90"><a href="#cb12-90" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gmd</span>(mod_mgidi_peso) <span class="sc">|&gt;</span> </span>
+<span id="cb12-91"><a href="#cb12-91" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(VAR,  <span class="at">mgidi_cp =</span> SDperc)</span>
+<span id="cb12-92"><a href="#cb12-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-93"><a href="#cb12-93" aria-hidden="true" tabindex="-1"></a>gfai <span class="ot">&lt;-</span> </span>
+<span id="cb12-94"><a href="#cb12-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gmd</span>(mod_fai) <span class="sc">|&gt;</span> </span>
+<span id="cb12-95"><a href="#cb12-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(VAR, <span class="at">fai =</span> SDperc)</span>
+<span id="cb12-96"><a href="#cb12-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-97"><a href="#cb12-97" aria-hidden="true" tabindex="-1"></a>bind <span class="ot">&lt;-</span> </span>
+<span id="cb12-98"><a href="#cb12-98" aria-hidden="true" tabindex="-1"></a>  <span class="fu">reduce</span>(<span class="fu">list</span>(gmgidisp, gmgidicp, gfai), left_join) <span class="sc">|&gt;</span> </span>
+<span id="cb12-99"><a href="#cb12-99" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span><span class="fu">c</span>(VAR, sense))</span>
+<span id="cb12-100"><a href="#cb12-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-101"><a href="#cb12-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-102"><a href="#cb12-102" aria-hidden="true" tabindex="-1"></a>facet_labels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"FAI-BLUP"</span>, <span class="st">"MGIDI com peso"</span>, <span class="st">"MGIDI sem peso"</span>)</span>
+<span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(facet_labels) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"fai"</span>, <span class="st">"mgidi_cp"</span>, <span class="st">"mgidi_sp"</span>)</span>
+<span id="cb12-104"><a href="#cb12-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-105"><a href="#cb12-105" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bind, <span class="fu">aes</span>(value, VAR)) <span class="sc">+</span></span>
+<span id="cb12-106"><a href="#cb12-106" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(),</span>
+<span id="cb12-107"><a href="#cb12-107" aria-hidden="true" tabindex="-1"></a>           <span class="fu">aes</span>(<span class="at">fill =</span> sense),</span>
+<span id="cb12-108"><a href="#cb12-108" aria-hidden="true" tabindex="-1"></a>           <span class="at">width =</span> <span class="dv">1</span>,</span>
+<span id="cb12-109"><a href="#cb12-109" aria-hidden="true" tabindex="-1"></a>           <span class="at">linewidth =</span> <span class="fl">0.1</span>,</span>
+<span id="cb12-110"><a href="#cb12-110" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb12-111"><a href="#cb12-111" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(value, <span class="dv">2</span>),</span>
+<span id="cb12-112"><a href="#cb12-112" aria-hidden="true" tabindex="-1"></a>                <span class="at">hjust =</span> <span class="fu">ifelse</span>(value <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="sc">-</span><span class="fl">0.1</span>, <span class="fl">1.1</span>)),</span>
+<span id="cb12-113"><a href="#cb12-113" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span> </span>
+<span id="cb12-114"><a href="#cb12-114" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>name,</span>
+<span id="cb12-115"><a href="#cb12-115" aria-hidden="true" tabindex="-1"></a>              <span class="at">labeller =</span> <span class="fu">labeller</span>(<span class="at">name =</span> facet_labels)) <span class="sc">+</span></span>
+<span id="cb12-116"><a href="#cb12-116" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">18</span>) <span class="sc">+</span></span>
+<span id="cb12-117"><a href="#cb12-117" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>, <span class="at">color =</span> <span class="st">"black"</span>),</span>
+<span id="cb12-118"><a href="#cb12-118" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.length =</span> <span class="fu">unit</span>(<span class="fl">0.2</span>, <span class="st">"cm"</span>),</span>
+<span id="cb12-119"><a href="#cb12-119" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb12-120"><a href="#cb12-120" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb12-121"><a href="#cb12-121" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb12-122"><a href="#cb12-122" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.spacing.x =</span> <span class="fu">unit</span>(<span class="dv">0</span>, <span class="st">"cm"</span>)) <span class="sc">+</span></span>
+<span id="cb12-123"><a href="#cb12-123" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="dv">1</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb12-124"><a href="#cb12-124" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="fu">c</span>(<span class="fl">0.4</span>, <span class="fl">0.4</span>))) <span class="sc">+</span></span>
+<span id="cb12-125"><a href="#cb12-125" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Caracteres avaliados"</span>,</span>
+<span id="cb12-126"><a href="#cb12-126" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Diferencial de seleção (%)"</span>) <span class="sc">+</span></span>
+<span id="cb12-127"><a href="#cb12-127" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>)</span>
+<span id="cb12-128"><a href="#cb12-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-129"><a href="#cb12-129" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figs/gains_mgidi_fai.jpg"</span>,</span>
+<span id="cb12-130"><a href="#cb12-130" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">8</span>,</span>
+<span id="cb12-131"><a href="#cb12-131" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">5</span>)</span>
+<span id="cb12-132"><a href="#cb12-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-133"><a href="#cb12-133" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-134"><a href="#cb12-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-135"><a href="#cb12-135" aria-hidden="true" tabindex="-1"></a><span class="fu">## Totais</span></span>
+<span id="cb12-138"><a href="#cb12-138" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-139"><a href="#cb12-139" aria-hidden="true" tabindex="-1"></a>tot_fai <span class="ot">&lt;-</span> mod_fai[[<span class="st">"total_gain"</span>]][[<span class="st">"ID1"</span>]] <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">indice =</span> <span class="st">"FAI-BLUP"</span>)</span>
+<span id="cb12-140"><a href="#cb12-140" aria-hidden="true" tabindex="-1"></a>tot_mgidi_cp <span class="ot">&lt;-</span> mod_mgidi_peso<span class="sc">$</span>stat_gain <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">indice =</span> <span class="st">"MGIDI com peso"</span>)</span>
+<span id="cb12-141"><a href="#cb12-141" aria-hidden="true" tabindex="-1"></a>tot_mgidi_sp <span class="ot">&lt;-</span> mod_mgidi<span class="sc">$</span>stat_gain <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">indice =</span> <span class="st">"MGIDI sem peso"</span>)</span>
+<span id="cb12-142"><a href="#cb12-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-143"><a href="#cb12-143" aria-hidden="true" tabindex="-1"></a>totais <span class="ot">&lt;-</span> </span>
+<span id="cb12-144"><a href="#cb12-144" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(tot_fai, tot_mgidi_cp, tot_mgidi_sp) <span class="sc">|&gt;</span> </span>
+<span id="cb12-145"><a href="#cb12-145" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sense, max, sum, indice) <span class="sc">|&gt;</span></span>
+<span id="cb12-146"><a href="#cb12-146" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> max<span class="sc">:</span>sum)</span>
+<span id="cb12-147"><a href="#cb12-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-148"><a href="#cb12-148" aria-hidden="true" tabindex="-1"></a>facet_labels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Diferenciais máximos"</span>, <span class="st">"Soma dos diferenciais"</span>)</span>
+<span id="cb12-149"><a href="#cb12-149" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(facet_labels) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"max"</span>, <span class="st">"sum"</span>)</span>
+<span id="cb12-150"><a href="#cb12-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-151"><a href="#cb12-151" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(totais, <span class="fu">aes</span>(indice, value)) <span class="sc">+</span></span>
+<span id="cb12-152"><a href="#cb12-152" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill =</span> sense),</span>
+<span id="cb12-153"><a href="#cb12-153" aria-hidden="true" tabindex="-1"></a>           <span class="at">position =</span> <span class="fu">position_dodge</span>()) <span class="sc">+</span></span>
+<span id="cb12-154"><a href="#cb12-154" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>name,</span>
+<span id="cb12-155"><a href="#cb12-155" aria-hidden="true" tabindex="-1"></a>             <span class="co"># scales = "free",</span></span>
+<span id="cb12-156"><a href="#cb12-156" aria-hidden="true" tabindex="-1"></a>             <span class="at">labeller =</span> <span class="fu">labeller</span>(<span class="at">name =</span> facet_labels)) <span class="sc">+</span></span>
+<span id="cb12-157"><a href="#cb12-157" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">18</span>) <span class="sc">+</span></span>
+<span id="cb12-158"><a href="#cb12-158" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>, <span class="at">color =</span> <span class="st">"black"</span>),</span>
+<span id="cb12-159"><a href="#cb12-159" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">30</span>, <span class="at">vjust =</span> <span class="dv">1</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb12-160"><a href="#cb12-160" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.length =</span> <span class="fu">unit</span>(<span class="fl">0.2</span>, <span class="st">"cm"</span>),</span>
+<span id="cb12-161"><a href="#cb12-161" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb12-162"><a href="#cb12-162" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb12-163"><a href="#cb12-163" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb12-164"><a href="#cb12-164" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.spacing.x =</span> <span class="fu">unit</span>(<span class="dv">0</span>, <span class="st">"cm"</span>)) <span class="sc">+</span></span>
+<span id="cb12-165"><a href="#cb12-165" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Índices"</span>,</span>
+<span id="cb12-166"><a href="#cb12-166" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Diferencial de seleção (%)"</span>) <span class="sc">+</span></span>
+<span id="cb12-167"><a href="#cb12-167" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(value, <span class="dv">2</span>),</span>
+<span id="cb12-168"><a href="#cb12-168" aria-hidden="true" tabindex="-1"></a>                <span class="at">vjust =</span> <span class="fu">ifelse</span>(value <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="fl">1.2</span>, <span class="sc">-</span><span class="fl">0.8</span>)),</span>
+<span id="cb12-169"><a href="#cb12-169" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_dodge2</span>(<span class="at">width =</span> <span class="fl">0.9</span>)) <span class="sc">+</span></span>
+<span id="cb12-170"><a href="#cb12-170" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="fl">0.1</span>)) <span class="sc">+</span></span>
+<span id="cb12-171"><a href="#cb12-171" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>,</span>
+<span id="cb12-172"><a href="#cb12-172" aria-hidden="true" tabindex="-1"></a>             <span class="at">linewidth =</span> <span class="fl">0.9</span>)</span>
+<span id="cb12-173"><a href="#cb12-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-174"><a href="#cb12-174" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figs/total_gains_mgidi_fai.jpg"</span>,</span>
+<span id="cb12-175"><a href="#cb12-175" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">6</span>,</span>
+<span id="cb12-176"><a href="#cb12-176" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">7</span>)</span>
+<span id="cb12-177"><a href="#cb12-177" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-178"><a href="#cb12-178" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-179"><a href="#cb12-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-180"><a href="#cb12-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-181"><a href="#cb12-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-182"><a href="#cb12-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-183"><a href="#cb12-183" aria-hidden="true" tabindex="-1"></a><span class="fu"># Venn plot</span></span>
+<span id="cb12-186"><a href="#cb12-186" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-187"><a href="#cb12-187" aria-hidden="true" tabindex="-1"></a>sel_mgidi_sp <span class="ot">&lt;-</span> <span class="fu">sel_gen</span>(mod_mgidi)</span>
+<span id="cb12-188"><a href="#cb12-188" aria-hidden="true" tabindex="-1"></a>sel_mgidi_cp <span class="ot">&lt;-</span> <span class="fu">sel_gen</span>(mod_mgidi_peso)</span>
+<span id="cb12-189"><a href="#cb12-189" aria-hidden="true" tabindex="-1"></a>sel_fai <span class="ot">&lt;-</span> <span class="fu">sel_gen</span>(mod_fai)[[<span class="dv">1</span>]]</span>
+<span id="cb12-190"><a href="#cb12-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-191"><a href="#cb12-191" aria-hidden="true" tabindex="-1"></a><span class="fu">venn_plot</span>(sel_mgidi_cp, sel_mgidi_sp, sel_fai,</span>
+<span id="cb12-192"><a href="#cb12-192" aria-hidden="true" tabindex="-1"></a>          <span class="at">split_labels =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb12-193"><a href="#cb12-193" aria-hidden="true" tabindex="-1"></a>          <span class="at">split_each =</span> <span class="dv">3</span>,</span>
+<span id="cb12-194"><a href="#cb12-194" aria-hidden="true" tabindex="-1"></a>          <span class="at">show_elements =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb12-195"><a href="#cb12-195" aria-hidden="true" tabindex="-1"></a>          <span class="at">text_size =</span> <span class="dv">5</span>,</span>
+<span id="cb12-196"><a href="#cb12-196" aria-hidden="true" tabindex="-1"></a>          <span class="at">names =</span> <span class="fu">c</span>(<span class="st">"MGIDI com pesos"</span>, <span class="st">"MGIDI sem pesos"</span>, <span class="st">"FAI-BLUP"</span>))</span>
+<span id="cb12-197"><a href="#cb12-197" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-198"><a href="#cb12-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-199"><a href="#cb12-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-200"><a href="#cb12-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-201"><a href="#cb12-201" aria-hidden="true" tabindex="-1"></a><span class="fu"># Section info</span></span>
+<span id="cb12-204"><a href="#cb12-204" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-205"><a href="#cb12-205" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span>
+<span id="cb12-206"><a href="#cb12-206" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">Núcleo de Estudos e Pesquisas em Experimentação e Melhoramento Vegetal - NEPEM</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">FIT/CCA/UFSC</div>
+  </div>
+</footer>
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

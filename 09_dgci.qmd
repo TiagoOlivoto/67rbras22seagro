@@ -1,0 +1,172 @@
+---
+title: "09: Relação entre SPAD e o índice DGCI em folhas de linho obtido em diferentes condições de iluminação "
+---
+% Analysis 
+
+```{r global_options, include = FALSE}
+knitr::opts_chunk$set(cache = FALSE,
+                      comment = "##",
+                      collapse = TRUE,
+                      warning = FALSE,
+                      message = FALSE)
+
+```
+
+
+# Libraries
+
+To reproduce the examples of this material, the R packages the following packages are needed.
+
+```{r warning=FALSE, message=FALSE}
+library(rio)
+library(tidyverse)
+library(metan)
+library(pliman)
+library(forcats)
+
+```
+
+# Data
+```{r}
+spad <- import("data/valor_spaad.xlsx")
+```
+
+# DGCI
+## Imagem iluminada
+```{r}
+img <- image_import("figs/dgci_ilum.jpg")
+
+res_ilu <-
+  analyze_objects_shp(img,
+                      rows = 4,
+                      cols = 10,
+                      index = "B",
+                      watershed = FALSE,
+                      plot = FALSE,
+                      pixel_level_index = TRUE,
+                      object_index = "DGCI")
+plot(img)
+plot_measures(res_ilu, measure = "DGCI", digits = 3)
+plot(res_ilu$shapefiles)
+dgci_ilu <- res_ilu$object_index |> select(-id) |> rename(dgci_ilu = DGCI)
+```
+
+
+
+## Interior, com flash
+```{r}
+img <- image_import("figs/dgci_cf.jpg")
+
+res_cf <-
+  analyze_objects_shp(img,
+                      rows = 4,
+                      cols = 10,
+                      index = "B",
+                      watershed = FALSE,
+                      plot = FALSE,
+                                            pixel_level_index = TRUE,
+                      object_index = "DGCI")
+plot(img)
+plot_measures(res_cf, measure = "DGCI", digits = 3)
+plot(res_cf$shapefiles)
+dgci_cf <- res_cf$object_index |> select(-id) |> rename(dgci_cf = DGCI)
+
+```
+
+
+
+# Juntar os dados
+```{r}
+df_spad <- 
+  reduce(list(spad, dgci_ilu, dgci_cf), left_join) |> 
+  mutate(condicao = ifelse(dgci_ilu < 0.5, "DGCI < 0,5", "DGCI >= 0,5"))
+
+# export(df_spad, "data/df_spad.xlsx")
+
+```
+
+
+# Correlação
+```{r}
+corr_plot(df_spad, smooth = TRUE, confint = FALSE, digits = 3, diag.type = "boxplot")
+ggsave("figs/dgci_cor.jpg",
+       width = 5,
+       height = 5)
+```
+
+
+# Regressão
+## Gráfico
+```{r}
+ggplot(df_spad, aes(dgci_cf, dgci_ilu, color = condicao)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  geom_abline(intercept = 0, slope = 1) +
+  scale_x_continuous(limits = c(0, 1)) +
+  scale_y_continuous(limits = c(0, 1)) +
+  theme_bw(base_size = 14) +
+  labs(x = "DGCI com flash",
+       y = "DGCI iluminado",
+       color = "") +
+  theme(legend.position = "bottom") +
+  coord_fixed()
+
+ggsave("figs/dgci_regressao.jpg",
+       width = 6,
+       height = 6)
+```
+
+## Coeficientes
+
+```{r}
+coefs_dgci <- 
+df_spad |> 
+  group_by(condicao) %>% 
+  doo(~lm(dgci_cf ~ dgci_ilu, data = .) |> broom::tidy())  
+  
+# export(coefs_dgci, "data/coefs_dgci.xlsx")
+
+```
+
+
+
+
+## Densidade 
+```{r}
+
+dist_ilum <- 
+  res_ilu[["object_rgb"]] |> 
+  select(h, s, b, DGCI)
+
+dist_cf <- 
+  res_cf[["object_rgb"]] |> 
+  select(h, s, b, DGCI)
+
+df_hist <- 
+  rbind_fill_id(dist_ilum, dist_cf, .id = "condicao") |> 
+  mutate(amarelado = ifelse(DGCI < 0.5, "DGCI < 0,5", "DGCI >= 0,5"))
+
+df_histp <- 
+df_hist |> 
+  select(-DGCI) |> 
+  pivot_longer(-c(condicao, amarelado)) |> 
+  remove_rows_na() |> 
+  mutate(name = fct_relevel(name, "h", "s", "b"))
+
+ggplot(df_histp, aes(x = value, fill = amarelado)) +
+  geom_density(alpha = 0.6) +
+  facet_grid(condicao~name, scales = "free") +
+    theme_bw(base_size = 14) +
+  labs(x = "Valor observado",
+       y = "Densidade",
+       fill = "") +
+  theme(legend.position = "bottom",
+        panel.grid.minor = element_blank()) +
+  scale_fill_manual(values = c("yellow", "darkgreen"))
+
+ggsave("figs/dgci_density.jpg",
+       width = 10,
+       height = 7)
+```
+
+
