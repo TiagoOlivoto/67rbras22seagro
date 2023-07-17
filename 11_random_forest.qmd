@@ -1,0 +1,105 @@
+---
+title: "Classificação de espécies utilizando "
+---
+% Analysis 
+
+```{r global_options, include = FALSE}
+knitr::opts_chunk$set(cache = FALSE,
+                      comment = "##",
+                      collapse = TRUE,
+                      warning = FALSE,
+                      message = FALSE)
+
+```
+
+
+# Libraries
+
+To reproduce the examples of this material, the R packages the following packages are needed.
+
+```{r warning=FALSE, message=FALSE}
+library(pliman)
+library(caret)
+library(doParallel)
+library(tidyverse)
+
+```
+
+# Data
+```{r}
+
+coefs2 <-
+  rio::import("data/coefs_leaves.csv")  |>
+  separate_col(img, into = c("specie", "img")) |>
+  metan::as_factor(specie) |>
+  column_to_rownames("img")
+
+
+df_model2 <-
+  coefs2 |> 
+  dplyr::select(
+    specie,
+    area, perimeter, radius_sd, length, width,  # scale-dependent
+    major_axis, minor_axis, eccentricity, solidity, elongation, circularity_norm, form_factor, narrow_factor, asp_ratio, plw_ratio, # shape
+    asm:f13, # texture
+    DGCI,
+    A2:D8 # fourrier
+  )
+```
+
+
+# Model
+```{r}
+# best model
+control <-
+  trainControl(method = 'cv',
+               p = 0.7,
+               number = 10,
+               verboseIter = TRUE,
+               savePredictions = "all")
+fit <- train(specie ~ .,
+             data = df_model2,
+             method = 'rf',
+             tuneGrid = expand.grid(.mtry = 6),
+             trControl = control,
+             ntree = 500)
+
+print(fit)
+
+cm <- confusionMatrix.train(fit, norm = "none")
+cm2 <- data.frame(cm$table)
+ggplot(cm2, aes(Prediction, Reference, fill = Freq)) +
+  geom_tile() +
+  labs(x = NULL,
+       y = NULL) +
+  scale_x_discrete(expand = expansion(0)) +
+  scale_y_discrete(expand = expansion(0)) +
+  scale_fill_gradient2() +
+  geom_text(aes(label = Freq),
+            size = 3) +
+  theme(panel.border = element_rect(color = "black", fill = NA))
+stats <- confusionMatrix(cm$table)
+
+
+erros <- 
+  fit[["pred"]] |> 
+  mutate(erro = ifelse(pred == obs, 0, 1))
+
+
+
+difs <-
+  erros |> 
+  group_by(pred) |> 
+  summarise(sum = sum(erro)) 
+
+
+
+```
+
+
+<!-- ## Importância das variáveis -->
+<!-- ```{r} -->
+<!-- df_impo <-  -->
+
+<!-- ``` -->
+

@@ -52,6 +52,7 @@ website:
         - 07_diversidade.qmd
         - 08_mgidi_fai.qmd
         - 09_dgci.qmd
+        - 10_pred_af.qmd
 
 format:
   html: 

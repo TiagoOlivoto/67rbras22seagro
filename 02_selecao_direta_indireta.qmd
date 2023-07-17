@@ -87,6 +87,7 @@ gdi <- function(dfrc,
 }
 
 
+
 ######## plotar os valores
 plot_gdi <- function(model,
                      type = c("percent", "absolut"),
@@ -185,6 +186,11 @@ ggsave("figs/corr_linear.jpg",
 # Histogram
 ```{r}
 library(ggridges)
+
+ggplot(df, aes(rgpla)) +
+  geom_histogram(aes(fill = epoca), color = "black",
+                 alpha = 0.5)
+
 ggplot(df, aes(rgpla, y = epoca)) +
   geom_density_ridges(aes(fill = epoca),
                       scale = 3) +

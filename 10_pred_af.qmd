@@ -1,0 +1,124 @@
+---
+title: "10. Um método simples e indireto para estimação da área de folha de linho"
+---
+% Analysis 
+
+```{r global_options, include = FALSE}
+knitr::opts_chunk$set(cache = FALSE,
+                      comment = "##",
+                      collapse = TRUE,
+                      warning = FALSE,
+                      message = FALSE)
+
+```
+
+
+# Libraries
+
+To reproduce the examples of this material, the R packages the following packages are needed.
+
+```{r warning=FALSE, message=FALSE}
+library(pliman)
+library(caret)
+library(doParallel)
+library(tidyverse)
+library(DescTools)
+library(ggExtra)
+library(performance)
+
+```
+
+# Data
+```{r}
+
+df_af <- rio::import("data/leaf_flax_pred.xlsx")
+descritiva <- 
+  df_af |> 
+  summarise(across(area:width, .fns = list(media = mean, min = min, max = max)))
+
+descritiva
+
+p1 <- 
+ggplot(df_af, aes(length, area)) + 
+  geom_point( size = 3, alpha = 0.5, color = "brown") +
+  labs(x = "Comprimento da folha (cm)",
+       y = expression(Área~foliar~(cm^2~folha^{-1}))) +
+  theme_bw(base_size = 16)
+ggMarginal(p1, color = "brown", size = 7, linewidth = 1)
+
+
+p2 <- 
+ggplot(df_af, aes(width, area)) + 
+  geom_point( size = 3, alpha = 0.5, color = "brown") +
+  labs(x = "Largura da folha (cm)",
+       y = expression(Área~foliar~(cm^2~folha^{-1}))) +
+  theme_bw(base_size = 16)
+ggMarginal(p2, color = "brown", size = 7, linewidth = 1)
+
+
+# functions
+# concordance correlation coefficient
+get_ccc <- function(df, predicted, real){
+  if(is.grouped_df(df)){
+    df %>% 
+      group_modify(~get_ccc(.x, {{predicted}}, {{real}})) %>% 
+      ungroup()
+  } else{
+    predicted <- pull(df, {{predicted}})
+    real <- pull(df, {{real}})
+    cor <- CCC(real, predicted, na.rm = TRUE)
+    data.frame(r = cor(real, predicted),
+               pc = cor$rho.c[[1]],
+               lwr_ci = cor$rho.c[[2]],
+               upr_ci = cor$rho.c[[3]],
+               bc = cor$C.b)
+  }
+}
+```
+
+
+# Model
+```{r}
+
+control <-
+  trainControl(method = 'cv',
+               p = 0.7,
+               number = 10,
+               verboseIter = TRUE,
+               savePredictions = "all")
+
+fit <- train(area ~  length + length:width ,
+             method = "lm",
+             data = df_af,
+             trControl = control)
+print(fit)
+mod <- fit$finalModel
+check_model(mod)
+
+```
+
+
+# Predictions
+```{r}
+library(ggpubr)
+
+df_af <- 
+  df_af |> 
+  mutate(pred = predict(fit$finalModel))
+get_ccc(df_af, area, pred)
+
+
+# 1:1 concordance plot
+ggplot(df_af, aes(area, pred)) +
+  geom_point(alpha = 0.2, color = "brown", size = 3) +
+  geom_abline(intercept = 0, slope = 1, color = "red", linewidth = 1) +
+  coord_equal() +
+  xlim(c(0, 2)) +
+  ylim(c(0, 2)) +
+  labs(y = expression(Área~foliar~observada~(cm^2~folha^{-1})),
+       x = expression(Área~foliar~predita~(cm^2~folha^{-1}))) +
+  theme_bw(base_size = 16)
+
+```
+
+

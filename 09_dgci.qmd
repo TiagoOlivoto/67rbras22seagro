@@ -38,8 +38,8 @@ img <- image_import("figs/dgci_ilum.jpg")
 
 res_ilu <-
   analyze_objects_shp(img,
-                      rows = 4,
-                      cols = 10,
+                      nrow = 4,
+                      ncol = 10,
                       index = "B",
                       watershed = FALSE,
                       plot = FALSE,
@@ -59,12 +59,12 @@ img <- image_import("figs/dgci_cf.jpg")
 
 res_cf <-
   analyze_objects_shp(img,
-                      rows = 4,
-                      cols = 10,
+                      nrow = 4,
+                      ncol = 10,
                       index = "B",
                       watershed = FALSE,
                       plot = FALSE,
-                                            pixel_level_index = TRUE,
+                      pixel_level_index = TRUE,
                       object_index = "DGCI")
 plot(img)
 plot_measures(res_cf, measure = "DGCI", digits = 3)
@@ -120,10 +120,10 @@ ggsave("figs/dgci_regressao.jpg",
 
 ```{r}
 coefs_dgci <- 
-df_spad |> 
+  df_spad |> 
   group_by(condicao) %>% 
   doo(~lm(dgci_cf ~ dgci_ilu, data = .) |> broom::tidy())  
-  
+
 # export(coefs_dgci, "data/coefs_dgci.xlsx")
 
 ```
@@ -147,7 +147,7 @@ df_hist <-
   mutate(amarelado = ifelse(DGCI < 0.5, "DGCI < 0,5", "DGCI >= 0,5"))
 
 df_histp <- 
-df_hist |> 
+  df_hist |> 
   select(-DGCI) |> 
   pivot_longer(-c(condicao, amarelado)) |> 
   remove_rows_na() |> 
@@ -156,7 +156,7 @@ df_hist |>
 ggplot(df_histp, aes(x = value, fill = amarelado)) +
   geom_density(alpha = 0.6) +
   facet_grid(condicao~name, scales = "free") +
-    theme_bw(base_size = 14) +
+  theme_bw(base_size = 14) +
   labs(x = "Valor observado",
        y = "Densidade",
        fill = "") +

@@ -40,8 +40,9 @@ df_man <-
   df |> 
   remove_cols(gen)
 
-mod <- manova(cbind(ac, ap, nc, ng, areac,  nr, mc, rgpla, icc, ngcap, mmg) ~ epoca,
+mod <- manova(cbind(ac, ap, nc, ng, areac,  nr, mc, rgpla, icc, ngcap, mmg) ~ 0 + epoca,
               data = df_man)
+coefficients(mod)
 df_resi <- 
   residuals(mod) |> 
   as.data.frame() |> 
