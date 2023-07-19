@@ -187,23 +187,19 @@ ggsave("figs/corr_linear.jpg",
 ```{r}
 library(ggridges)
 
-ggplot(df, aes(rgpla)) +
-  geom_histogram(aes(fill = epoca), color = "black",
-                 alpha = 0.5)
-
 ggplot(df, aes(rgpla, y = epoca)) +
   geom_density_ridges(aes(fill = epoca),
                       scale = 3) +
   theme_bw() +
   scale_y_discrete(expand = expansion(c(0.2, 0.2))) +
   theme_bw(base_size = 18) +
-  theme(legend.position = "bottom")+
+  theme()+
   labs(fill = "",
        x = "Rendimento de grãos por planta (g)",
        y = "Época de semeadura")
 ggsave("figs/density_gy.jpg",
        width = 6,
-       height = 6)
+       height = 4)
 ```
 
 

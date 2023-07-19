@@ -42,8 +42,7 @@ df <-
 can <- 
   df |> 
   can_corr(FG = c(ap, ac, nc, nr),
-           SG = c(ngcap, areac, rgpla, mmg, icc),
-           by = epoca)
+           SG = c(ngcap, areac, rgpla, mmg, icc))
 ```
 
 

@@ -41,6 +41,7 @@ mod_mgidi <-
         weights = c(2, 5, 5, 1, 1, 5, 5, 2, 2),
         SI = 25)
 plot(mod_mgidi)
+# ggsave("figs/mgidi")
 plot(mod_mgidi, type  = "contribution")
 
 df_plot <-
@@ -112,10 +113,12 @@ ggsave("figs/gain_mgidi.jpg",
        height = 5)
 
 
-plot(mod_mgidi, SI = 25)
+plot(mod_mgidi, SI = 25) +
+  theme(legend.position = "right")
+
 ggsave("figs/mgidi_radar.jpg",
-       width = 6,
-       height = 6)
+       width = 8,
+       height = 7)
 
 
 ```

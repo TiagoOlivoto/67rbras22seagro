@@ -38,7 +38,8 @@ df_p <-
 modrg <- with(df_p,
             PSUBDBC(epoca, cultivar, bloco, rgha,
                     xlab = "Épocas de semeadura"))
-  
+
+rg <- 
 modrg$graph1 +
   labs(x = "Épocas de semeadura",
        y = expression(Rendimento~de~grãos~(kg~ha^{-1})))
@@ -48,10 +49,16 @@ modrg$graph1 +
 ```{r}
 modmmg <- with(df_p,
             PSUBDBC(epoca, cultivar, bloco, mmg))
-# prg <- 
+mmg <- 
   modmmg$graph1 +
   labs(x = "Épocas de semeadura",
        y = "Massa de mil grãos (g)")
+
+arrange_ggplot(rg, mmg,
+               tag_levels = "a")
+ggsave("figs/rg_mmg.jpg",
+       width = 8,
+       height = 4)
 ```
 
 
@@ -69,9 +76,22 @@ pncc <-
   labs(x = "Cultivares",
        y = "Número de cápsulas")
 
-arrange_ggplot(pnce, pncc, widths = c(0.75, 0.25))
+arrange_ggplot(pnce, pncc, widths = c(0.75, 0.25), tag_levels = "a")
+
+ggsave("figs/nc.jpg",
+       width = 8,
+       height = 4)
 ```
 
+# Correlação
+```{r}
+corr_coef(df_p, rgha, mmg, nc) |> 
+  network_plot(legend_position = "bottom")
+
+ggsave("figs/corr_epocas.jpg",
+       width = 10,
+       height = 3)
+```
 
 
 # Section info

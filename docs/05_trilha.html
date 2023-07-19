@@ -288,17 +288,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">##    epoca Parameter        values                                </span></span>
 <span><span class="co">##    &lt;chr&gt; &lt;chr&gt;            &lt;chr&gt;                                 </span></span>
 <span><span class="co">##  1 E1    Predictors       8                                     </span></span>
-<span><span class="co">##  2 E1    VIF              3.436                                 </span></span>
-<span><span class="co">##  3 E1    Condition Number 14.879                                </span></span>
-<span><span class="co">##  4 E1    Determinant      0.0544051003                          </span></span>
-<span><span class="co">##  5 E1    Selected         nr, nc, areac, icc, ap, ac, ngcap, mmg</span></span>
+<span><span class="co">##  2 E1    VIF              3.082                                 </span></span>
+<span><span class="co">##  3 E1    Condition Number 10.386                                </span></span>
+<span><span class="co">##  4 E1    Determinant      0.0789318365                          </span></span>
+<span><span class="co">##  5 E1    Selected         icc, nr, nc, areac, mmg, ngcap, ap, ac</span></span>
 <span><span class="co">##  6 E1    Removed          ng, mc                                </span></span>
 <span><span class="co">##  7 E2    Predictors       8                                     </span></span>
-<span><span class="co">##  8 E2    VIF              5.911                                 </span></span>
-<span><span class="co">##  9 E2    Condition Number 24.187                                </span></span>
-<span><span class="co">## 10 E2    Determinant      0.0288690825                          </span></span>
-<span><span class="co">## 11 E2    Selected         areac, mmg, icc, nr, ngcap, mc, ac, ap</span></span>
-<span><span class="co">## 12 E2    Removed          nc, ng</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="co">##  8 E2    VIF              5.66                                  </span></span>
+<span><span class="co">##  9 E2    Condition Number 24.189                                </span></span>
+<span><span class="co">## 10 E2    Determinant      0.0139500743                          </span></span>
+<span><span class="co">## 11 E2    Selected         areac, nr, ngcap, ng, icc, mmg, ac, ap</span></span>
+<span><span class="co">## 12 E2    Removed          nc, mc</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="colinearidade-dentro-de-cada-época" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="colinearidade-dentro-de-cada-época">
 <span class="header-section-number">3.2</span> Colinearidade dentro de cada época</h2>
@@ -327,10 +327,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/metan/man/path_coeff.html">path_coeff</a></span><span class="op">(</span>resp <span class="op">=</span> <span class="va">rgpla</span>,</span>
 <span>             pred <span class="op">=</span> <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">mc</span>, <span class="va">ng</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">## Weak multicollinearity. </span></span>
-<span><span class="co">## Condition Number: 23.548</span></span>
+<span><span class="co">## Condition Number: 10.386</span></span>
 <span><span class="co">## You will probably have path coefficients close to being unbiased. </span></span>
 <span><span class="co">## Weak multicollinearity. </span></span>
-<span><span class="co">## Condition Number: 14.879</span></span>
+<span><span class="co">## Condition Number: 25.933</span></span>
 <span><span class="co">## You will probably have path coefficients close to being unbiased.</span></span>
 <span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod_trilha</span><span class="op">$</span><span class="va">data</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>

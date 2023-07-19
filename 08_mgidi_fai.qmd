@@ -86,7 +86,8 @@ gfai <-
 
 bind <- 
   reduce(list(gmgidisp, gmgidicp, gfai), left_join) |> 
-  pivot_longer(-c(VAR, sense))
+  pivot_longer(-c(VAR, sense)) |> 
+  mutate(sense = ifelse(sense == "decrease", "Reduzir", "Aumentar"))
 
 
 facet_labels <- c("FAI-BLUP", "MGIDI com peso", "MGIDI sem peso")
@@ -108,8 +109,9 @@ ggplot(bind, aes(value, VAR)) +
         axis.ticks.length = unit(0.2, "cm"),
         panel.grid.minor = element_blank(),
         legend.title = element_blank(),
-        legend.position = "bottom",
+        # legend.position = "bottom",
         panel.spacing.x = unit(0, "cm")) +
+  scale_fill_hue(direction = -1) +
   geom_vline(xintercept = 0, linetype = 1, linewidth = 1) +
   scale_x_continuous(expand = expansion(c(0.4, 0.4))) +
   labs(y = "Caracteres avaliados",
@@ -117,7 +119,7 @@ ggplot(bind, aes(value, VAR)) +
   geom_vline(xintercept = 0)
 
 ggsave("figs/gains_mgidi_fai.jpg",
-       width = 8,
+       width = 10,
        height = 5)
 
 ```
@@ -131,14 +133,15 @@ tot_mgidi_sp <- mod_mgidi$stat_gain |> mutate(indice = "MGIDI sem peso")
 totais <- 
   bind_rows(tot_fai, tot_mgidi_cp, tot_mgidi_sp) |> 
   select(sense, max, sum, indice) |>
-  pivot_longer(cols = max:sum)
+  pivot_longer(cols = max:sum) |> 
+    mutate(sense = ifelse(sense == "decrease", "Reduzir", "Aumentar"))
 
 facet_labels <- c("Diferenciais máximos", "Soma dos diferenciais")
 names(facet_labels) <- c("max", "sum")
 
 ggplot(totais, aes(indice, value)) +
   geom_col(aes(fill = sense),
-           position = position_dodge()) +
+           position = position_dodge(width = 1)) +
   facet_wrap(~name,
              # scales = "free",
              labeller = labeller(name = facet_labels)) +
@@ -148,19 +151,20 @@ ggplot(totais, aes(indice, value)) +
         axis.ticks.length = unit(0.2, "cm"),
         panel.grid.minor = element_blank(),
         legend.title = element_blank(),
-        legend.position = "bottom",
+        # legend.position = "bottom",
         panel.spacing.x = unit(0, "cm")) +
+    scale_fill_hue(direction = -1) +
   labs(x = "Índices",
        y = "Diferencial de seleção (%)") +
   geom_text(aes(label = round(value, 2),
-                vjust = ifelse(value < 0, 1.2, -0.8)),
-            position = position_dodge2(width = 0.9)) +
+                vjust = ifelse(value < 0, 1.2, -1),
+                hjust = ifelse(value > 0, 1, 0))) +
   scale_y_continuous(expand = expansion(0.1)) +
   geom_hline(yintercept = 0,
              linewidth = 0.9)
 
 ggsave("figs/total_gains_mgidi_fai.jpg",
-       width = 6,
+       width = 9,
        height = 7)
   
 ```

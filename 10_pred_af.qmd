@@ -119,6 +119,7 @@ ggplot(df_af, aes(area, pred)) +
        x = expression(Área~foliar~predita~(cm^2~folha^{-1}))) +
   theme_bw(base_size = 16)
 
+ggsave("figs/pred_af.jpg", dpi = 600)
 ```
 
 

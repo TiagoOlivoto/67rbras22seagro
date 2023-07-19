@@ -333,7 +333,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">##         .Call(C_df, x, df1, df2, log)</span></span>
 <span><span class="co">##     else .Call(C_dnf, x, df1, df2, ncp, log)</span></span>
 <span><span class="co">## }</span></span>
-<span><span class="co">## &lt;bytecode: 0x000002bd27ddbed8&gt;</span></span>
+<span><span class="co">## &lt;bytecode: 0x00000285622e1f10&gt;</span></span>
 <span><span class="co">## &lt;environment: namespace:stats&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="gráfico-densidade" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="gráfico-densidade">
@@ -568,7 +568,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>               alpha <span class="op">=</span> <span class="fl">0.4</span>,</span>
 <span>               shape <span class="op">=</span> <span class="fl">16</span>,</span>
 <span>               show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">16</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">20</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span></span>
 <span>    panel.grid.major <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>, <span class="co">#remove major gridlines</span></span>
 <span>    <span class="co"># panel.grid.minor = element_blank(), #remove minor gridlines</span></span>
@@ -580,7 +580,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"figs/mod_logistico.jpg"</span>,</span>
 <span>       width <span class="op">=</span> <span class="fl">9</span>,</span>
-<span>       height <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>       height <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="primeira-derivada" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="primeira-derivada">
 <span class="header-section-number">5.1</span> Primeira derivada</h2>
@@ -635,20 +635,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>             data <span class="op">=</span> <span class="va">parameters</span>,</span>
 <span>             size <span class="op">=</span> <span class="fl">3</span>,</span>
 <span>             show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">16</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">22</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1200</span>, by <span class="op">=</span> <span class="fl">200</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Graus dia acumulado"</span>,</span>
 <span>       y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="va">Emissão</span><span class="op">~</span><span class="va">de</span><span class="op">~</span><span class="va">área</span><span class="op">~</span><span class="va">foliar</span><span class="op">~</span><span class="op">(</span><span class="va">cm</span><span class="op">^</span><span class="fl">2</span><span class="op">~</span><span class="va">planta</span><span class="op">^</span><span class="op">{</span><span class="op">-</span><span class="fl">1</span><span class="op">}</span><span class="op">~</span><span class="va">grau</span><span class="op">~</span><span class="va">dia</span><span class="op">^</span><span class="op">{</span><span class="op">-</span><span class="fl">1</span><span class="op">}</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>       color  <span class="op">=</span> <span class="st">"Cultivar"</span>,</span>
 <span>       linetype <span class="op">=</span> <span class="st">"Época"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span>,</span>
+<span>        panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"gold"</span>, <span class="st">"brown"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="04_modelo_crescimento_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"figs/prim_deriv.jpg"</span>,</span>
-<span>       height <span class="op">=</span> <span class="fl">7</span>,</span>
-<span>       width <span class="op">=</span> <span class="fl">9</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>       height <span class="op">=</span> <span class="fl">8</span>,</span>
+<span>       width <span class="op">=</span> <span class="fl">8</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="segunda-derivada" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="segunda-derivada">
 <span class="header-section-number">5.2</span> Segunda derivada</h2>
@@ -716,11 +718,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>             size <span class="op">=</span> <span class="fl">3</span>,</span>
 <span>             shape <span class="op">=</span> <span class="fl">25</span>,</span>
 <span>             show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">16</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">22</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Graus dia acumulado"</span>,</span>
-<span>       y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="va">Aceleração</span><span class="op">~</span><span class="va">de</span><span class="op">~</span><span class="va">emissão</span><span class="op">~</span><span class="va">área</span><span class="op">~</span><span class="va">foliar</span><span class="op">~</span><span class="op">(</span><span class="va">cm</span><span class="op">^</span><span class="fl">2</span><span class="op">~</span><span class="va">planta</span><span class="op">^</span><span class="op">{</span><span class="op">-</span><span class="fl">1</span><span class="op">}</span><span class="op">~</span><span class="va">grau</span><span class="op">~</span><span class="va">dia</span><span class="op">^</span><span class="op">{</span><span class="op">-</span><span class="fl">2</span><span class="op">}</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>       y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="va">Aceleração</span><span class="op">~</span><span class="op">(</span><span class="va">cm</span><span class="op">^</span><span class="fl">2</span><span class="op">~</span><span class="va">planta</span><span class="op">^</span><span class="op">{</span><span class="op">-</span><span class="fl">1</span><span class="op">}</span><span class="op">~</span><span class="va">grau</span><span class="op">~</span><span class="va">dia</span><span class="op">^</span><span class="op">{</span><span class="op">-</span><span class="fl">2</span><span class="op">}</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>       color  <span class="op">=</span> <span class="st">"Cultivar"</span>,</span>
 <span>       linetype <span class="op">=</span> <span class="st">"Época"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span>,</span>
+<span>        panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"gold"</span>, <span class="st">"brown"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"gold"</span>, <span class="st">"brown"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -728,8 +732,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"figs/seg_deriv.jpg"</span>,</span>
-<span>       height <span class="op">=</span> <span class="fl">7</span>,</span>
-<span>       width <span class="op">=</span> <span class="fl">9</span><span class="op">)</span></span>
+<span>       height <span class="op">=</span> <span class="fl">8</span>,</span>
+<span>       width <span class="op">=</span> <span class="fl">8</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># export(parameters, "data/result_logistico.xlsx", which = "parametros_logistico")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1585,7 +1589,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb17-297"><a href="#cb17-297" aria-hidden="true" tabindex="-1"></a>               <span class="at">alpha =</span> <span class="fl">0.4</span>,</span>
 <span id="cb17-298"><a href="#cb17-298" aria-hidden="true" tabindex="-1"></a>               <span class="at">shape =</span> <span class="dv">16</span>,</span>
 <span id="cb17-299"><a href="#cb17-299" aria-hidden="true" tabindex="-1"></a>               <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb17-300"><a href="#cb17-300" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>) <span class="sc">+</span></span>
+<span id="cb17-300"><a href="#cb17-300" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
 <span id="cb17-301"><a href="#cb17-301" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
 <span id="cb17-302"><a href="#cb17-302" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(), <span class="co">#remove major gridlines</span></span>
 <span id="cb17-303"><a href="#cb17-303" aria-hidden="true" tabindex="-1"></a>    <span class="co"># panel.grid.minor = element_blank(), #remove minor gridlines</span></span>
@@ -1594,7 +1598,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb17-306"><a href="#cb17-306" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-307"><a href="#cb17-307" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figs/mod_logistico.jpg"</span>,</span>
 <span id="cb17-308"><a href="#cb17-308" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">9</span>,</span>
-<span id="cb17-309"><a href="#cb17-309" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">6</span>)</span>
+<span id="cb17-309"><a href="#cb17-309" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">5</span>)</span>
 <span id="cb17-310"><a href="#cb17-310" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-311"><a href="#cb17-311" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb17-312"><a href="#cb17-312" aria-hidden="true" tabindex="-1"></a></span>
@@ -1653,107 +1657,111 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb17-367"><a href="#cb17-367" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> parameters,</span>
 <span id="cb17-368"><a href="#cb17-368" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">3</span>,</span>
 <span id="cb17-369"><a href="#cb17-369" aria-hidden="true" tabindex="-1"></a>             <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb17-370"><a href="#cb17-370" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>) <span class="sc">+</span></span>
+<span id="cb17-370"><a href="#cb17-370" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">22</span>) <span class="sc">+</span></span>
 <span id="cb17-371"><a href="#cb17-371" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1200</span>, <span class="at">by =</span> <span class="dv">200</span>)) <span class="sc">+</span></span>
 <span id="cb17-372"><a href="#cb17-372" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Graus dia acumulado"</span>,</span>
 <span id="cb17-373"><a href="#cb17-373" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">expression</span>(Emissão<span class="sc">~</span>de<span class="sc">~</span>área<span class="sc">~</span>foliar<span class="sc">~</span>(cm<span class="sc">^</span><span class="dv">2</span><span class="sc">~</span>planta<span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}<span class="sc">~</span>grau<span class="sc">~</span>dia<span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>})),</span>
 <span id="cb17-374"><a href="#cb17-374" aria-hidden="true" tabindex="-1"></a>       <span class="at">color  =</span> <span class="st">"Cultivar"</span>,</span>
 <span id="cb17-375"><a href="#cb17-375" aria-hidden="true" tabindex="-1"></a>       <span class="at">linetype =</span> <span class="st">"Época"</span>) <span class="sc">+</span></span>
-<span id="cb17-376"><a href="#cb17-376" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"gold"</span>, <span class="st">"brown"</span>))</span>
-<span id="cb17-377"><a href="#cb17-377" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-378"><a href="#cb17-378" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figs/prim_deriv.jpg"</span>,</span>
-<span id="cb17-379"><a href="#cb17-379" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">7</span>,</span>
-<span id="cb17-380"><a href="#cb17-380" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">9</span>)</span>
-<span id="cb17-381"><a href="#cb17-381" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-382"><a href="#cb17-382" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb17-376"><a href="#cb17-376" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb17-377"><a href="#cb17-377" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb17-378"><a href="#cb17-378" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"gold"</span>, <span class="st">"brown"</span>))</span>
+<span id="cb17-379"><a href="#cb17-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-380"><a href="#cb17-380" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figs/prim_deriv.jpg"</span>,</span>
+<span id="cb17-381"><a href="#cb17-381" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">8</span>,</span>
+<span id="cb17-382"><a href="#cb17-382" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">8</span>)</span>
 <span id="cb17-383"><a href="#cb17-383" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-384"><a href="#cb17-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-384"><a href="#cb17-384" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb17-385"><a href="#cb17-385" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-386"><a href="#cb17-386" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-387"><a href="#cb17-387" aria-hidden="true" tabindex="-1"></a><span class="fu">## Segunda derivada</span></span>
-<span id="cb17-390"><a href="#cb17-390" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb17-391"><a href="#cb17-391" aria-hidden="true" tabindex="-1"></a><span class="co"># segunda derivada</span></span>
-<span id="cb17-392"><a href="#cb17-392" aria-hidden="true" tabindex="-1"></a><span class="fu">D</span>(<span class="fu">expression</span>(b1 <span class="sc">*</span> (<span class="fu">exp</span>(b2 <span class="sc">-</span> b3 <span class="sc">*</span> x) <span class="sc">*</span> b3)<span class="sc">/</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(b2 <span class="sc">-</span> b3 <span class="sc">*</span> x))<span class="sc">^</span><span class="dv">2</span>), <span class="st">"x"</span>)</span>
-<span id="cb17-393"><a href="#cb17-393" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-394"><a href="#cb17-394" aria-hidden="true" tabindex="-1"></a>d2y <span class="ot">&lt;-</span> <span class="cf">function</span>(x,b1,b2,b3){</span>
-<span id="cb17-395"><a href="#cb17-395" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span>(b1 <span class="sc">*</span> (<span class="fu">exp</span>(b2 <span class="sc">-</span> b3 <span class="sc">*</span> x) <span class="sc">*</span> b3 <span class="sc">*</span> b3)<span class="sc">/</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(b2 <span class="sc">-</span> b3 <span class="sc">*</span> x))<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> </span>
-<span id="cb17-396"><a href="#cb17-396" aria-hidden="true" tabindex="-1"></a>      b1 <span class="sc">*</span> (<span class="fu">exp</span>(b2 <span class="sc">-</span> b3 <span class="sc">*</span> x) <span class="sc">*</span> b3) <span class="sc">*</span> (<span class="dv">2</span> <span class="sc">*</span> (<span class="fu">exp</span>(b2 <span class="sc">-</span> b3 <span class="sc">*</span> x) <span class="sc">*</span> b3 <span class="sc">*</span> </span>
-<span id="cb17-397"><a href="#cb17-397" aria-hidden="true" tabindex="-1"></a>                                             (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(b2 <span class="sc">-</span> b3 <span class="sc">*</span> x))))<span class="sc">/</span>((<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(b2 <span class="sc">-</span> b3 <span class="sc">*</span> x))<span class="sc">^</span><span class="dv">2</span>)<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb17-398"><a href="#cb17-398" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb17-399"><a href="#cb17-399" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-400"><a href="#cb17-400" aria-hidden="true" tabindex="-1"></a>parameters <span class="ot">&lt;-</span> </span>
-<span id="cb17-401"><a href="#cb17-401" aria-hidden="true" tabindex="-1"></a>  parameters <span class="sc">|&gt;</span> </span>
-<span id="cb17-402"><a href="#cb17-402" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">xmap =</span> (b2 <span class="sc">-</span> <span class="fl">1.3170</span>)<span class="sc">/</span>b3,</span>
-<span id="cb17-403"><a href="#cb17-403" aria-hidden="true" tabindex="-1"></a>         <span class="at">xmdp =</span> (b2 <span class="sc">+</span> <span class="fl">1.3170</span>)<span class="sc">/</span>b3,</span>
-<span id="cb17-404"><a href="#cb17-404" aria-hidden="true" tabindex="-1"></a>         <span class="at">ymap =</span> <span class="fu">d2y</span>(xmap, b1, b2, b3),</span>
-<span id="cb17-405"><a href="#cb17-405" aria-hidden="true" tabindex="-1"></a>         <span class="at">ymdp =</span> <span class="fu">d2y</span>(xmdp, b1, b2, b3),</span>
-<span id="cb17-406"><a href="#cb17-406" aria-hidden="true" tabindex="-1"></a>  ) </span>
-<span id="cb17-407"><a href="#cb17-407" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-408"><a href="#cb17-408" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-409"><a href="#cb17-409" aria-hidden="true" tabindex="-1"></a><span class="co"># df_acel &lt;-</span></span>
-<span id="cb17-410"><a href="#cb17-410" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb17-411"><a href="#cb17-411" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
-<span id="cb17-412"><a href="#cb17-412" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> d2y,</span>
-<span id="cb17-413"><a href="#cb17-413" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"D"</span>, <span class="at">linetype =</span> <span class="st">"E1"</span>),</span>
-<span id="cb17-414"><a href="#cb17-414" aria-hidden="true" tabindex="-1"></a>                <span class="at">n =</span> <span class="dv">500</span>,</span>
-<span id="cb17-415"><a href="#cb17-415" aria-hidden="true" tabindex="-1"></a>                <span class="at">linewidth =</span> <span class="dv">1</span>,</span>
-<span id="cb17-416"><a href="#cb17-416" aria-hidden="true" tabindex="-1"></a>                <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>),</span>
-<span id="cb17-417"><a href="#cb17-417" aria-hidden="true" tabindex="-1"></a>                <span class="at">args =</span> <span class="fu">c</span>(<span class="at">b1 =</span> parameters[[<span class="dv">1</span>, <span class="dv">3</span>]],</span>
-<span id="cb17-418"><a href="#cb17-418" aria-hidden="true" tabindex="-1"></a>                         <span class="at">b2 =</span> parameters[[<span class="dv">1</span>, <span class="dv">4</span>]],</span>
-<span id="cb17-419"><a href="#cb17-419" aria-hidden="true" tabindex="-1"></a>                         <span class="at">b3 =</span> parameters[[<span class="dv">1</span>, <span class="dv">5</span>]])) <span class="sc">+</span></span>
-<span id="cb17-420"><a href="#cb17-420" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> d2y,</span>
-<span id="cb17-421"><a href="#cb17-421" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"M"</span>, <span class="at">linetype =</span> <span class="st">"E1"</span>),</span>
-<span id="cb17-422"><a href="#cb17-422" aria-hidden="true" tabindex="-1"></a>                <span class="at">linewidth =</span> <span class="dv">1</span>,</span>
-<span id="cb17-423"><a href="#cb17-423" aria-hidden="true" tabindex="-1"></a>                <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>),</span>
-<span id="cb17-424"><a href="#cb17-424" aria-hidden="true" tabindex="-1"></a>                <span class="at">args =</span> <span class="fu">c</span>(<span class="at">b1 =</span> parameters[[<span class="dv">2</span>, <span class="dv">3</span>]],</span>
-<span id="cb17-425"><a href="#cb17-425" aria-hidden="true" tabindex="-1"></a>                         <span class="at">b2 =</span> parameters[[<span class="dv">2</span>, <span class="dv">4</span>]],</span>
-<span id="cb17-426"><a href="#cb17-426" aria-hidden="true" tabindex="-1"></a>                         <span class="at">b3 =</span> parameters[[<span class="dv">2</span>, <span class="dv">5</span>]])) <span class="sc">+</span></span>
-<span id="cb17-427"><a href="#cb17-427" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> d2y,</span>
-<span id="cb17-428"><a href="#cb17-428" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"D"</span>, <span class="at">linetype =</span> <span class="st">"E2"</span>),</span>
-<span id="cb17-429"><a href="#cb17-429" aria-hidden="true" tabindex="-1"></a>                <span class="at">linewidth =</span> <span class="dv">1</span>,</span>
-<span id="cb17-430"><a href="#cb17-430" aria-hidden="true" tabindex="-1"></a>                <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>),</span>
-<span id="cb17-431"><a href="#cb17-431" aria-hidden="true" tabindex="-1"></a>                <span class="at">args =</span> <span class="fu">c</span>(<span class="at">b1 =</span> parameters[[<span class="dv">3</span>, <span class="dv">3</span>]],</span>
-<span id="cb17-432"><a href="#cb17-432" aria-hidden="true" tabindex="-1"></a>                         <span class="at">b2 =</span> parameters[[<span class="dv">3</span>, <span class="dv">4</span>]],</span>
-<span id="cb17-433"><a href="#cb17-433" aria-hidden="true" tabindex="-1"></a>                         <span class="at">b3 =</span> parameters[[<span class="dv">3</span>, <span class="dv">5</span>]])) <span class="sc">+</span></span>
-<span id="cb17-434"><a href="#cb17-434" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> d2y,</span>
-<span id="cb17-435"><a href="#cb17-435" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"M"</span>, <span class="at">linetype =</span> <span class="st">"E2"</span>),</span>
-<span id="cb17-436"><a href="#cb17-436" aria-hidden="true" tabindex="-1"></a>                <span class="at">linewidth =</span> <span class="dv">1</span>,</span>
-<span id="cb17-437"><a href="#cb17-437" aria-hidden="true" tabindex="-1"></a>                <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>),</span>
-<span id="cb17-438"><a href="#cb17-438" aria-hidden="true" tabindex="-1"></a>                <span class="at">args =</span> <span class="fu">c</span>(<span class="at">b1 =</span> parameters[[<span class="dv">4</span>, <span class="dv">3</span>]],</span>
-<span id="cb17-439"><a href="#cb17-439" aria-hidden="true" tabindex="-1"></a>                         <span class="at">b2 =</span> parameters[[<span class="dv">4</span>, <span class="dv">4</span>]],</span>
-<span id="cb17-440"><a href="#cb17-440" aria-hidden="true" tabindex="-1"></a>                         <span class="at">b3 =</span> parameters[[<span class="dv">4</span>, <span class="dv">5</span>]])) <span class="sc">+</span></span>
-<span id="cb17-441"><a href="#cb17-441" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(xmap, ymap, <span class="at">fill =</span> cultivar),</span>
-<span id="cb17-442"><a href="#cb17-442" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> parameters,</span>
-<span id="cb17-443"><a href="#cb17-443" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">3</span>,</span>
-<span id="cb17-444"><a href="#cb17-444" aria-hidden="true" tabindex="-1"></a>             <span class="at">shape =</span> <span class="dv">24</span>,</span>
-<span id="cb17-445"><a href="#cb17-445" aria-hidden="true" tabindex="-1"></a>             <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb17-446"><a href="#cb17-446" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(xmdp, ymdp, <span class="at">fill =</span> cultivar),</span>
-<span id="cb17-447"><a href="#cb17-447" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> parameters,</span>
-<span id="cb17-448"><a href="#cb17-448" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">3</span>,</span>
-<span id="cb17-449"><a href="#cb17-449" aria-hidden="true" tabindex="-1"></a>             <span class="at">shape =</span> <span class="dv">25</span>,</span>
-<span id="cb17-450"><a href="#cb17-450" aria-hidden="true" tabindex="-1"></a>             <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb17-451"><a href="#cb17-451" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>) <span class="sc">+</span></span>
-<span id="cb17-452"><a href="#cb17-452" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Graus dia acumulado"</span>,</span>
-<span id="cb17-453"><a href="#cb17-453" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">expression</span>(Aceleração<span class="sc">~</span>de<span class="sc">~</span>emissão<span class="sc">~</span>área<span class="sc">~</span>foliar<span class="sc">~</span>(cm<span class="sc">^</span><span class="dv">2</span><span class="sc">~</span>planta<span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}<span class="sc">~</span>grau<span class="sc">~</span>dia<span class="sc">^</span>{<span class="sc">-</span><span class="dv">2</span>})),</span>
-<span id="cb17-454"><a href="#cb17-454" aria-hidden="true" tabindex="-1"></a>       <span class="at">color  =</span> <span class="st">"Cultivar"</span>,</span>
-<span id="cb17-455"><a href="#cb17-455" aria-hidden="true" tabindex="-1"></a>       <span class="at">linetype =</span> <span class="st">"Época"</span>) <span class="sc">+</span></span>
-<span id="cb17-456"><a href="#cb17-456" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"gold"</span>, <span class="st">"brown"</span>)) <span class="sc">+</span></span>
-<span id="cb17-457"><a href="#cb17-457" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"gold"</span>, <span class="st">"brown"</span>))</span>
-<span id="cb17-458"><a href="#cb17-458" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-459"><a href="#cb17-459" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figs/seg_deriv.jpg"</span>,</span>
-<span id="cb17-460"><a href="#cb17-460" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">7</span>,</span>
-<span id="cb17-461"><a href="#cb17-461" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">9</span>)</span>
+<span id="cb17-387"><a href="#cb17-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-388"><a href="#cb17-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-389"><a href="#cb17-389" aria-hidden="true" tabindex="-1"></a><span class="fu">## Segunda derivada</span></span>
+<span id="cb17-392"><a href="#cb17-392" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb17-393"><a href="#cb17-393" aria-hidden="true" tabindex="-1"></a><span class="co"># segunda derivada</span></span>
+<span id="cb17-394"><a href="#cb17-394" aria-hidden="true" tabindex="-1"></a><span class="fu">D</span>(<span class="fu">expression</span>(b1 <span class="sc">*</span> (<span class="fu">exp</span>(b2 <span class="sc">-</span> b3 <span class="sc">*</span> x) <span class="sc">*</span> b3)<span class="sc">/</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(b2 <span class="sc">-</span> b3 <span class="sc">*</span> x))<span class="sc">^</span><span class="dv">2</span>), <span class="st">"x"</span>)</span>
+<span id="cb17-395"><a href="#cb17-395" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-396"><a href="#cb17-396" aria-hidden="true" tabindex="-1"></a>d2y <span class="ot">&lt;-</span> <span class="cf">function</span>(x,b1,b2,b3){</span>
+<span id="cb17-397"><a href="#cb17-397" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span>(b1 <span class="sc">*</span> (<span class="fu">exp</span>(b2 <span class="sc">-</span> b3 <span class="sc">*</span> x) <span class="sc">*</span> b3 <span class="sc">*</span> b3)<span class="sc">/</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(b2 <span class="sc">-</span> b3 <span class="sc">*</span> x))<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> </span>
+<span id="cb17-398"><a href="#cb17-398" aria-hidden="true" tabindex="-1"></a>      b1 <span class="sc">*</span> (<span class="fu">exp</span>(b2 <span class="sc">-</span> b3 <span class="sc">*</span> x) <span class="sc">*</span> b3) <span class="sc">*</span> (<span class="dv">2</span> <span class="sc">*</span> (<span class="fu">exp</span>(b2 <span class="sc">-</span> b3 <span class="sc">*</span> x) <span class="sc">*</span> b3 <span class="sc">*</span> </span>
+<span id="cb17-399"><a href="#cb17-399" aria-hidden="true" tabindex="-1"></a>                                             (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(b2 <span class="sc">-</span> b3 <span class="sc">*</span> x))))<span class="sc">/</span>((<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(b2 <span class="sc">-</span> b3 <span class="sc">*</span> x))<span class="sc">^</span><span class="dv">2</span>)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb17-400"><a href="#cb17-400" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb17-401"><a href="#cb17-401" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-402"><a href="#cb17-402" aria-hidden="true" tabindex="-1"></a>parameters <span class="ot">&lt;-</span> </span>
+<span id="cb17-403"><a href="#cb17-403" aria-hidden="true" tabindex="-1"></a>  parameters <span class="sc">|&gt;</span> </span>
+<span id="cb17-404"><a href="#cb17-404" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">xmap =</span> (b2 <span class="sc">-</span> <span class="fl">1.3170</span>)<span class="sc">/</span>b3,</span>
+<span id="cb17-405"><a href="#cb17-405" aria-hidden="true" tabindex="-1"></a>         <span class="at">xmdp =</span> (b2 <span class="sc">+</span> <span class="fl">1.3170</span>)<span class="sc">/</span>b3,</span>
+<span id="cb17-406"><a href="#cb17-406" aria-hidden="true" tabindex="-1"></a>         <span class="at">ymap =</span> <span class="fu">d2y</span>(xmap, b1, b2, b3),</span>
+<span id="cb17-407"><a href="#cb17-407" aria-hidden="true" tabindex="-1"></a>         <span class="at">ymdp =</span> <span class="fu">d2y</span>(xmdp, b1, b2, b3),</span>
+<span id="cb17-408"><a href="#cb17-408" aria-hidden="true" tabindex="-1"></a>  ) </span>
+<span id="cb17-409"><a href="#cb17-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-410"><a href="#cb17-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-411"><a href="#cb17-411" aria-hidden="true" tabindex="-1"></a><span class="co"># df_acel &lt;-</span></span>
+<span id="cb17-412"><a href="#cb17-412" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb17-413"><a href="#cb17-413" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb17-414"><a href="#cb17-414" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> d2y,</span>
+<span id="cb17-415"><a href="#cb17-415" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"D"</span>, <span class="at">linetype =</span> <span class="st">"E1"</span>),</span>
+<span id="cb17-416"><a href="#cb17-416" aria-hidden="true" tabindex="-1"></a>                <span class="at">n =</span> <span class="dv">500</span>,</span>
+<span id="cb17-417"><a href="#cb17-417" aria-hidden="true" tabindex="-1"></a>                <span class="at">linewidth =</span> <span class="dv">1</span>,</span>
+<span id="cb17-418"><a href="#cb17-418" aria-hidden="true" tabindex="-1"></a>                <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>),</span>
+<span id="cb17-419"><a href="#cb17-419" aria-hidden="true" tabindex="-1"></a>                <span class="at">args =</span> <span class="fu">c</span>(<span class="at">b1 =</span> parameters[[<span class="dv">1</span>, <span class="dv">3</span>]],</span>
+<span id="cb17-420"><a href="#cb17-420" aria-hidden="true" tabindex="-1"></a>                         <span class="at">b2 =</span> parameters[[<span class="dv">1</span>, <span class="dv">4</span>]],</span>
+<span id="cb17-421"><a href="#cb17-421" aria-hidden="true" tabindex="-1"></a>                         <span class="at">b3 =</span> parameters[[<span class="dv">1</span>, <span class="dv">5</span>]])) <span class="sc">+</span></span>
+<span id="cb17-422"><a href="#cb17-422" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> d2y,</span>
+<span id="cb17-423"><a href="#cb17-423" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"M"</span>, <span class="at">linetype =</span> <span class="st">"E1"</span>),</span>
+<span id="cb17-424"><a href="#cb17-424" aria-hidden="true" tabindex="-1"></a>                <span class="at">linewidth =</span> <span class="dv">1</span>,</span>
+<span id="cb17-425"><a href="#cb17-425" aria-hidden="true" tabindex="-1"></a>                <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>),</span>
+<span id="cb17-426"><a href="#cb17-426" aria-hidden="true" tabindex="-1"></a>                <span class="at">args =</span> <span class="fu">c</span>(<span class="at">b1 =</span> parameters[[<span class="dv">2</span>, <span class="dv">3</span>]],</span>
+<span id="cb17-427"><a href="#cb17-427" aria-hidden="true" tabindex="-1"></a>                         <span class="at">b2 =</span> parameters[[<span class="dv">2</span>, <span class="dv">4</span>]],</span>
+<span id="cb17-428"><a href="#cb17-428" aria-hidden="true" tabindex="-1"></a>                         <span class="at">b3 =</span> parameters[[<span class="dv">2</span>, <span class="dv">5</span>]])) <span class="sc">+</span></span>
+<span id="cb17-429"><a href="#cb17-429" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> d2y,</span>
+<span id="cb17-430"><a href="#cb17-430" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"D"</span>, <span class="at">linetype =</span> <span class="st">"E2"</span>),</span>
+<span id="cb17-431"><a href="#cb17-431" aria-hidden="true" tabindex="-1"></a>                <span class="at">linewidth =</span> <span class="dv">1</span>,</span>
+<span id="cb17-432"><a href="#cb17-432" aria-hidden="true" tabindex="-1"></a>                <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>),</span>
+<span id="cb17-433"><a href="#cb17-433" aria-hidden="true" tabindex="-1"></a>                <span class="at">args =</span> <span class="fu">c</span>(<span class="at">b1 =</span> parameters[[<span class="dv">3</span>, <span class="dv">3</span>]],</span>
+<span id="cb17-434"><a href="#cb17-434" aria-hidden="true" tabindex="-1"></a>                         <span class="at">b2 =</span> parameters[[<span class="dv">3</span>, <span class="dv">4</span>]],</span>
+<span id="cb17-435"><a href="#cb17-435" aria-hidden="true" tabindex="-1"></a>                         <span class="at">b3 =</span> parameters[[<span class="dv">3</span>, <span class="dv">5</span>]])) <span class="sc">+</span></span>
+<span id="cb17-436"><a href="#cb17-436" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> d2y,</span>
+<span id="cb17-437"><a href="#cb17-437" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"M"</span>, <span class="at">linetype =</span> <span class="st">"E2"</span>),</span>
+<span id="cb17-438"><a href="#cb17-438" aria-hidden="true" tabindex="-1"></a>                <span class="at">linewidth =</span> <span class="dv">1</span>,</span>
+<span id="cb17-439"><a href="#cb17-439" aria-hidden="true" tabindex="-1"></a>                <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>),</span>
+<span id="cb17-440"><a href="#cb17-440" aria-hidden="true" tabindex="-1"></a>                <span class="at">args =</span> <span class="fu">c</span>(<span class="at">b1 =</span> parameters[[<span class="dv">4</span>, <span class="dv">3</span>]],</span>
+<span id="cb17-441"><a href="#cb17-441" aria-hidden="true" tabindex="-1"></a>                         <span class="at">b2 =</span> parameters[[<span class="dv">4</span>, <span class="dv">4</span>]],</span>
+<span id="cb17-442"><a href="#cb17-442" aria-hidden="true" tabindex="-1"></a>                         <span class="at">b3 =</span> parameters[[<span class="dv">4</span>, <span class="dv">5</span>]])) <span class="sc">+</span></span>
+<span id="cb17-443"><a href="#cb17-443" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(xmap, ymap, <span class="at">fill =</span> cultivar),</span>
+<span id="cb17-444"><a href="#cb17-444" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> parameters,</span>
+<span id="cb17-445"><a href="#cb17-445" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">3</span>,</span>
+<span id="cb17-446"><a href="#cb17-446" aria-hidden="true" tabindex="-1"></a>             <span class="at">shape =</span> <span class="dv">24</span>,</span>
+<span id="cb17-447"><a href="#cb17-447" aria-hidden="true" tabindex="-1"></a>             <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb17-448"><a href="#cb17-448" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(xmdp, ymdp, <span class="at">fill =</span> cultivar),</span>
+<span id="cb17-449"><a href="#cb17-449" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> parameters,</span>
+<span id="cb17-450"><a href="#cb17-450" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">3</span>,</span>
+<span id="cb17-451"><a href="#cb17-451" aria-hidden="true" tabindex="-1"></a>             <span class="at">shape =</span> <span class="dv">25</span>,</span>
+<span id="cb17-452"><a href="#cb17-452" aria-hidden="true" tabindex="-1"></a>             <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb17-453"><a href="#cb17-453" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">22</span>) <span class="sc">+</span></span>
+<span id="cb17-454"><a href="#cb17-454" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Graus dia acumulado"</span>,</span>
+<span id="cb17-455"><a href="#cb17-455" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">expression</span>(Aceleração<span class="sc">~</span>(cm<span class="sc">^</span><span class="dv">2</span><span class="sc">~</span>planta<span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}<span class="sc">~</span>grau<span class="sc">~</span>dia<span class="sc">^</span>{<span class="sc">-</span><span class="dv">2</span>})),</span>
+<span id="cb17-456"><a href="#cb17-456" aria-hidden="true" tabindex="-1"></a>       <span class="at">color  =</span> <span class="st">"Cultivar"</span>,</span>
+<span id="cb17-457"><a href="#cb17-457" aria-hidden="true" tabindex="-1"></a>       <span class="at">linetype =</span> <span class="st">"Época"</span>) <span class="sc">+</span></span>
+<span id="cb17-458"><a href="#cb17-458" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb17-459"><a href="#cb17-459" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb17-460"><a href="#cb17-460" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"gold"</span>, <span class="st">"brown"</span>)) <span class="sc">+</span></span>
+<span id="cb17-461"><a href="#cb17-461" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"gold"</span>, <span class="st">"brown"</span>))</span>
 <span id="cb17-462"><a href="#cb17-462" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-463"><a href="#cb17-463" aria-hidden="true" tabindex="-1"></a><span class="co"># export(parameters, "data/result_logistico.xlsx", which = "parametros_logistico")</span></span>
-<span id="cb17-464"><a href="#cb17-464" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-465"><a href="#cb17-465" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb17-463"><a href="#cb17-463" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figs/seg_deriv.jpg"</span>,</span>
+<span id="cb17-464"><a href="#cb17-464" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">8</span>,</span>
+<span id="cb17-465"><a href="#cb17-465" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">8</span>)</span>
 <span id="cb17-466"><a href="#cb17-466" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-467"><a href="#cb17-467" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-467"><a href="#cb17-467" aria-hidden="true" tabindex="-1"></a><span class="co"># export(parameters, "data/result_logistico.xlsx", which = "parametros_logistico")</span></span>
 <span id="cb17-468"><a href="#cb17-468" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-469"><a href="#cb17-469" aria-hidden="true" tabindex="-1"></a><span class="fu"># Section info</span></span>
-<span id="cb17-472"><a href="#cb17-472" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb17-473"><a href="#cb17-473" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span>
-<span id="cb17-474"><a href="#cb17-474" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb17-469"><a href="#cb17-469" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb17-470"><a href="#cb17-470" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-471"><a href="#cb17-471" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-472"><a href="#cb17-472" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-473"><a href="#cb17-473" aria-hidden="true" tabindex="-1"></a><span class="fu"># Section info</span></span>
+<span id="cb17-476"><a href="#cb17-476" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb17-477"><a href="#cb17-477" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span>
+<span id="cb17-478"><a href="#cb17-478" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

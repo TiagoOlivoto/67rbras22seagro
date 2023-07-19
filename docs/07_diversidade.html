@@ -269,7 +269,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="header-section-number">2</span> Data</h1>
 <div class="cell">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> </span>
-<span>  <span class="fu">rio</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="st">"data/data_mgidi.csv"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="st">"data/data_mgidi.csv"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_na_zero.html">remove_rows_na</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="adjust-by-season-effect" class="level1" data-number="3"><h1 data-number="3">
@@ -279,19 +279,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>  <span class="va">df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_rows_cols.html">remove_cols</a></span><span class="op">(</span><span class="va">gen</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/manova.html">manova</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">ac</span>, <span class="va">ap</span>, <span class="va">nc</span>, <span class="va">ng</span>, <span class="va">areac</span>,  <span class="va">nr</span>, <span class="va">mc</span>, <span class="va">rgpla</span>, <span class="va">icc</span>, <span class="va">ngcap</span>, <span class="va">mmg</span><span class="op">)</span> <span class="op">~</span> <span class="fl">0</span> <span class="op">+</span> <span class="va">epoca</span>,</span>
+<span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/manova.html">manova</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">ac</span>, <span class="va">ap</span>, <span class="va">nc</span>, <span class="va">ng</span>, <span class="va">areac</span>,  <span class="va">nr</span>, <span class="va">mc</span>, <span class="va">rgpla</span>, <span class="va">icc</span>, <span class="va">ngcap</span>, <span class="va">mmg</span><span class="op">)</span> <span class="op">~</span> <span class="va">epoca</span>,</span>
 <span>              data <span class="op">=</span> <span class="va">df_man</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html">coefficients</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span>
-<span><span class="co">##               ac       ap       nc        ng     areac        nr        mc</span></span>
-<span><span class="co">## epocaE1 53.98939 81.54545 33.51515 216.07576 0.3942657 1.2878788 1.6351515</span></span>
-<span><span class="co">## epocaE2 51.35294 76.52941 23.31373 140.00000 0.3769100 0.4509804 1.1113725</span></span>
-<span><span class="co">## epocaE3 64.34231 81.74346 16.01923  80.36538 0.3365584 0.5576923 0.5205769</span></span>
-<span><span class="co">## epocaE4 59.13273 69.43273 15.32727  69.78182 0.2835268 0.4181818 0.4163636</span></span>
-<span><span class="co">##             rgpla       icc    ngcap      mmg</span></span>
-<span><span class="co">## epocaE1 1.2174242 0.7265065 6.466984 5.597276</span></span>
-<span><span class="co">## epocaE2 0.7984314 0.7222663 6.215353 5.887311</span></span>
-<span><span class="co">## epocaE3 0.3098077 0.5899229 4.940946 3.806239</span></span>
-<span><span class="co">## epocaE4 0.2649091 0.6238759 4.483170 3.888772</span></span>
+<span><span class="co">##                    ac         ap        nc         ng       areac         nr</span></span>
+<span><span class="co">## (Intercept) 53.989394  81.545455  33.51515  216.07576  0.39426566  1.2878788</span></span>
+<span><span class="co">## epocaE2     -2.636453  -5.016043 -10.20143  -76.07576 -0.01735562 -0.8368984</span></span>
+<span><span class="co">## epocaE3     10.352914   0.198007 -17.49592 -135.71037 -0.05770728 -0.7301865</span></span>
+<span><span class="co">## epocaE4      5.143333 -12.112727 -18.18788 -146.29394 -0.11073884 -0.8696970</span></span>
+<span><span class="co">##                     mc      rgpla         icc      ngcap        mmg</span></span>
+<span><span class="co">## (Intercept)  1.6351515  1.2174242  0.80009953  6.4669836  5.5972761</span></span>
+<span><span class="co">## epocaE2     -0.5247594 -0.4180125 -0.06885532 -0.2516304  0.2900347</span></span>
+<span><span class="co">## epocaE3     -1.1145746 -0.9076166 -0.21017662 -1.5260380 -1.7910373</span></span>
+<span><span class="co">## epocaE4     -1.2189697 -0.9523333 -0.16804186 -1.9838140 -1.7085045</span></span>
 <span><span class="va">df_resi</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">residuals</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -310,16 +310,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>          k <span class="op">=</span> <span class="fl">16</span>,</span>
 <span>          cex <span class="op">=</span> <span class="fl">0.5</span>,</span>
 <span>          repel <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>          type <span class="op">=</span> <span class="st">"phylo"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>          type <span class="op">=</span> <span class="st">"circular"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_void</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="07_diversidade_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+<p><img src="07_diversidade_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="960"></p>
 </div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"figs/phylo.jpg"</span>,</span>
 <span>       dpi <span class="op">=</span> <span class="fl">600</span>,</span>
-<span>       width <span class="op">=</span> <span class="fl">8</span>,</span>
-<span>       height <span class="op">=</span> <span class="fl">8</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>       width <span class="op">=</span> <span class="fl">10</span>,</span>
+<span>       height <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="médias" class="level1" data-number="5"><h1 data-number="5">
 <span class="header-section-number">5</span> Médias</h1>
@@ -333,7 +333,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>  <span class="va">df2</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">groups</span>, <span class="va">mmg</span>, <span class="va">rgpla</span>, <span class="va">ng</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span><span class="op">-</span><span class="va">groups</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">groups</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">11</span>, <span class="fl">15</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">groups</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">11</span>, <span class="fl">15</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">groups</span>, <span class="va">name</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span>,</span>
 <span>            sd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span>,</span>
@@ -352,8 +352,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section><section id="stats" class="level1" data-number="6"><h1 data-number="6">
 <span class="header-section-number">6</span> Stats</h1>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># correct season effect</span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df3</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">groups</span>, y <span class="op">=</span> <span class="va">mean</span>, fill <span class="op">=</span> <span class="va">groups</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df3</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">groups</span>, y <span class="op">=</span> <span class="va">mean</span>, fill <span class="op">=</span> <span class="va">groups</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_hline</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">df_mean</span>,</span>
 <span>             <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>yintercept <span class="op">=</span> <span class="va">value</span><span class="op">)</span>,</span>
@@ -368,7 +367,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>                    ymax <span class="op">=</span> <span class="va">mean</span> <span class="op">+</span> <span class="va">se</span><span class="op">)</span>,</span>
 <span>                width <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">name</span>, scales <span class="op">=</span> <span class="st">"free"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">14</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">18</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html">expansion</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="fl">0</span>, label <span class="op">=</span> <span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="st">"n = {n}"</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>            vjust <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
@@ -376,7 +376,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>       y <span class="op">=</span> <span class="st">"Valor médio do caractere"</span>,</span>
 <span>       fill <span class="op">=</span> <span class="st">"Grupos"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="07_diversidade_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+<p><img src="07_diversidade_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="960"></p>
 </div>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"figs/mean_clusters.jpg"</span>,</span>
@@ -419,31 +419,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">##  [22] ggforce_0.4.1          compiler_4.2.2         emmeans_1.8.7         </span></span>
 <span><span class="co">##  [25] backports_1.4.1        Matrix_1.6-0           fastmap_1.1.1         </span></span>
 <span><span class="co">##  [28] cli_3.6.1              tweenr_2.0.2           htmltools_0.5.5       </span></span>
-<span><span class="co">##  [31] tools_4.2.2            lmerTest_3.1-3         igraph_1.5.0          </span></span>
-<span><span class="co">##  [34] coda_0.19-4            gtable_0.3.3           glue_1.6.2            </span></span>
-<span><span class="co">##  [37] Rcpp_1.0.11            carData_3.0-5          cellranger_1.1.0      </span></span>
-<span><span class="co">##  [40] vctrs_0.6.3            nlme_3.1-160           insight_0.19.3        </span></span>
-<span><span class="co">##  [43] xfun_0.39              openxlsx_4.2.5.2       lme4_1.1-34           </span></span>
-<span><span class="co">##  [46] timechange_0.2.0       lifecycle_1.0.3        rstatix_0.7.2         </span></span>
-<span><span class="co">##  [49] dendextend_1.17.1      MASS_7.3-60            zoo_1.8-12            </span></span>
-<span><span class="co">##  [52] scales_1.2.1           ragg_1.2.5             hms_1.1.3             </span></span>
-<span><span class="co">##  [55] sandwich_3.0-2         rematch2_2.1.2         RColorBrewer_1.1-3    </span></span>
-<span><span class="co">##  [58] yaml_2.3.7             curl_5.0.1             gridExtra_2.3         </span></span>
-<span><span class="co">##  [61] reshape_0.8.9          stringi_1.7.12         paletteer_1.5.0       </span></span>
-<span><span class="co">##  [64] bayestestR_0.13.1      boot_1.3-28            zip_2.3.0             </span></span>
-<span><span class="co">##  [67] systemfonts_1.0.4      rlang_1.1.1            pkgconfig_2.0.3       </span></span>
-<span><span class="co">##  [70] evaluate_0.21          lattice_0.20-45        labeling_0.4.2        </span></span>
-<span><span class="co">##  [73] patchwork_1.1.2        htmlwidgets_1.6.2      tidyselect_1.2.0      </span></span>
-<span><span class="co">##  [76] GGally_2.1.2           plyr_1.8.8             magrittr_2.0.3        </span></span>
-<span><span class="co">##  [79] R6_2.5.1               generics_0.1.3         multcomp_1.4-25       </span></span>
-<span><span class="co">##  [82] pillar_1.9.0           haven_2.5.3            foreign_0.8-83        </span></span>
-<span><span class="co">##  [85] withr_2.5.0            survival_3.4-0         datawizard_0.8.0      </span></span>
-<span><span class="co">##  [88] abind_1.4-5            car_3.1-2              utf8_1.2.3            </span></span>
-<span><span class="co">##  [91] correlation_0.8.4      tzdb_0.4.0             rmarkdown_2.23        </span></span>
-<span><span class="co">##  [94] viridis_0.6.3          grid_4.2.2             readxl_1.4.3          </span></span>
-<span><span class="co">##  [97] data.table_1.14.8      digest_0.6.33          xtable_1.8-4          </span></span>
-<span><span class="co">## [100] numDeriv_2016.8-1.1    textshaping_0.3.6      statsExpressions_1.5.1</span></span>
-<span><span class="co">## [103] munsell_0.5.0          viridisLite_0.4.2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="co">##  [31] tools_4.2.2            lmerTest_3.1-3         coda_0.19-4           </span></span>
+<span><span class="co">##  [34] gtable_0.3.3           glue_1.6.2             Rcpp_1.0.11           </span></span>
+<span><span class="co">##  [37] carData_3.0-5          cellranger_1.1.0       vctrs_0.6.3           </span></span>
+<span><span class="co">##  [40] nlme_3.1-160           insight_0.19.3         xfun_0.39             </span></span>
+<span><span class="co">##  [43] openxlsx_4.2.5.2       lme4_1.1-34            timechange_0.2.0      </span></span>
+<span><span class="co">##  [46] lifecycle_1.0.3        rstatix_0.7.2          dendextend_1.17.1     </span></span>
+<span><span class="co">##  [49] MASS_7.3-60            zoo_1.8-12             scales_1.2.1          </span></span>
+<span><span class="co">##  [52] ragg_1.2.5             hms_1.1.3              sandwich_3.0-2        </span></span>
+<span><span class="co">##  [55] rematch2_2.1.2         RColorBrewer_1.1-3     yaml_2.3.7            </span></span>
+<span><span class="co">##  [58] curl_5.0.1             gridExtra_2.3          reshape_0.8.9         </span></span>
+<span><span class="co">##  [61] stringi_1.7.12         paletteer_1.5.0        bayestestR_0.13.1     </span></span>
+<span><span class="co">##  [64] boot_1.3-28            zip_2.3.0              systemfonts_1.0.4     </span></span>
+<span><span class="co">##  [67] rlang_1.1.1            pkgconfig_2.0.3        evaluate_0.21         </span></span>
+<span><span class="co">##  [70] lattice_0.20-45        patchwork_1.1.2        htmlwidgets_1.6.2     </span></span>
+<span><span class="co">##  [73] labeling_0.4.2         tidyselect_1.2.0       GGally_2.1.2          </span></span>
+<span><span class="co">##  [76] plyr_1.8.8             magrittr_2.0.3         R6_2.5.1              </span></span>
+<span><span class="co">##  [79] generics_0.1.3         multcomp_1.4-25        pillar_1.9.0          </span></span>
+<span><span class="co">##  [82] haven_2.5.3            foreign_0.8-83         withr_2.5.0           </span></span>
+<span><span class="co">##  [85] survival_3.4-0         datawizard_0.8.0       abind_1.4-5           </span></span>
+<span><span class="co">##  [88] car_3.1-2              utf8_1.2.3             correlation_0.8.4     </span></span>
+<span><span class="co">##  [91] tzdb_0.4.0             rmarkdown_2.23         viridis_0.6.3         </span></span>
+<span><span class="co">##  [94] grid_4.2.2             readxl_1.4.3           data.table_1.14.8     </span></span>
+<span><span class="co">##  [97] digest_0.6.33          xtable_1.8-4           numDeriv_2016.8-1.1   </span></span>
+<span><span class="co">## [100] textshaping_0.3.6      statsExpressions_1.5.1 munsell_0.5.0         </span></span>
+<span><span class="co">## [103] viridisLite_0.4.2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
@@ -980,7 +980,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="fu"># Data</span></span>
 <span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> </span>
-<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>  rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"data/data_mgidi.csv"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">import</span>(<span class="st">"data/data_mgidi.csv"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">remove_rows_na</span>()</span>
 <span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a></span>
@@ -992,7 +992,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
 <span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">remove_cols</span>(gen)</span>
 <span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">manova</span>(<span class="fu">cbind</span>(ac, ap, nc, ng, areac,  nr, mc, rgpla, icc, ngcap, mmg) <span class="sc">~</span> <span class="dv">0</span> <span class="sc">+</span> epoca,</span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">manova</span>(<span class="fu">cbind</span>(ac, ap, nc, ng, areac,  nr, mc, rgpla, icc, ngcap, mmg) <span class="sc">~</span> epoca,</span>
 <span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> df_man)</span>
 <span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a><span class="fu">coefficients</span>(mod)</span>
 <span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>df_resi <span class="ot">&lt;-</span> </span>
@@ -1005,95 +1005,95 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a><span class="fu"># Distances</span></span>
-<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a>dists <span class="ot">&lt;-</span> <span class="fu">clustering</span>(df_resi,</span>
-<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a>                    <span class="at">scale =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a>                    <span class="at">clustmethod =</span> <span class="st">"average"</span>,</span>
-<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a>                    <span class="at">nclust =</span> <span class="dv">16</span>)</span>
-<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_dend</span>(dists<span class="sc">$</span>hc,</span>
-<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a>          <span class="at">k =</span> <span class="dv">16</span>,</span>
-<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a>          <span class="at">cex =</span> <span class="fl">0.5</span>,</span>
-<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a>          <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">"phylo"</span>) <span class="sc">+</span></span>
-<span id="cb10-73"><a href="#cb10-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span>
-<span id="cb10-74"><a href="#cb10-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-75"><a href="#cb10-75" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figs/phylo.jpg"</span>,</span>
-<span id="cb10-76"><a href="#cb10-76" aria-hidden="true" tabindex="-1"></a>       <span class="at">dpi =</span> <span class="dv">600</span>,</span>
-<span id="cb10-77"><a href="#cb10-77" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">8</span>,</span>
-<span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">8</span>)</span>
-<span id="cb10-79"><a href="#cb10-79" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-80"><a href="#cb10-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-81"><a href="#cb10-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-82"><a href="#cb10-82" aria-hidden="true" tabindex="-1"></a><span class="fu"># Médias</span></span>
-<span id="cb10-85"><a href="#cb10-85" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-86"><a href="#cb10-86" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> </span>
-<span id="cb10-87"><a href="#cb10-87" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span></span>
-<span id="cb10-88"><a href="#cb10-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">groups =</span> dists<span class="sc">$</span>data <span class="sc">|&gt;</span> <span class="fu">pull</span>(groups)) <span class="sc">|&gt;</span> </span>
-<span id="cb10-89"><a href="#cb10-89" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_factor</span>(groups)</span>
-<span id="cb10-90"><a href="#cb10-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-91"><a href="#cb10-91" aria-hidden="true" tabindex="-1"></a>df3 <span class="ot">&lt;-</span> </span>
-<span id="cb10-92"><a href="#cb10-92" aria-hidden="true" tabindex="-1"></a>  df2 <span class="sc">|&gt;</span> </span>
-<span id="cb10-93"><a href="#cb10-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(groups, mmg, rgpla, ng) <span class="sc">|&gt;</span> </span>
-<span id="cb10-94"><a href="#cb10-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>groups) <span class="sc">|&gt;</span> </span>
-<span id="cb10-95"><a href="#cb10-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(groups <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">11</span>, <span class="dv">15</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb10-96"><a href="#cb10-96" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(groups, name) <span class="sc">|&gt;</span> </span>
-<span id="cb10-97"><a href="#cb10-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(value),</span>
-<span id="cb10-98"><a href="#cb10-98" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd =</span> <span class="fu">sd</span>(value),</span>
-<span id="cb10-99"><a href="#cb10-99" aria-hidden="true" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>(),</span>
-<span id="cb10-100"><a href="#cb10-100" aria-hidden="true" tabindex="-1"></a>            <span class="at">se =</span> sd <span class="sc">/</span> <span class="fu">sqrt</span>(n))</span>
-<span id="cb10-101"><a href="#cb10-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-102"><a href="#cb10-102" aria-hidden="true" tabindex="-1"></a>df_mean <span class="ot">&lt;-</span> </span>
-<span id="cb10-103"><a href="#cb10-103" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
-<span id="cb10-104"><a href="#cb10-104" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean_by</span>(<span class="at">.vars =</span> <span class="fu">c</span>(mmg, rgpla, ng)) <span class="sc">|&gt;</span> </span>
-<span id="cb10-105"><a href="#cb10-105" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>())</span>
-<span id="cb10-106"><a href="#cb10-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-107"><a href="#cb10-107" aria-hidden="true" tabindex="-1"></a>df_meansel <span class="ot">&lt;-</span> </span>
-<span id="cb10-108"><a href="#cb10-108" aria-hidden="true" tabindex="-1"></a>  df3 <span class="sc">|&gt;</span> </span>
-<span id="cb10-109"><a href="#cb10-109" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean_by</span>(name)</span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.width=10}</span></span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a>dists <span class="ot">&lt;-</span> <span class="fu">clustering</span>(df_resi,</span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a>                    <span class="at">scale =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a>                    <span class="at">clustmethod =</span> <span class="st">"average"</span>,</span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a>                    <span class="at">nclust =</span> <span class="dv">16</span>)</span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_dend</span>(dists<span class="sc">$</span>hc,</span>
+<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a>          <span class="at">k =</span> <span class="dv">16</span>,</span>
+<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a>          <span class="at">cex =</span> <span class="fl">0.5</span>,</span>
+<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a>          <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">"circular"</span>) <span class="sc">+</span></span>
+<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span>
+<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-73"><a href="#cb10-73" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figs/phylo.jpg"</span>,</span>
+<span id="cb10-74"><a href="#cb10-74" aria-hidden="true" tabindex="-1"></a>       <span class="at">dpi =</span> <span class="dv">600</span>,</span>
+<span id="cb10-75"><a href="#cb10-75" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">10</span>,</span>
+<span id="cb10-76"><a href="#cb10-76" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">10</span>)</span>
+<span id="cb10-77"><a href="#cb10-77" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-79"><a href="#cb10-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-80"><a href="#cb10-80" aria-hidden="true" tabindex="-1"></a><span class="fu"># Médias</span></span>
+<span id="cb10-83"><a href="#cb10-83" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-84"><a href="#cb10-84" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> </span>
+<span id="cb10-85"><a href="#cb10-85" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span></span>
+<span id="cb10-86"><a href="#cb10-86" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">groups =</span> dists<span class="sc">$</span>data <span class="sc">|&gt;</span> <span class="fu">pull</span>(groups)) <span class="sc">|&gt;</span> </span>
+<span id="cb10-87"><a href="#cb10-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_factor</span>(groups)</span>
+<span id="cb10-88"><a href="#cb10-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-89"><a href="#cb10-89" aria-hidden="true" tabindex="-1"></a>df3 <span class="ot">&lt;-</span> </span>
+<span id="cb10-90"><a href="#cb10-90" aria-hidden="true" tabindex="-1"></a>  df2 <span class="sc">|&gt;</span> </span>
+<span id="cb10-91"><a href="#cb10-91" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(groups, mmg, rgpla, ng) <span class="sc">|&gt;</span> </span>
+<span id="cb10-92"><a href="#cb10-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>groups) <span class="sc">|&gt;</span> </span>
+<span id="cb10-93"><a href="#cb10-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(groups <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">11</span>, <span class="dv">15</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb10-94"><a href="#cb10-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(groups, name) <span class="sc">|&gt;</span> </span>
+<span id="cb10-95"><a href="#cb10-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(value),</span>
+<span id="cb10-96"><a href="#cb10-96" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd =</span> <span class="fu">sd</span>(value),</span>
+<span id="cb10-97"><a href="#cb10-97" aria-hidden="true" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb10-98"><a href="#cb10-98" aria-hidden="true" tabindex="-1"></a>            <span class="at">se =</span> sd <span class="sc">/</span> <span class="fu">sqrt</span>(n))</span>
+<span id="cb10-99"><a href="#cb10-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-100"><a href="#cb10-100" aria-hidden="true" tabindex="-1"></a>df_mean <span class="ot">&lt;-</span> </span>
+<span id="cb10-101"><a href="#cb10-101" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb10-102"><a href="#cb10-102" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean_by</span>(<span class="at">.vars =</span> <span class="fu">c</span>(mmg, rgpla, ng)) <span class="sc">|&gt;</span> </span>
+<span id="cb10-103"><a href="#cb10-103" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>())</span>
+<span id="cb10-104"><a href="#cb10-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-105"><a href="#cb10-105" aria-hidden="true" tabindex="-1"></a>df_meansel <span class="ot">&lt;-</span> </span>
+<span id="cb10-106"><a href="#cb10-106" aria-hidden="true" tabindex="-1"></a>  df3 <span class="sc">|&gt;</span> </span>
+<span id="cb10-107"><a href="#cb10-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean_by</span>(name)</span>
+<span id="cb10-108"><a href="#cb10-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-109"><a href="#cb10-109" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb10-110"><a href="#cb10-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-111"><a href="#cb10-111" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-111"><a href="#cb10-111" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-112"><a href="#cb10-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-113"><a href="#cb10-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-114"><a href="#cb10-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-115"><a href="#cb10-115" aria-hidden="true" tabindex="-1"></a><span class="fu"># Stats</span></span>
-<span id="cb10-118"><a href="#cb10-118" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-119"><a href="#cb10-119" aria-hidden="true" tabindex="-1"></a><span class="co"># correct season effect</span></span>
-<span id="cb10-120"><a href="#cb10-120" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df3, <span class="fu">aes</span>(<span class="at">x =</span> groups, <span class="at">y =</span> mean, <span class="at">fill =</span> groups)) <span class="sc">+</span></span>
-<span id="cb10-121"><a href="#cb10-121" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb10-122"><a href="#cb10-122" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">data =</span> df_mean,</span>
-<span id="cb10-123"><a href="#cb10-123" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">yintercept =</span> value),</span>
-<span id="cb10-124"><a href="#cb10-124" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="dv">3</span>,</span>
+<span id="cb10-113"><a href="#cb10-113" aria-hidden="true" tabindex="-1"></a><span class="fu"># Stats</span></span>
+<span id="cb10-114"><a href="#cb10-114" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.width=10}</span></span>
+<span id="cb10-115"><a href="#cb10-115" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df3, <span class="fu">aes</span>(<span class="at">x =</span> groups, <span class="at">y =</span> mean, <span class="at">fill =</span> groups)) <span class="sc">+</span></span>
+<span id="cb10-116"><a href="#cb10-116" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb10-117"><a href="#cb10-117" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">data =</span> df_mean,</span>
+<span id="cb10-118"><a href="#cb10-118" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">yintercept =</span> value),</span>
+<span id="cb10-119"><a href="#cb10-119" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="dv">3</span>,</span>
+<span id="cb10-120"><a href="#cb10-120" aria-hidden="true" tabindex="-1"></a>             <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb10-121"><a href="#cb10-121" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">data =</span> df_meansel,</span>
+<span id="cb10-122"><a href="#cb10-122" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">yintercept =</span> mean),</span>
+<span id="cb10-123"><a href="#cb10-123" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="dv">8</span>,</span>
+<span id="cb10-124"><a href="#cb10-124" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"blue"</span>,</span>
 <span id="cb10-125"><a href="#cb10-125" aria-hidden="true" tabindex="-1"></a>             <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb10-126"><a href="#cb10-126" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">data =</span> df_meansel,</span>
-<span id="cb10-127"><a href="#cb10-127" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">yintercept =</span> mean),</span>
-<span id="cb10-128"><a href="#cb10-128" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="dv">8</span>,</span>
-<span id="cb10-129"><a href="#cb10-129" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"blue"</span>,</span>
-<span id="cb10-130"><a href="#cb10-130" aria-hidden="true" tabindex="-1"></a>             <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb10-131"><a href="#cb10-131" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> mean <span class="sc">-</span> se,</span>
-<span id="cb10-132"><a href="#cb10-132" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
-<span id="cb10-133"><a href="#cb10-133" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb10-134"><a href="#cb10-134" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>name, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
-<span id="cb10-135"><a href="#cb10-135" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
-<span id="cb10-136"><a href="#cb10-136" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.1</span>))) <span class="sc">+</span></span>
-<span id="cb10-137"><a href="#cb10-137" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="dv">0</span>, <span class="at">label =</span> glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"n = {n}"</span>)),</span>
-<span id="cb10-138"><a href="#cb10-138" aria-hidden="true" tabindex="-1"></a>            <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb10-139"><a href="#cb10-139" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Grupos"</span>,</span>
-<span id="cb10-140"><a href="#cb10-140" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Valor médio do caractere"</span>,</span>
-<span id="cb10-141"><a href="#cb10-141" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Grupos"</span>)</span>
-<span id="cb10-142"><a href="#cb10-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-143"><a href="#cb10-143" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figs/mean_clusters.jpg"</span>,</span>
-<span id="cb10-144"><a href="#cb10-144" aria-hidden="true" tabindex="-1"></a>       <span class="at">dpi =</span> <span class="dv">600</span>,</span>
-<span id="cb10-145"><a href="#cb10-145" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">12</span>,</span>
-<span id="cb10-146"><a href="#cb10-146" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">6</span>)</span>
-<span id="cb10-147"><a href="#cb10-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-148"><a href="#cb10-148" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-149"><a href="#cb10-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-150"><a href="#cb10-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-151"><a href="#cb10-151" aria-hidden="true" tabindex="-1"></a><span class="fu"># Section info</span></span>
-<span id="cb10-154"><a href="#cb10-154" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-155"><a href="#cb10-155" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span>
-<span id="cb10-156"><a href="#cb10-156" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-126"><a href="#cb10-126" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> mean <span class="sc">-</span> se,</span>
+<span id="cb10-127"><a href="#cb10-127" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
+<span id="cb10-128"><a href="#cb10-128" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb10-129"><a href="#cb10-129" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>name, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
+<span id="cb10-130"><a href="#cb10-130" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">18</span>) <span class="sc">+</span></span>
+<span id="cb10-131"><a href="#cb10-131" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span></span>
+<span id="cb10-132"><a href="#cb10-132" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.1</span>))) <span class="sc">+</span></span>
+<span id="cb10-133"><a href="#cb10-133" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="dv">0</span>, <span class="at">label =</span> glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"n = {n}"</span>)),</span>
+<span id="cb10-134"><a href="#cb10-134" aria-hidden="true" tabindex="-1"></a>            <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb10-135"><a href="#cb10-135" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Grupos"</span>,</span>
+<span id="cb10-136"><a href="#cb10-136" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Valor médio do caractere"</span>,</span>
+<span id="cb10-137"><a href="#cb10-137" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Grupos"</span>)</span>
+<span id="cb10-138"><a href="#cb10-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-139"><a href="#cb10-139" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figs/mean_clusters.jpg"</span>,</span>
+<span id="cb10-140"><a href="#cb10-140" aria-hidden="true" tabindex="-1"></a>       <span class="at">dpi =</span> <span class="dv">600</span>,</span>
+<span id="cb10-141"><a href="#cb10-141" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">12</span>,</span>
+<span id="cb10-142"><a href="#cb10-142" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">6</span>)</span>
+<span id="cb10-143"><a href="#cb10-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-144"><a href="#cb10-144" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-145"><a href="#cb10-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-146"><a href="#cb10-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-147"><a href="#cb10-147" aria-hidden="true" tabindex="-1"></a><span class="fu"># Section info</span></span>
+<span id="cb10-150"><a href="#cb10-150" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-151"><a href="#cb10-151" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span>
+<span id="cb10-152"><a href="#cb10-152" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

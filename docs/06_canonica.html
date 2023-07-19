@@ -298,24 +298,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">can</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="va">df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/metan/man/can_corr.html">can_corr</a></span><span class="op">(</span>FG <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">ap</span>, <span class="va">ac</span>, <span class="va">nc</span>, <span class="va">nr</span><span class="op">)</span>,</span>
-<span>           SG <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">ngcap</span>, <span class="va">areac</span>, <span class="va">rgpla</span>, <span class="va">mmg</span>, <span class="va">icc</span><span class="op">)</span>,</span>
-<span>           by <span class="op">=</span> <span class="va">epoca</span><span class="op">)</span></span>
+<span>           SG <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">ngcap</span>, <span class="va">areac</span>, <span class="va">rgpla</span>, <span class="va">mmg</span>, <span class="va">icc</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">## ---------------------------------------------------------------------------</span></span>
 <span><span class="co">## Matrix (correlation/covariance) between variables of first group (FG)</span></span>
 <span><span class="co">## ---------------------------------------------------------------------------</span></span>
-<span><span class="co">##           ap          ac         nc         nr</span></span>
-<span><span class="co">## ap 1.0000000  0.81117773 0.45121525  0.1331742</span></span>
-<span><span class="co">## ac 0.8111777  1.00000000 0.08482991 -0.1869709</span></span>
-<span><span class="co">## nc 0.4512153  0.08482991 1.00000000  0.7316597</span></span>
-<span><span class="co">## nr 0.1331742 -0.18697085 0.73165968  1.0000000</span></span>
+<span><span class="co">##           ap         ac         nc         nr</span></span>
+<span><span class="co">## ap 1.0000000  0.5287163  0.3155772  0.2856869</span></span>
+<span><span class="co">## ac 0.5287163  1.0000000 -0.2029215 -0.2280093</span></span>
+<span><span class="co">## nc 0.3155772 -0.2029215  1.0000000  0.5662655</span></span>
+<span><span class="co">## nr 0.2856869 -0.2280093  0.5662655  1.0000000</span></span>
 <span><span class="co">## ---------------------------------------------------------------------------</span></span>
 <span><span class="co">## Collinearity within first group </span></span>
 <span><span class="co">## ---------------------------------------------------------------------------</span></span>
 <span><span class="co">## Weak multicollinearity in the matrix</span></span>
-<span><span class="co">## cn = 19.629</span></span>
-<span><span class="co">## Matrix determinant: 0.0777358 </span></span>
-<span><span class="co">## Largest correlation: ap x ac = 0.811 </span></span>
-<span><span class="co">## Smallest correlation: ac x nc = 0.085 </span></span>
+<span><span class="co">## cn = 6.759</span></span>
+<span><span class="co">## Matrix determinant: 0.3109707 </span></span>
+<span><span class="co">## Largest correlation: nc x nr = 0.566 </span></span>
+<span><span class="co">## Smallest correlation: ac x nc = -0.203 </span></span>
 <span><span class="co">## Number of VIFs &gt; 10: 0 </span></span>
 <span><span class="co">## Number of correlations with r &gt;= |0.8|:  </span></span>
 <span><span class="co">## Variables with largest weight in the last eigenvalues: </span></span>
@@ -323,165 +322,74 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">## ---------------------------------------------------------------------------</span></span>
 <span><span class="co">## Matrix (correlation/covariance) between variables of second group (SG)</span></span>
 <span><span class="co">## ---------------------------------------------------------------------------</span></span>
-<span><span class="co">##            ngcap      areac       rgpla          mmg        icc</span></span>
-<span><span class="co">## ngcap  1.0000000 0.26296383 0.402520262 -0.239166798 0.33507767</span></span>
-<span><span class="co">## areac  0.2629638 1.00000000 0.159753707  0.123507658 0.05492074</span></span>
-<span><span class="co">## rgpla  0.4025203 0.15975371 1.000000000  0.006144334 0.34416828</span></span>
-<span><span class="co">## mmg   -0.2391668 0.12350766 0.006144334  1.000000000 0.49330432</span></span>
-<span><span class="co">## icc    0.3350777 0.05492074 0.344168282  0.493304324 1.00000000</span></span>
+<span><span class="co">##             ngcap      areac      rgpla         mmg        icc</span></span>
+<span><span class="co">## ngcap  1.00000000 0.62671978 0.37287028 -0.05537582 0.19075247</span></span>
+<span><span class="co">## areac  0.62671978 1.00000000 0.59475706  0.48901557 0.02779455</span></span>
+<span><span class="co">## rgpla  0.37287028 0.59475706 1.00000000  0.43319699 0.03159118</span></span>
+<span><span class="co">## mmg   -0.05537582 0.48901557 0.43319699  1.00000000 0.08147575</span></span>
+<span><span class="co">## icc    0.19075247 0.02779455 0.03159118  0.08147575 1.00000000</span></span>
 <span><span class="co">## ---------------------------------------------------------------------------</span></span>
 <span><span class="co">## Collinearity within second group </span></span>
 <span><span class="co">## ---------------------------------------------------------------------------</span></span>
 <span><span class="co">## Weak multicollinearity in the matrix</span></span>
-<span><span class="co">## cn = 7.857</span></span>
-<span><span class="co">## Matrix determinant: 0.3386914 </span></span>
-<span><span class="co">## Largest correlation: mmg x icc = 0.493 </span></span>
-<span><span class="co">## Smallest correlation: rgpla x mmg = 0.006 </span></span>
+<span><span class="co">## cn = 14.52</span></span>
+<span><span class="co">## Matrix determinant: 0.1803844 </span></span>
+<span><span class="co">## Largest correlation: ngcap x areac = 0.627 </span></span>
+<span><span class="co">## Smallest correlation: areac x icc = 0.028 </span></span>
 <span><span class="co">## Number of VIFs &gt; 10: 0 </span></span>
 <span><span class="co">## Number of correlations with r &gt;= |0.8|:  </span></span>
 <span><span class="co">## Variables with largest weight in the last eigenvalues: </span></span>
-<span><span class="co">## icc &gt; mmg &gt; ngcap &gt; areac &gt; rgpla </span></span>
+<span><span class="co">## areac &gt; ngcap &gt; mmg &gt; icc &gt; rgpla </span></span>
 <span><span class="co">## ---------------------------------------------------------------------------</span></span>
 <span><span class="co">## Matrix (correlation/covariance) between FG and SG</span></span>
 <span><span class="co">## ---------------------------------------------------------------------------</span></span>
-<span><span class="co">##          ngcap       areac      rgpla         mmg          icc</span></span>
-<span><span class="co">## ap  0.14297684  0.23159477 0.45241636 -0.01659384  0.001810847</span></span>
-<span><span class="co">## ac  0.02036806  0.17866011 0.06427307 -0.02774216 -0.069849946</span></span>
-<span><span class="co">## nc  0.09216551 -0.03775157 0.88040005 -0.08016477  0.139528354</span></span>
-<span><span class="co">## nr -0.10075528 -0.05986922 0.52852437 -0.02400980 -0.006935744</span></span>
-<span><span class="co">## ---------------------------------------------------------------------------</span></span>
-<span><span class="co">## Correlation of the canonical pairs and hypothesis testing </span></span>
-<span><span class="co">## ---------------------------------------------------------------------------</span></span>
-<span><span class="co">##             Var   Percent       Sum      Corr  Lambda     Chisq DF   p_val</span></span>
-<span><span class="co">## U1V1 0.91331033 78.863560  78.86356 0.9556727 0.06682 132.58515 20 0.00000</span></span>
-<span><span class="co">## U2V2 0.14173360 12.238574  91.10213 0.3764752 0.77074  12.75955 12 0.38676</span></span>
-<span><span class="co">## U3V3 0.09133558  7.886749  98.98888 0.3022178 0.89802   5.27035  6 0.50964</span></span>
-<span><span class="co">## U4V4 0.01170964  1.011117 100.00000 0.1082111 0.98829   0.57716  2 0.74933</span></span>
-<span><span class="co">## ---------------------------------------------------------------------------</span></span>
-<span><span class="co">## Canonical coefficients of the first group </span></span>
-<span><span class="co">## ---------------------------------------------------------------------------</span></span>
-<span><span class="co">##            U1         U2          U3         U4</span></span>
-<span><span class="co">## ap  0.1381473  2.0729126 -0.06746449  0.9034184</span></span>
-<span><span class="co">## ac -0.1934287 -1.2669561  0.77419368 -1.4211193</span></span>
-<span><span class="co">## nc  1.0996397 -0.7724570 -0.95892238 -0.6902581</span></span>
-<span><span class="co">## nr -0.2151237 -0.1566497  1.45572283  0.5446566</span></span>
-<span><span class="co">## ---------------------------------------------------------------------------</span></span>
-<span><span class="co">## Canonical coefficients of the second group </span></span>
-<span><span class="co">## ---------------------------------------------------------------------------</span></span>
-<span><span class="co">##                V1          V2         V3         V4</span></span>
-<span><span class="co">## ngcap -0.28131632  0.77353683 -0.7403456  0.5148414</span></span>
-<span><span class="co">## areac -0.11557210  0.51995122  0.4086707 -0.7392406</span></span>
-<span><span class="co">## rgpla  1.09158775  0.07717883  0.2466620  0.1464232</span></span>
-<span><span class="co">## mmg   -0.12516873  0.62215746  0.1271495  1.2106863</span></span>
-<span><span class="co">## icc   -0.03682524 -0.65958924 -0.5774521 -0.7720312</span></span>
-<span><span class="co">## ---------------------------------------------------------------------------</span></span>
-<span><span class="co">## Canonical loads of the first group </span></span>
-<span><span class="co">## ---------------------------------------------------------------------------</span></span>
-<span><span class="co">##            U1          U2        U3           U4</span></span>
-<span><span class="co">## ap 0.44876754  0.67577993 0.3217286 -0.488282620</span></span>
-<span><span class="co">## ac 0.05213751  0.37830587 0.3659450 -0.848675816</span></span>
-<span><span class="co">## nc 0.98816805 -0.05921725 0.1414051 -0.004672028</span></span>
-<span><span class="co">## nr 0.64400157 -0.20888290 0.6003818  0.425642571</span></span>
-<span><span class="co">## ---------------------------------------------------------------------------</span></span>
-<span><span class="co">## Canonical loads of the second group </span></span>
-<span><span class="co">## ---------------------------------------------------------------------------</span></span>
-<span><span class="co">##                V1          V2          V3           V4</span></span>
-<span><span class="co">## ngcap  0.14527547  0.57151821 -0.75749472 -0.168860224</span></span>
-<span><span class="co">## areac -0.03264469  0.77630911  0.23738159 -0.473335815</span></span>
-<span><span class="co">## rgpla  0.94644601  0.24842026 -0.18401484 -0.022708965</span></span>
-<span><span class="co">## mmg   -0.08362021  0.17646708  0.07134546  0.616304809</span></span>
-<span><span class="co">## icc    0.17650825 -0.03836275 -0.65546422  0.007512018</span></span>
-<span><span class="co">## ---------------------------------------------------------------------------</span></span>
-<span><span class="co">## Matrix (correlation/covariance) between variables of first group (FG)</span></span>
-<span><span class="co">## ---------------------------------------------------------------------------</span></span>
-<span><span class="co">##            ap         ac          nc          nr</span></span>
-<span><span class="co">## ap 1.00000000  0.7844126  0.04763441  0.09243319</span></span>
-<span><span class="co">## ac 0.78441262  1.0000000 -0.14838350 -0.13030800</span></span>
-<span><span class="co">## nc 0.04763441 -0.1483835  1.00000000  0.42824058</span></span>
-<span><span class="co">## nr 0.09243319 -0.1303080  0.42824058  1.00000000</span></span>
-<span><span class="co">## ---------------------------------------------------------------------------</span></span>
-<span><span class="co">## Collinearity within first group </span></span>
-<span><span class="co">## ---------------------------------------------------------------------------</span></span>
-<span><span class="co">## Weak multicollinearity in the matrix</span></span>
-<span><span class="co">## cn = 9.999</span></span>
-<span><span class="co">## Matrix determinant: 0.2681244 </span></span>
-<span><span class="co">## Largest correlation: ap x ac = 0.784 </span></span>
-<span><span class="co">## Smallest correlation: ap x nc = 0.048 </span></span>
-<span><span class="co">## Number of VIFs &gt; 10: 0 </span></span>
-<span><span class="co">## Number of correlations with r &gt;= |0.8|:  </span></span>
-<span><span class="co">## Variables with largest weight in the last eigenvalues: </span></span>
-<span><span class="co">## ac &gt; ap &gt; nr &gt; nc </span></span>
-<span><span class="co">## ---------------------------------------------------------------------------</span></span>
-<span><span class="co">## Matrix (correlation/covariance) between variables of second group (SG)</span></span>
-<span><span class="co">## ---------------------------------------------------------------------------</span></span>
-<span><span class="co">##             ngcap     areac      rgpla        mmg        icc</span></span>
-<span><span class="co">## ngcap  1.00000000 0.3132724 0.04673693 -0.6209769 0.06576183</span></span>
-<span><span class="co">## areac  0.31327243 1.0000000 0.33529058  0.1669935 0.11402430</span></span>
-<span><span class="co">## rgpla  0.04673693 0.3352906 1.00000000  0.2874512 0.33602605</span></span>
-<span><span class="co">## mmg   -0.62097694 0.1669935 0.28745120  1.0000000 0.41199351</span></span>
-<span><span class="co">## icc    0.06576183 0.1140243 0.33602605  0.4119935 1.00000000</span></span>
-<span><span class="co">## ---------------------------------------------------------------------------</span></span>
-<span><span class="co">## Collinearity within second group </span></span>
-<span><span class="co">## ---------------------------------------------------------------------------</span></span>
-<span><span class="co">## Weak multicollinearity in the matrix</span></span>
-<span><span class="co">## cn = 13.336</span></span>
-<span><span class="co">## Matrix determinant: 0.2041884 </span></span>
-<span><span class="co">## Largest correlation: ngcap x mmg = -0.621 </span></span>
-<span><span class="co">## Smallest correlation: ngcap x rgpla = 0.047 </span></span>
-<span><span class="co">## Number of VIFs &gt; 10: 0 </span></span>
-<span><span class="co">## Number of correlations with r &gt;= |0.8|:  </span></span>
-<span><span class="co">## Variables with largest weight in the last eigenvalues: </span></span>
-<span><span class="co">## mmg &gt; ngcap &gt; icc &gt; areac &gt; rgpla </span></span>
-<span><span class="co">## ---------------------------------------------------------------------------</span></span>
-<span><span class="co">## Matrix (correlation/covariance) between FG and SG</span></span>
-<span><span class="co">## ---------------------------------------------------------------------------</span></span>
-<span><span class="co">##          ngcap      areac       rgpla         mmg         icc</span></span>
-<span><span class="co">## ap -0.09666049 0.08786152  0.04465416  0.02753692 -0.21682681</span></span>
-<span><span class="co">## ac -0.05026028 0.04086389 -0.15119903 -0.07567565 -0.24904923</span></span>
-<span><span class="co">## nc -0.01846511 0.22783327  0.96609347  0.22305276  0.25109479</span></span>
-<span><span class="co">## nr  0.13863943 0.17054753  0.38195178  0.01446315  0.08677514</span></span>
+<span><span class="co">##         ngcap      areac      rgpla        mmg          icc</span></span>
+<span><span class="co">## ap  0.2833453  0.4954944  0.3356632  0.2608546  0.106584280</span></span>
+<span><span class="co">## ac -0.1709379 -0.1769648 -0.2394161 -0.1742945 -0.012390649</span></span>
+<span><span class="co">## nc  0.2570310  0.4504205  0.9486292  0.3286273 -0.009320794</span></span>
+<span><span class="co">## nr  0.2775278  0.3875968  0.4942266  0.1959420  0.053042784</span></span>
 <span><span class="co">## ---------------------------------------------------------------------------</span></span>
 <span><span class="co">## Correlation of the canonical pairs and hypothesis testing </span></span>
 <span><span class="co">## ---------------------------------------------------------------------------</span></span>
 <span><span class="co">##              Var    Percent       Sum       Corr  Lambda     Chisq DF   p_val</span></span>
-<span><span class="co">## U1V1 0.959814309 88.1825949  88.18259 0.97970113 0.03518 200.82972 20 0.00000</span></span>
-<span><span class="co">## U2V2 0.081604203  7.4973569  95.67995 0.28566449 0.87554   7.97507 12 0.78708</span></span>
-<span><span class="co">## U3V3 0.037601360  3.4546114  99.13456 0.19391070 0.95333   2.86746  6 0.82529</span></span>
-<span><span class="co">## U4V4 0.009419757  0.8654368 100.00000 0.09705543 0.99058   0.56786  2 0.75282</span></span>
+<span><span class="co">## U1V1 0.937212054 65.9606722  65.96067 0.96809713 0.03345 390.74129 20 0.00000</span></span>
+<span><span class="co">## U2V2 0.447290136 31.4801307  97.44080 0.66879753 0.53272  72.42220 12 0.00000</span></span>
+<span><span class="co">## U3V3 0.029747620  2.0936276  99.53443 0.17247499 0.96383   4.23616  6 0.64475</span></span>
+<span><span class="co">## U4V4 0.006615113  0.4655695 100.00000 0.08133335 0.99338   0.76327  2 0.68275</span></span>
 <span><span class="co">## ---------------------------------------------------------------------------</span></span>
 <span><span class="co">## Canonical coefficients of the first group </span></span>
 <span><span class="co">## ---------------------------------------------------------------------------</span></span>
-<span><span class="co">##             U1          U2         U3         U4</span></span>
-<span><span class="co">## ap -0.04197306  0.90202300 -0.7403583  1.2642857</span></span>
-<span><span class="co">## ac  0.03037444  0.11739651  0.9806385 -1.4293420</span></span>
-<span><span class="co">## nc -1.01989205  0.03152231 -0.2178747 -0.4248021</span></span>
-<span><span class="co">## nr  0.06574249 -0.18401639  1.0555516  0.3878919</span></span>
+<span><span class="co">##              U1          U2          U3         U4</span></span>
+<span><span class="co">## ap  0.007907902  1.33441344  0.05118299 -0.5197664</span></span>
+<span><span class="co">## ac  0.031486429 -0.99439129  0.96364345  0.1086589</span></span>
+<span><span class="co">## nc -1.061135315 -0.60958951 -0.01718989 -0.4095889</span></span>
+<span><span class="co">## nr  0.124753416  0.03811712  0.45212104  1.1937151</span></span>
 <span><span class="co">## ---------------------------------------------------------------------------</span></span>
 <span><span class="co">## Canonical coefficients of the second group </span></span>
 <span><span class="co">## ---------------------------------------------------------------------------</span></span>
-<span><span class="co">##                V1          V2          V3         V4</span></span>
-<span><span class="co">## ngcap  0.15309641 -0.45877904  0.61144180  1.4098002</span></span>
-<span><span class="co">## areac  0.05261377  0.40984360  0.40675569 -0.3994575</span></span>
-<span><span class="co">## rgpla -1.06244086  0.10703837  0.04880428 -0.1228564</span></span>
-<span><span class="co">## mmg    0.14586655  0.05365294 -0.26510694  1.8031522</span></span>
-<span><span class="co">## icc    0.02683996 -0.88983273 -0.23516294 -0.6576928</span></span>
+<span><span class="co">##                V1         V2         V3           V4</span></span>
+<span><span class="co">## ngcap  0.10267926  0.2220980 -1.3096444  0.905088630</span></span>
+<span><span class="co">## areac  0.11327274  0.9171247  1.5176098 -0.373820392</span></span>
+<span><span class="co">## rgpla -1.13075412 -0.5690758  0.1023200  0.110316961</span></span>
+<span><span class="co">## mmg    0.09981241  0.2877891 -1.3081765 -0.494047830</span></span>
+<span><span class="co">## icc    0.02237442  0.1692762  0.4133638  0.002260751</span></span>
 <span><span class="co">## ---------------------------------------------------------------------------</span></span>
 <span><span class="co">## Canonical loads of the first group </span></span>
 <span><span class="co">## ---------------------------------------------------------------------------</span></span>
-<span><span class="co">##             U1          U2         U3         U4</span></span>
-<span><span class="co">## ap -0.06065213  0.97860262 0.11605663  0.1587107</span></span>
-<span><span class="co">## ac  0.14021862  0.84425615 0.29467434 -0.4251321</span></span>
-<span><span class="co">## nc -0.99824488 -0.02173335 0.05337823  0.0136232</span></span>
-<span><span class="co">## nr -0.37885441 -0.10243810 0.76603007  0.5090911</span></span>
+<span><span class="co">##            U1          U2        U3          U4</span></span>
+<span><span class="co">## ap -0.2746744  0.62717952 0.6844173 -0.25054486</span></span>
+<span><span class="co">## ac  0.2225497 -0.17385736 0.8911051 -0.35521395</span></span>
+<span><span class="co">## nc -0.9943855  0.03488872 0.0594389  0.08029517</span></span>
+<span><span class="co">## nr -0.4810509  0.30088253 0.2372896  0.78851339</span></span>
 <span><span class="co">## ---------------------------------------------------------------------------</span></span>
 <span><span class="co">## Canonical loads of the second group </span></span>
 <span><span class="co">## ---------------------------------------------------------------------------</span></span>
-<span><span class="co">##                V1          V2          V3         V4</span></span>
-<span><span class="co">## ngcap  0.03110891 -0.41721796  0.89030866 0.11595222</span></span>
-<span><span class="co">## areac -0.22823258  0.20950687  0.54358173 0.22712318</span></span>
-<span><span class="co">## rgpla -0.98669626 -0.06057123  0.05853636 0.10641530</span></span>
-<span><span class="co">## mmg   -0.23475864  0.07114837 -0.65972939 0.55471156</span></span>
-<span><span class="co">## icc   -0.25400462 -0.81519841 -0.24139620 0.09107438</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="co">##                V1        V2          V3          V4</span></span>
+<span><span class="co">## ngcap -0.24921430 0.6010400 -0.16908476  0.73973146</span></span>
+<span><span class="co">## areac -0.44546844 0.8632944  0.12945585  0.01749410</span></span>
+<span><span class="co">## rgpla -0.98115305 0.1892214 -0.03703782  0.01151668</span></span>
+<span><span class="co">## mmg   -0.33849772 0.4912485 -0.41551521 -0.67899867</span></span>
+<span><span class="co">## icc    0.01751954 0.2426031  0.10237494  0.12775059</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="correlação-canônica" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="correlação-canônica">
 <span class="header-section-number">3.2</span> Correlação canônica</h2>
@@ -490,8 +398,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co"># export(canc, "data/results_canonica.xlsx", which = "canonica")</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/DT/man/datatable.html">datatable</a></span><span class="op">(</span><span class="va">canc</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-318ee9b84a7f6e6e9b5a" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-318ee9b84a7f6e6e9b5a">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8"],["E1","E1","E1","E1","E2","E2","E2","E2"],[0.9598100000000001,0.08160000000000001,0.0376,0.00942,0.91331,0.14173,0.09134,0.01171],[88.18259,7.49736,3.45461,0.86544,78.86356000000001,12.23857,7.88675,1.01112],[88.18259,95.67995000000001,99.13455999999999,100,78.86356000000001,91.10213,98.98887999999999,100],[0.9797,0.28566,0.19391,0.09705999999999999,0.95567,0.37648,0.30222,0.10821],[0.03518,0.87554,0.95333,0.99058,0.06682,0.77074,0.89802,0.98829],[200.82972,7.97507,2.86746,0.56786,132.58515,12.75955,5.27035,0.57716],[20,12,6,2,20,12,6,2],[0,0.78708,0.82529,0.75282,0,0.38676,0.50964,0.7493300000000001]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>epoca<\/th>\n      <th>Var<\/th>\n      <th>Percent<\/th>\n      <th>Sum<\/th>\n      <th>Corr<\/th>\n      <th>Lambda<\/th>\n      <th>Chisq<\/th>\n      <th>DF<\/th>\n      <th>p_val<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7,8,9]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-943685b9e05e7c04de12" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-943685b9e05e7c04de12">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4"],["U1V1","U2V2","U3V3","U4V4"],[0.93721,0.44729,0.02975,0.00662],[65.96066999999999,31.48013,2.09363,0.46557],[65.96066999999999,97.4408,99.53443,100],[0.9681,0.6688,0.17247,0.08133],[0.03345,0.53272,0.96383,0.99338],[390.74129,72.4222,4.23616,0.76327],[20,12,6,2],[0,0,0.64475,0.68275]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>GROUP<\/th>\n      <th>Var<\/th>\n      <th>Percent<\/th>\n      <th>Sum<\/th>\n      <th>Corr<\/th>\n      <th>Lambda<\/th>\n      <th>Chisq<\/th>\n      <th>DF<\/th>\n      <th>p_val<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7,8,9]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section><section id="cargas-canônicas" class="level2" data-number="3.3"><h2 data-number="3.3" class="anchored" data-anchor-id="cargas-canônicas">
@@ -501,8 +409,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co"># export(loads, "data/results_canonica.xlsx", which = "loads")</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/DT/man/datatable.html">datatable</a></span><span class="op">(</span><span class="va">loads</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-999556d6f669b843a440" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-999556d6f669b843a440">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18"],["E1","E1","E1","E1","E2","E2","E2","E2","E1","E1","E1","E1","E1","E2","E2","E2","E2","E2"],["FG","FG","FG","FG","FG","FG","FG","FG","SG","SG","SG","SG","SG","SG","SG","SG","SG","SG"],["ap","ac","nc","nr","ap","ac","nc","nr","ngcap","areac","rgpla","mmg","icc","ngcap","areac","rgpla","mmg","icc"],[-0.06065,0.14022,-0.99824,-0.37885,0.44877,0.05214,0.98817,0.644,0.03111,-0.22823,-0.9867,-0.23476,-0.254,0.14528,-0.03264,0.94645,-0.08362,0.17651],[0.9786,0.84426,-0.02173,-0.10244,0.67578,0.37831,-0.05922,-0.20888,-0.41722,0.20951,-0.06057,0.07115,-0.8152,0.57152,0.7763099999999999,0.24842,0.17647,-0.03836],[0.11606,0.29467,0.05338,0.76603,0.32173,0.36594,0.14141,0.60038,0.89031,0.54358,0.05854,-0.65973,-0.2414,-0.75749,0.23738,-0.18401,0.07135,-0.65546],[0.15871,-0.42513,0.01362,0.50909,-0.48828,-0.84868,-0.00467,0.42564,0.11595,0.22712,0.10642,0.55471,0.09107,-0.16886,-0.47334,-0.02271,0.6163,0.00751]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>epoca<\/th>\n      <th>GROUP<\/th>\n      <th>VAR<\/th>\n      <th>CP1<\/th>\n      <th>CP2<\/th>\n      <th>CP3<\/th>\n      <th>CP4<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[4,5,6,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-0fa09f78f178446e2b22" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-0fa09f78f178446e2b22">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9"],["FG","FG","FG","FG","SG","SG","SG","SG","SG"],["ap","ac","nc","nr","ngcap","areac","rgpla","mmg","icc"],[-0.27467,0.22255,-0.99439,-0.48105,-0.24921,-0.44547,-0.98115,-0.3385,0.01752],[0.62718,-0.17386,0.03489,0.30088,0.60104,0.86329,0.18922,0.49125,0.2426],[0.68442,0.89111,0.05944,0.23729,-0.16908,0.12946,-0.03704,-0.41552,0.10237],[-0.25054,-0.35521,0.0803,0.78851,0.73973,0.01749,0.01152,-0.679,0.12775]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>GROUP<\/th>\n      <th>VAR<\/th>\n      <th>CP1<\/th>\n      <th>CP2<\/th>\n      <th>CP3<\/th>\n      <th>CP4<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[3,4,5,6]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section></section><section id="diagrama" class="level1" data-number="4"><h1 data-number="4">
@@ -1170,88 +1078,87 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>can <span class="ot">&lt;-</span> </span>
 <span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
 <span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">can_corr</span>(<span class="at">FG =</span> <span class="fu">c</span>(ap, ac, nc, nr),</span>
-<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>           <span class="at">SG =</span> <span class="fu">c</span>(ngcap, areac, rgpla, mmg, icc),</span>
-<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>           <span class="at">by =</span> epoca)</span>
-<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>           <span class="at">SG =</span> <span class="fu">c</span>(ngcap, areac, rgpla, mmg, icc))</span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a><span class="fu">## Correlação canônica</span></span>
-<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>canc <span class="ot">&lt;-</span> <span class="fu">gmd</span>(can, <span class="st">"canonical"</span>) <span class="sc">|&gt;</span> <span class="fu">round_cols</span>(<span class="at">digits =</span> <span class="dv">5</span>)</span>
-<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a><span class="co"># export(canc, "data/results_canonica.xlsx", which = "canonica")</span></span>
-<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(canc)</span>
-<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## Correlação canônica</span></span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>canc <span class="ot">&lt;-</span> <span class="fu">gmd</span>(can, <span class="st">"canonical"</span>) <span class="sc">|&gt;</span> <span class="fu">round_cols</span>(<span class="at">digits =</span> <span class="dv">5</span>)</span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a><span class="co"># export(canc, "data/results_canonica.xlsx", which = "canonica")</span></span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(canc)</span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cargas canônicas</span></span>
-<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a>loads <span class="ot">&lt;-</span> <span class="fu">gmd</span>(can, <span class="st">"loads"</span>) <span class="sc">|&gt;</span> <span class="fu">round_cols</span>(<span class="at">digits =</span> <span class="dv">5</span>)</span>
-<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a><span class="co"># export(loads, "data/results_canonica.xlsx", which = "loads")</span></span>
-<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(loads)</span>
-<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cargas canônicas</span></span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a>loads <span class="ot">&lt;-</span> <span class="fu">gmd</span>(can, <span class="st">"loads"</span>) <span class="sc">|&gt;</span> <span class="fu">round_cols</span>(<span class="at">digits =</span> <span class="dv">5</span>)</span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a><span class="co"># export(loads, "data/results_canonica.xlsx", which = "loads")</span></span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(loads)</span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a><span class="fu"># Diagrama</span></span>
-<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a><span class="fu">## Primeiro par</span></span>
-<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
-<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
-<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a>subgraph Z[<span class="ot">"</span><span class="st">Caracteres de planta</span><span class="ot">"</span>]</span>
-<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a>direction LR</span>
-<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a>A[AP] --&gt; |-<span class="fl">0.274</span>|B[planta]</span>
-<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a>C[AC] --&gt; |<span class="fl">0.222</span>|B</span>
-<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a>D[NC] --&gt; |-<span class="fl">0.994</span>|B</span>
-<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a>E[NR] --&gt; |-<span class="fl">0.481</span>|B</span>
-<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a>end</span>
-<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a>subgraph ZA[<span class="ot">"</span><span class="st">Componentes do rendimento</span><span class="ot">"</span>]</span>
-<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a>direction RL</span>
-<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a>F[NGC] --&gt; |-<span class="fl">0.249</span>|G[rendimento]</span>
-<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a>H[AC] --&gt;  |-<span class="fl">0.445</span>|G</span>
-<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a>I[RGP] --&gt;  |-<span class="fl">0.481</span>|G</span>
-<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a>J[MMG] --&gt;  |-<span class="fl">0.338</span>|G</span>
-<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a>K[ICP] --&gt;  |<span class="fl">0.0175</span>|G</span>
-<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a>end</span>
-<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a>Z &lt;--&gt; |<span class="fl">0.968</span>| ZA</span>
-<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a><span class="fu"># Diagrama</span></span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a><span class="fu">## Primeiro par</span></span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a>subgraph Z[<span class="ot">"</span><span class="st">Caracteres de planta</span><span class="ot">"</span>]</span>
+<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a>direction LR</span>
+<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a>A[AP] --&gt; |-<span class="fl">0.274</span>|B[planta]</span>
+<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a>C[AC] --&gt; |<span class="fl">0.222</span>|B</span>
+<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a>D[NC] --&gt; |-<span class="fl">0.994</span>|B</span>
+<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a>E[NR] --&gt; |-<span class="fl">0.481</span>|B</span>
+<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a>end</span>
+<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a>subgraph ZA[<span class="ot">"</span><span class="st">Componentes do rendimento</span><span class="ot">"</span>]</span>
+<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a>direction RL</span>
+<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a>F[NGC] --&gt; |-<span class="fl">0.249</span>|G[rendimento]</span>
+<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a>H[AC] --&gt;  |-<span class="fl">0.445</span>|G</span>
+<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a>I[RGP] --&gt;  |-<span class="fl">0.481</span>|G</span>
+<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a>J[MMG] --&gt;  |-<span class="fl">0.338</span>|G</span>
+<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a>K[ICP] --&gt;  |<span class="fl">0.0175</span>|G</span>
+<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a>end</span>
+<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a>Z &lt;--&gt; |<span class="fl">0.968</span>| ZA</span>
+<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-105"><a href="#cb7-105" aria-hidden="true" tabindex="-1"></a><span class="fu">## segundo par</span></span>
-<span id="cb7-108"><a href="#cb7-108" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
-<span id="cb7-109"><a href="#cb7-109" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
-<span id="cb7-110"><a href="#cb7-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-111"><a href="#cb7-111" aria-hidden="true" tabindex="-1"></a>subgraph Z[<span class="ot">"</span><span class="st">Caracteres de planta</span><span class="ot">"</span>]</span>
-<span id="cb7-112"><a href="#cb7-112" aria-hidden="true" tabindex="-1"></a>direction LR</span>
-<span id="cb7-113"><a href="#cb7-113" aria-hidden="true" tabindex="-1"></a>A([AP]) --&gt; |<span class="fl">0.627</span>|B{planta}</span>
-<span id="cb7-114"><a href="#cb7-114" aria-hidden="true" tabindex="-1"></a>C([AC]) --&gt; |-<span class="fl">0.174</span>|B</span>
-<span id="cb7-115"><a href="#cb7-115" aria-hidden="true" tabindex="-1"></a>D([NC]) --&gt; |<span class="fl">0.034</span>|B</span>
-<span id="cb7-116"><a href="#cb7-116" aria-hidden="true" tabindex="-1"></a>E([NR]) --&gt; |<span class="fl">0.301</span>|B</span>
-<span id="cb7-117"><a href="#cb7-117" aria-hidden="true" tabindex="-1"></a>end</span>
-<span id="cb7-118"><a href="#cb7-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-119"><a href="#cb7-119" aria-hidden="true" tabindex="-1"></a>subgraph ZA[<span class="ot">"</span><span class="st">Componentes do rendimento</span><span class="ot">"</span>]</span>
-<span id="cb7-120"><a href="#cb7-120" aria-hidden="true" tabindex="-1"></a>direction RL</span>
-<span id="cb7-121"><a href="#cb7-121" aria-hidden="true" tabindex="-1"></a>F([NGC]) --&gt; | <span class="fl">0.601</span>|G{rendimento}</span>
-<span id="cb7-122"><a href="#cb7-122" aria-hidden="true" tabindex="-1"></a>H([AC]) --&gt;  |<span class="fl">0.863</span>|G</span>
-<span id="cb7-123"><a href="#cb7-123" aria-hidden="true" tabindex="-1"></a>I([RGP]) --&gt;  |<span class="fl">0.189</span>|G</span>
-<span id="cb7-124"><a href="#cb7-124" aria-hidden="true" tabindex="-1"></a>J([MMG]) --&gt;  |<span class="fl">0.491</span>|G</span>
-<span id="cb7-125"><a href="#cb7-125" aria-hidden="true" tabindex="-1"></a>K([ICP]) --&gt;  |<span class="fl">0.243</span>|G</span>
-<span id="cb7-126"><a href="#cb7-126" aria-hidden="true" tabindex="-1"></a>end</span>
-<span id="cb7-127"><a href="#cb7-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-128"><a href="#cb7-128" aria-hidden="true" tabindex="-1"></a>Z &lt;--&gt; |<span class="fl">0.669</span>| ZA</span>
-<span id="cb7-129"><a href="#cb7-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-130"><a href="#cb7-130" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a><span class="fu">## segundo par</span></span>
+<span id="cb7-107"><a href="#cb7-107" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb7-108"><a href="#cb7-108" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<span id="cb7-109"><a href="#cb7-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-110"><a href="#cb7-110" aria-hidden="true" tabindex="-1"></a>subgraph Z[<span class="ot">"</span><span class="st">Caracteres de planta</span><span class="ot">"</span>]</span>
+<span id="cb7-111"><a href="#cb7-111" aria-hidden="true" tabindex="-1"></a>direction LR</span>
+<span id="cb7-112"><a href="#cb7-112" aria-hidden="true" tabindex="-1"></a>A([AP]) --&gt; |<span class="fl">0.627</span>|B{planta}</span>
+<span id="cb7-113"><a href="#cb7-113" aria-hidden="true" tabindex="-1"></a>C([AC]) --&gt; |-<span class="fl">0.174</span>|B</span>
+<span id="cb7-114"><a href="#cb7-114" aria-hidden="true" tabindex="-1"></a>D([NC]) --&gt; |<span class="fl">0.034</span>|B</span>
+<span id="cb7-115"><a href="#cb7-115" aria-hidden="true" tabindex="-1"></a>E([NR]) --&gt; |<span class="fl">0.301</span>|B</span>
+<span id="cb7-116"><a href="#cb7-116" aria-hidden="true" tabindex="-1"></a>end</span>
+<span id="cb7-117"><a href="#cb7-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-118"><a href="#cb7-118" aria-hidden="true" tabindex="-1"></a>subgraph ZA[<span class="ot">"</span><span class="st">Componentes do rendimento</span><span class="ot">"</span>]</span>
+<span id="cb7-119"><a href="#cb7-119" aria-hidden="true" tabindex="-1"></a>direction RL</span>
+<span id="cb7-120"><a href="#cb7-120" aria-hidden="true" tabindex="-1"></a>F([NGC]) --&gt; | <span class="fl">0.601</span>|G{rendimento}</span>
+<span id="cb7-121"><a href="#cb7-121" aria-hidden="true" tabindex="-1"></a>H([AC]) --&gt;  |<span class="fl">0.863</span>|G</span>
+<span id="cb7-122"><a href="#cb7-122" aria-hidden="true" tabindex="-1"></a>I([RGP]) --&gt;  |<span class="fl">0.189</span>|G</span>
+<span id="cb7-123"><a href="#cb7-123" aria-hidden="true" tabindex="-1"></a>J([MMG]) --&gt;  |<span class="fl">0.491</span>|G</span>
+<span id="cb7-124"><a href="#cb7-124" aria-hidden="true" tabindex="-1"></a>K([ICP]) --&gt;  |<span class="fl">0.243</span>|G</span>
+<span id="cb7-125"><a href="#cb7-125" aria-hidden="true" tabindex="-1"></a>end</span>
+<span id="cb7-126"><a href="#cb7-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-127"><a href="#cb7-127" aria-hidden="true" tabindex="-1"></a>Z &lt;--&gt; |<span class="fl">0.669</span>| ZA</span>
+<span id="cb7-128"><a href="#cb7-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-129"><a href="#cb7-129" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-130"><a href="#cb7-130" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-131"><a href="#cb7-131" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-132"><a href="#cb7-132" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-133"><a href="#cb7-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-134"><a href="#cb7-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-135"><a href="#cb7-135" aria-hidden="true" tabindex="-1"></a><span class="fu"># Section info</span></span>
-<span id="cb7-138"><a href="#cb7-138" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb7-139"><a href="#cb7-139" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span>
-<span id="cb7-140"><a href="#cb7-140" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-134"><a href="#cb7-134" aria-hidden="true" tabindex="-1"></a><span class="fu"># Section info</span></span>
+<span id="cb7-137"><a href="#cb7-137" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-138"><a href="#cb7-138" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span>
+<span id="cb7-139"><a href="#cb7-139" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

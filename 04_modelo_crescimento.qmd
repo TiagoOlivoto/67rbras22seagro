@@ -287,7 +287,7 @@ ggplot(df_model |> filter(!data %in% c("04/11")),
                alpha = 0.4,
                shape = 16,
                show.legend = FALSE) +
-  theme_bw(base_size = 16) +
+  theme_bw(base_size = 20) +
   theme(
     panel.grid.major = element_blank(), #remove major gridlines
     # panel.grid.minor = element_blank(), #remove minor gridlines
@@ -296,7 +296,7 @@ ggplot(df_model |> filter(!data %in% c("04/11")),
 
 ggsave("figs/mod_logistico.jpg",
        width = 9,
-       height = 6)
+       height = 5)
 
 ```
 
@@ -355,17 +355,19 @@ ggplot() +
              data = parameters,
              size = 3,
              show.legend = FALSE) +
-  theme_bw(base_size = 16) +
+  theme_bw(base_size = 22) +
   scale_x_continuous(breaks = seq(0, 1200, by = 200)) +
   labs(x = "Graus dia acumulado",
        y = expression(Emissão~de~área~foliar~(cm^2~planta^{-1}~grau~dia^{-1})),
        color  = "Cultivar",
        linetype = "Época") +
+  theme(legend.position = "bottom",
+        panel.grid.minor = element_blank()) +
   scale_color_manual(values = c("gold", "brown"))
 
 ggsave("figs/prim_deriv.jpg",
-       height = 7,
-       width = 9)
+       height = 8,
+       width = 8)
 
 ```
 
@@ -434,17 +436,19 @@ ggplot() +
              size = 3,
              shape = 25,
              show.legend = FALSE) +
-  theme_bw(base_size = 16) +
+  theme_bw(base_size = 22) +
   labs(x = "Graus dia acumulado",
-       y = expression(Aceleração~de~emissão~área~foliar~(cm^2~planta^{-1}~grau~dia^{-2})),
+       y = expression(Aceleração~(cm^2~planta^{-1}~grau~dia^{-2})),
        color  = "Cultivar",
        linetype = "Época") +
+    theme(legend.position = "bottom",
+        panel.grid.minor = element_blank()) +
   scale_color_manual(values = c("gold", "brown")) +
   scale_fill_manual(values = c("gold", "brown"))
 
 ggsave("figs/seg_deriv.jpg",
-       height = 7,
-       width = 9)
+       height = 8,
+       width = 8)
 
 # export(parameters, "data/result_logistico.xlsx", which = "parametros_logistico")
 

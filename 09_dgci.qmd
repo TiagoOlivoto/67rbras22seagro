@@ -89,6 +89,7 @@ df_spad <-
 # Correlação
 ```{r}
 corr_plot(df_spad, smooth = TRUE, confint = FALSE, digits = 3, diag.type = "boxplot")
+
 ggsave("figs/dgci_cor.jpg",
        width = 5,
        height = 5)
@@ -98,17 +99,20 @@ ggsave("figs/dgci_cor.jpg",
 # Regressão
 ## Gráfico
 ```{r}
-ggplot(df_spad, aes(dgci_cf, dgci_ilu, color = condicao)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE) +
+ggplot(df_spad, aes(dgci_cf, dgci_ilu, fill = condicao)) +
+  geom_point(size = 5, color = "black", shape = 21, alpha = 0.8) +
+  geom_smooth(method = "lm", se = FALSE, color = "red") +
   geom_abline(intercept = 0, slope = 1) +
   scale_x_continuous(limits = c(0, 1)) +
   scale_y_continuous(limits = c(0, 1)) +
-  theme_bw(base_size = 14) +
+  theme_bw(base_size = 19) +
+  theme(panel.grid.minor = element_blank()) +
   labs(x = "DGCI com flash",
        y = "DGCI iluminado",
-       color = "") +
+       color = "",
+       fill = "") +
   theme(legend.position = "bottom") +
+  scale_fill_manual(values = c("yellow", "darkgreen")) +
   coord_fixed()
 
 ggsave("figs/dgci_regressao.jpg",
@@ -156,7 +160,7 @@ df_histp <-
 ggplot(df_histp, aes(x = value, fill = amarelado)) +
   geom_density(alpha = 0.6) +
   facet_grid(condicao~name, scales = "free") +
-  theme_bw(base_size = 14) +
+  theme_bw(base_size = 20) +
   labs(x = "Valor observado",
        y = "Densidade",
        fill = "") +
